@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^vignettes/.*\.html$
+^vignettes/.*\.R$
+^\.github$
+^tests/testthat/_snaps$

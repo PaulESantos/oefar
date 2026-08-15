@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.oauth
+*.rds
+*.raw
+tests/testthat/_snaps/
+.httr-oauth
+.DS_Store
+.quarto
