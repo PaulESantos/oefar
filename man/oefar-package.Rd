@@ -16,11 +16,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: OEFA R Developer \email{datosabiertos@oefa.gob.pe}
+\strong{Maintainer}: Paul E. Santos Andrade \email{paulefrens@gmail.com} (\href{https://orcid.org/0000-0002-6635-0375}{ORCID}) [copyright holder]
 
 Authors:
 \itemize{
-  \item OEFA R Developer \email{datosabiertos@oefa.gob.pe}
+  \item Paul E. Santos Andrade \email{paulefrens@gmail.com} (\href{https://orcid.org/0000-0002-6635-0375}{ORCID}) [copyright holder]
 }
 
 }

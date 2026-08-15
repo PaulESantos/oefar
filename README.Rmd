@@ -19,6 +19,8 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://img.shields.io/badge/R--CMD--check-passing-brightgreen.svg)](https://github.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![R-version](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](https://www.r-project.org/)
+[![R-CMD-check](https://github.com/PaulESantos/oefar/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/oefar/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/PaulESantos/oefar/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/oefar)
 <!-- badges: end -->
 
 **`oefar`** es un paquete en R diseñado para facilitar el acceso, exploración y descarga directa de datos abiertos del **Organismo de Evaluación y Fiscalización Ambiental (OEFA)** de Perú a través de la API v2 de su portal de datos abiertos ([datosabiertos.oefa.gob.pe](https://datosabiertos.oefa.gob.pe/)).
