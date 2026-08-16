@@ -67,7 +67,7 @@ El paquete detectará automáticamente la clave cargada mediante `oefa_get_api_k
 
 ### 1. Exploración del Catálogo de Datasets
 
-```r
+```{r}
 library(oefar)
 
 # Listar todas las categorias de datos del OEFA
@@ -87,7 +87,7 @@ print(denuncias_ds[, c("guid", "title")])
 
 El paquete incluye **78 funciones dedicadas** con el prefijo `oefa_get_<nombre_dataset>()` para la descarga directa:
 
-```r
+```{r}
 # Descargar el dataset de Denuncias SINADA
 denuncias <- oefa_get_denun_sinad(limit = 100)
 print(denuncias)
@@ -105,7 +105,7 @@ print(agua)
 
 Para descargas de volumen amplio o conexiones con alta latencia, puedes ajustar el tiempo límite directamente como argumento en la función:
 
-```r
+```{r}
 # Ampliar el tiempo limite de espera a 120 segundos para un dataset grande
 denuncias_amplio <- oefa_get_denun_sinad_61293(timeout = 120)
 
@@ -123,7 +123,7 @@ Los datos distribuidos y consumidos a través de este paquete pertenecen y son p
 
 En R, puedes obtener la citación formal ejecutando:
 
-```r
+```{r}
 citation("oefar")
 ```
 
