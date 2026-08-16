@@ -2,7 +2,7 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-08-16T04:33Z
+last_built: 2026-08-16T04:37Z
 urls:
   reference: https://paulesantos.github.io/oefar/reference
   article: https://paulesantos.github.io/oefar/articles
