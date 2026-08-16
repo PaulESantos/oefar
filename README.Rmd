@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 **`oefar`** es un paquete en R diseñado para facilitar el acceso, exploración y descarga directa de datos abiertos del **Organismo de Evaluación y Fiscalización Ambiental (OEFA)** de Perú a través de la API v2 de su portal de datos abiertos ([datosabiertos.oefa.gob.pe](https://datosabiertos.oefa.gob.pe/)).
 
-El paquete proporciona **78 funciones específicas dedicadas** para cada conjunto de datos del catálogo oficial, formateo automático de nombres de columnas en formato limpio (minúsculas y guiones bajos), manejo configurable de tiempos límite de espera (`timeout`), y soporte nativo para `tibble`.
+El paquete proporciona **98 funciones específicas dedicadas** para cada conjunto de datos del catálogo oficial, formateo automático de nombres de columnas en formato limpio (minúsculas y guiones bajos), manejo configurable de tiempos límite de espera (`timeout`), y soporte nativo para `tibble`.
 
 ---
 
@@ -42,7 +42,7 @@ remotes::install_github("paulefrens/oefar")
 
 ## Configuración de la API Key
 
-Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con una **API Key personal**.
+Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con una **API Key personal**, la cual puede crearse y obtenerse directamente desde el portal de desarrolladores del OEFA: [https://datosabiertos.oefa.gob.pe/developers/](https://datosabiertos.oefa.gob.pe/developers/).
 
 ### Configuración temporal en la sesión:
 ```r

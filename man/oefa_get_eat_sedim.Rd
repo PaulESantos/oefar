@@ -15,20 +15,49 @@ oefa_get_eat_sedim(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: EAT - Sedimento
+Descarga los datos del conjunto de datos 'EAT - Sedimento' del OEFA por su GUID (EAT-SEDIM).
+Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
+  \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
+  \item{MONITOREO}{Etapa De Monitoreo [Cadena De Texto]}
+  \item{C_AMB}{Tipo De Componente Ambiental Evaluada [Cadena De Texto]}
+  \item{MATRIZ}{Tipo De Matriz Evaluada [Cadena De Texto]}
+  \item{SUBMATRIZ}{Tipo De Submatriz A Evaluar [Cadena De Texto]}
+  \item{PUNTO}{Nombre Del Punto De Muestreo [Cadena De Texto]}
+  \item{ESTE}{Coordenada Este [Numérico]}
+  \item{NORTE}{Coordenada Norte [Numérico]}
+  \item{ALTITUD}{Altitud Del Punto De Muestreo [Cadena De Texto]}
+  \item{ZONA}{Zona Utm [Cadena De Texto]}
+  \item{DATUM}{Punto De Referencia Geográfica [Cadena De Texto]}
+  \item{UBICACIÓN}{Descripción Referencial De La Ubicación Del Punto De Muestreo [Cadena De Texto]}
+  \item{MUESTRA}{Si La Muestra Es Simple O Compuesta [Cadena De Texto]}
+  \item{ANALISIS}{Tipo De Analisis Realizado [Cadena De Texto]}
+  \item{EXTRAC}{Etapa De Extraccion [Cadena De Texto]}
+  \item{FECHA}{Fecha En La Que Se Tomó La Muestra [Fecha]}
+  \item{VALOR}{Resultado De Evaluacion [Numérico]}
+  \item{PARAMETR}{Parámetros Que Superan El Eca O Lmp [Cadena De Texto]}
+  \item{MEDIDA}{Unidad Utilizada Para Medir Parametro [Cadena De Texto]}
+}
 }

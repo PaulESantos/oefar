@@ -4,14 +4,15 @@
 \name{oefar-package}
 \alias{oefar}
 \alias{oefar-package}
-\title{oefar: Acceso a la API de Datos Abiertos del OEFA de Perú}
+\title{oefar: Acceso a la API de Datos Abiertos del 'OEFA' de Perú}
 \description{
-Cliente en R para acceder, buscar y descargar los datos de evaluación, fiscalización y monitoreo ambiental del Organismo de Evaluación y Fiscalización Ambiental (OEFA) de Perú a través de la API v2 del portal de datos abiertos.
+Access, search, and download environmental evaluation, supervision, and enforcement datasets from the Organismo de Evaluacion y Fiscalizacion Ambiental ('OEFA') of Peru via its Open Data Application Programming Interface ('API'). Provides helper functions for 98 specific datasets, automated column name cleaning according to tidyverse conventions, custom pagination, and configurable timeout parameters.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://datosabiertos.oefa.gob.pe/}
+  \item \url{https://datosabiertos.oefa.gob.pe}
+  \item \url{https://paulesantos.github.io/oefar/}
 }
 
 }

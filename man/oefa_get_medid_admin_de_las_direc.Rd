@@ -15,20 +15,51 @@ oefa_get_medid_admin_de_las_direc(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Medidas administrativas de las direcciones de supervisión
+Descarga los datos del conjunto de datos 'Medidas administrativas de las direcciones de supervisión' del OEFA por su GUID (MEDID-ADMIN-DE-LAS-DIREC).
+Pertenece a la sección del Diccionario de Datos: Supervisión ambiental > Medidas Administrativas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{SECTOR}{Sector [Cadena De Texto]}
+  \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
+  \item{TITULAR}{Razon Social Del Administrado [Cadena De Texto]}
+  \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
+  \item{DET_HECHOS}{Fecha De Deteccion De Los Hechos [Fecha]}
+  \item{NRO_RESOL}{Número De Resolución Directoral Que Dicta La Medida [Cadena De Texto]}
+  \item{FECHA_RESOL}{Fecha En La Que Se Emite La Resolución Directoral [Cadena De Texto]}
+  \item{DESC_MEDIDAS}{Indica El Tipo De Medida Administrativa Dictada [Cadena De Texto]}
+  \item{T_MEDIDA}{Abreviatura De Tipo De Medida Admnistrativa [Cadena De Texto]}
+  \item{MP}{Disposiciones A Través De Las Cuales La Autoridad De Supervisión Directa Impone A Un Administrado Una Obligación De Hacer O No Hacer, Destinada A Evitar Un Inminente Peligro O Un Alto Riesgo De Producirse Un Daño Grave Al Ambiente, Los Recursos Naturales Y La Salud De Las Personas, Así Como A Mitigar Las Causas Que Generan La Degradación O El Daño Ambiental. [Cadena De Texto]}
+  \item{MCP}{Disposición Dictada Por La Autoridad De Supervisión A Través De La Cual Se Ordena Al Administrado Realizar Determinadas Acciones Que Tengan Como Finalidad Garantizar La Eficacia De La Fiscalización Ambiental. [Cadena De Texto]}
+  \item{ESTADO}{Estado De La Medida Administrativa [Cadena De Texto]}
+  \item{INF_SUPERC}{Informe De Supervisión De Cumplimiento De La Medida Admnistrativa [Cadena De Texto]}
+  \item{NRO_RESOLV}{Número De La Resolución De Variacion [Cadena De Texto]}
+  \item{NRO_TEC}{Número De Informe Técnico [Cadena De Texto]}
+  \item{NRO_CONSID}{Número De Resolución De Reconsideracion [Cadena De Texto]}
+  \item{NRO_TFA}{Número De Resolución Del Tfa Del Recurso Impugnado [Cadena De Texto]}
+  \item{REGION}{Indica Region Donde Impuso La Medida. [Cadena De Texto]}
+  \item{PROVINCIA}{Indica Provincia Donde Impuso La Medida. [Cadena De Texto]}
+  \item{DISTRITO}{Indica Distrito Donde Impuso La Medida. [Cadena De Texto]}
+  \item{MANDATO}{Descripción Del Mandato [Cadena De Texto]}
+  \item{REVOCACION}{Indica Si Revocó La Medida Administrativa [Booleano]}
+}
 }

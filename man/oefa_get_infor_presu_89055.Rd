@@ -15,20 +15,56 @@ oefa_get_infor_presu_89055(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Información presupuestal
+Descarga los datos del conjunto de datos 'Información presupuestal' del OEFA por su GUID (INFOR-PRESU-89055).
+Pertenece a la sección del Diccionario de Datos: Información Institucional > Información presupuestal.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
+  \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
+  \item{GENERICA}{Categoria De Gasto Que Corresponde A Los Creditos Presupuestarios Agrupados En Gastos Corrientes, Gastos De Capital Y El Servicio De Deuda [Cadena De Texto]}
+  \item{SEC_FUNC}{Identificacion Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
+  \item{PRESUP}{Categoria Presupuestal Que Comprende Los Elementos Relacionados A La Metodologia Del Presupuesto [Cadena De Texto]}
+  \item{PRESUP_AGR}{Categoria Presupuestaria Agregrada [Cadena De Texto]}
+  \item{AREA_IP}{Organo/Direccion Que Cuenta Con El Presupuesto [Cadena De Texto]}
+  \item{CLASIFIC}{Codificacion Que Permite El Registro Ordenado Y Uniforme De Las Operaciones Del Sector Publico [Cadena De Texto]}
+  \item{DETALLE_C}{Descripción Del Clasificador De Gasto [Cadena De Texto]}
+  \item{PIA}{Presupuesto Inicial De La Entidad Aprobado Por El Titular De La Entidad Con Cargo A Los Creditos Presupuestarios Establecidos En La Ley Anual De Presupuesto Del Sector Publico [Entero]}
+  \item{PIM}{Presupuesto Actualizado De La Entidad Como Consecuencia De Las Modificaciones Presupuestarias Efectuadas Durante El Año Fiscal A Partir Del Pia [Entero]}
+  \item{ENERO}{Ejecución Del Mes De Enero [Entero]}
+  \item{FEBRERO}{Ejecución Del Mes De Febrero [Entero]}
+  \item{MARZO}{Ejecución Del Mes De Marzo [Entero]}
+  \item{ABRIL}{Ejecución Del Mes De Abril [Entero]}
+  \item{MAYO}{Ejecución Del Mes De Mayo [Entero]}
+  \item{JUNIO}{Ejecución Del Mes De Junio [Entero]}
+  \item{JULIO}{Ejecución Del Mes De Julio [Entero]}
+  \item{AGOSTO}{Ejecución Del Mes De Agosto [Entero]}
+  \item{SETIEMBR}{Ejecución Del Mes De Setiembre [Entero]}
+  \item{OCTUBRE}{Ejecución Del Mes De Octubre [Entero]}
+  \item{NOVIEMBR}{Ejecución Del Mes De Noviembre [Entero]}
+  \item{DICIEMBR}{Ejecución Del Mes De Diciembre [Entero]}
+  \item{EJEC_1T}{Presupuesto Ejecutado Al Primer Trimestre [Entero]}
+  \item{EJEC_2T}{Presupuesto Ejecutado En El Segundo Trimestre [Entero]}
+  \item{EJEC_3T}{Presupuesto Ejecutado En El Tercer Trimestre [Entero]}
+  \item{EJEC_4T}{Presupuesto Ejecutado En El Cuarto Trimestre [Entero]}
+}
 }

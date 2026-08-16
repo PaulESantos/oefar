@@ -15,20 +15,40 @@ oefa_get_exped_resue_15640(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Expedientes resueltos 2021-2025
+Descarga los datos del conjunto de datos 'Expedientes resueltos 2021-2025' del OEFA por su GUID (EXPED-RESUE-15640).
+Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Apelaciones Resueltas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{SECTOR}{Rama O División De La Actividad Económica Al Que Pertenece El Administrado. [Cadena De Texto]}
+  \item{NRO_EXPE_ADM}{Número De Expediente Que Se Genera Al Iniciar Un Procedimiento Administrativo Sancionador [Cadena De Texto]}
+  \item{ADMINIST}{Persona Natural O Jurídica Que Desarrolla Una Actividad Económica Sujeta Al Ámbito De Competencia Del Oefa. [Cadena De Texto]}
+  \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad (Área Productiva, Lote, Central, Planta, Concesión, Dependencia, Entre Otros) O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
+  \item{DISTRITO}{Nombre De La Provincia Donde Se Ubica De La Zona Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Nombre Del Departamento Donde Se Ubica La Zona Fiscalizable [Cadena De Texto]}
+  \item{DEPARTAM}{Nombre Del Distrito Donde Se Ubica La Zona Fiscalizable [Cadena De Texto]}
+  \item{RESOL_TFA}{Número De La Resolución Emitida Por El Tribunal De Fiscalización Ambiental [Cadena De Texto]}
+  \item{FECHA_DE_RESOL}{Fecha De La Sesión En La Que Se Tomaron Los Acuerdos Correspondientes Para La Emisión De La Resolución [Fecha]}
+  \item{RESOLVIERON}{Sentido Del Pronunciamiento Del Tfa Que Puede Confirmar, Revocar O Declarar La Nulidad, Parcial O Total, De La Resolución Apelada [Cadena De Texto]}
+  \item{MULTA_INF}{Sanción Económica Impuesta Al Administrado Por Haber Incurrido En Infracción Administrativa [Cadena De Texto]}
+}
 }

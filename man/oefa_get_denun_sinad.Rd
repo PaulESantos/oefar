@@ -15,23 +15,52 @@ oefa_get_denun_sinad(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
 }
 \value{
 Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Denuncias SINADA
+Descarga los datos del conjunto de datos 'Denuncias SINADA' del OEFA por su GUID (DENUN-SINAD).
+Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Servicio Nacional de Denuncias Ambientales.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{COD_SINADA}{Codificación Única Correspondiente A La Denuncia Ambiental Registrada En El Sistema Informático Del Sinada. [Cadena De Texto]}
+  \item{RECEPCION}{Corresponde Al Medio Utilizado Para Comunicar La Denuncia Ambiental Al Oefa, El Cual Puede Ser: Personal, Trámite Documentario, E-Mail, Página Web, App Móvil Y Teléfono. [Cadena De Texto]}
+  \item{DEPARTAM}{Se Hace Referencia A La Ubicación Geográfica Del Hecho Denunciado. [Cadena De Texto]}
+  \item{PROVINCIA}{Se Hace Referencia A La Ubicación Geográfica Del Hecho Denunciado. [Cadena De Texto]}
+  \item{DISTRITO}{Se Hace Referencia A La Ubicación Geográfica Del Hecho Denunciado. [Cadena De Texto]}
+  \item{REGISTRO}{Fecha Correspondiente Al Registro De Una Denuncia Ambiental En El Sistema Informático Del Sinada. [Fecha]}
+  \item{ACT_ECO}{Corresponde A La Actividad Que Estaría Ocasionando La Presunta Contaminación Ambiental. [Cadena De Texto]}
+  \item{AGUA}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{AIRE}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{SUELO}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{FAUNA}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{FLORA}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{POBLACIO}{Indica El O Los Componentes Ambientales (Cuerpo Receptor) Afectados Por La Presunta Contaminación Ambiental. [Booleano]}
+  \item{EFLUENTE}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{RESIDUOS}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{GASES/HUMO}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{MATERIAL}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{TALA}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{RADIACIO}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{VISUAL}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{SONORA}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
+  \item{INDIRECT}{Se Refiere A La Competenca De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
+  \item{ESTADO}{Los Estados Son Los Siguientes: I)Derivada: Cuando La Denuncia Ha Sido Registrada Y Derivada Al Órgano Del Oefa; Ii) En Seguimiento: Cuando Se Haya Oficiado A La(S) Efa O Cuando El Órgano De Línea O La Efa Comunique Acciones; Iii) Archivada: En Los Casos Que Se Determine Que La Denuncia No Es Ambiental, Los Datos Proporcionados Resulten Insuficientes, Se Establezca Denuncia Maliciosa O Cuando Se Determine Que No Hay Una Efa Competente; Y Iv) Cerrada: Cuando Se De Por Atendida La Denuncia Ambiental (No Hallazgo De Incumplimientos O Inicio De Pas). [Cadena De Texto]}
+}
 }

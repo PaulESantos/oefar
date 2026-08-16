@@ -1,16 +1,24 @@
+---
+output: github_document
+---
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# oefar
+
+
+# oefar <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
 <!-- badges: start -->
 [![R-CMD-check](https://img.shields.io/badge/R--CMD--check-passing-brightgreen.svg)](https://github.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![R-version](https://img.shields.io/badge/R-%3E%3D%204.1.0-blue.svg)](https://www.r-project.org/)
+[![R-CMD-check](https://github.com/PaulESantos/oefar/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PaulESantos/oefar/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/PaulESantos/oefar/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/oefar)
 <!-- badges: end -->
 
 **`oefar`** es un paquete en R diseñado para facilitar el acceso, exploración y descarga directa de datos abiertos del **Organismo de Evaluación y Fiscalización Ambiental (OEFA)** de Perú a través de la API v2 de su portal de datos abiertos ([datosabiertos.oefa.gob.pe](https://datosabiertos.oefa.gob.pe/)).
 
-El paquete proporciona **78 funciones específicas dedicadas** para cada conjunto de datos del catálogo oficial, formateo automático de nombres de columnas en formato limpio (minúsculas y guiones bajos), manejo configurable de tiempos límite de espera (`timeout`), y soporte nativo para `tibble`.
+El paquete proporciona **98 funciones específicas dedicadas** para cada conjunto de datos del catálogo oficial, formateo automático de nombres de columnas en formato limpio (minúsculas y guiones bajos), manejo configurable de tiempos límite de espera (`timeout`), y soporte nativo para `tibble`.
 
 ---
 
@@ -27,7 +35,7 @@ remotes::install_github("paulefrens/oefar")
 
 ## Configuración de la API Key
 
-Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con una **API Key personal**.
+Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con una **API Key personal**, la cual puede crearse y obtenerse directamente desde el portal de desarrolladores del OEFA: [https://datosabiertos.oefa.gob.pe/developers/](https://datosabiertos.oefa.gob.pe/developers/).
 
 ### Configuración temporal en la sesión:
 ```r

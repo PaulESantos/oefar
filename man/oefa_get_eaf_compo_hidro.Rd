@@ -15,20 +15,52 @@ oefa_get_eaf_compo_hidro(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: EAF - Componente Hidrobiología
+Descarga los datos del conjunto de datos 'EAF - Componente Hidrobiología' del OEFA por su GUID (EAF-COMPO-HIDRO).
+Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
+  \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
+  \item{C_AMB}{Tipo De Componente Ambiental Evaluada [Cadena De Texto]}
+  \item{PROCEDEN}{Biota Terrestre O Acuático [Cadena De Texto]}
+  \item{PROCEDEN}{Comunidades Biologicas [Cadena De Texto]}
+  \item{DETALLE_M}{Organismos [Cadena De Texto]}
+  \item{PUNTO}{Nombre Del Punto De Muestreo [Cadena De Texto]}
+  \item{FECHA}{Fecha En La Que Se Tomó La Muestra [Fecha]}
+  \item{ESTE}{Coordenada Este [Numérico]}
+  \item{NORTE}{Coordenada Norte [Numérico]}
+  \item{ALTITUD}{Altitud Del Punto De Muestreo [Cadena De Texto]}
+  \item{ZONA}{Zona Utm [Cadena De Texto]}
+  \item{DATUM}{Punto De Referencia Geográfica [Cadena De Texto]}
+  \item{DESCRIPC}{Descripción Referencial De La Ubicación Del Punto De Muestreo [Cadena De Texto]}
+  \item{ESPECIE}{Especie [Cadena De Texto]}
+  \item{GENERO}{Género [Cadena De Texto]}
+  \item{FAMILIA}{Familia [Cadena De Texto]}
+  \item{ORDEN}{Categoría Taxonómica Entre La Clase Y La Familia [Cadena De Texto]}
+  \item{CLASE}{Clase [Cadena De Texto]}
+  \item{PHYLUM}{Phylum [Cadena De Texto]}
+  \item{TAXONES}{Taxones [Numérico]}
+  \item{ABUNDANC}{Representación Relativa De Una Especie En Un Ecosistema Particular [Numérico]}
+  \item{MEDIDA}{Unidad Utilizada Para Medir Parametro [Cadena De Texto]}
+}
 }

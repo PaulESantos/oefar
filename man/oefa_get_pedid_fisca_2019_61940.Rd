@@ -15,20 +15,43 @@ oefa_get_pedid_fisca_2019_61940(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Pedidos fiscalía 2019-2025
+Descarga los datos del conjunto de datos 'Pedidos fiscalía 2019-2025' del OEFA por su GUID (PEDID-FISCA-2019-61940).
+Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fiscalías Especializadas en Materia Ambiental.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
+  \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
+  \item{DOCUMENT}{Oficio Recibido De Fiscalia [Cadena De Texto]}
+  \item{FECHA_OEFA}{Fecha Que El Documento Ingresa A Oefa [Fecha]}
+  \item{REMITENT}{Fiscalia Que Remite El Oficio [Cadena De Texto]}
+  \item{SECTOR}{Sector Al Que Pertenece El Delito [Cadena De Texto]}
+  \item{PLAZO_FI}{Plazo Indicado Por Fiscalia [Fecha]}
+  \item{DOC_EMITIDO}{Tipo De Documento Con El Que Se Absuelve El Requrimiento De Fiscalia [Cadena De Texto]}
+  \item{NRO_INF}{Número De Informe U Oficio [Cadena De Texto]}
+  \item{FECHA_EM}{Fecha En La Que Sale El Informe U Oficio [Fecha]}
+  \item{OFICIO_SEFA}{Oficio Con El Que Se Envia El Informe [Cadena De Texto]}
+  \item{FECHA_RE}{Fecha Con La Que Sale El Oficio De Remision [Fecha]}
+  \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solictado [Cadena De Texto]}
+  \item{DILIGENC}{Indica Si Se Realiza Diligencia [Cadena De Texto]}
+}
 }

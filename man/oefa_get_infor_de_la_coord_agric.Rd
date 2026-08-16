@@ -15,20 +15,45 @@ oefa_get_infor_de_la_coord_agric(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Informes de supervisión 2018
+Descarga los datos del conjunto de datos 'Informes de supervisión 2018' del OEFA por su GUID (INFOR-DE-LA-COORD-AGRIC).
+Pertenece a la sección del Diccionario de Datos: Supervisión ambiental > Supervisiones concluidas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{COORDINAC}{Coordinacion Responsable De La Supervisión [Cadena De Texto]}
+  \item{MES_SUPERV}{Mes De Ejecución De La Supervisión [Cadena De Texto]}
+  \item{NRO_EXPE}{Número Del Informe De Supervisión Aprobado [Cadena De Texto]}
+  \item{ADMINIST}{Razon Social Del Administrado [Cadena De Texto]}
+  \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
+  \item{ACT_FUNC}{La Actividad Está Directamente Ligada A La Noción De Producción;No Hay Producción Sin Actividad. Producir Es Crear Bienes O Suministrar Servicios Dentro De Un Proceso De Producción Que Requiere Factores (Materia Prima, Trabajo Y Capital Fijo, Entre Otros) .Las Actividades Se Clasifican Según La Competencia De Cada Sector. [Cadena De Texto]}
+  \item{TIPO_SUPERV}{En Función De La Programación, La Supervisión Puede Ser Regular O Especial. [Cadena De Texto]}
+  \item{UBIC_SUPERV}{Region Donde Se Desarrolló La Supervisión [Cadena De Texto]}
+  \item{NRO_INF}{Número De Informe [Cadena De Texto]}
+  \item{MES_APROB}{Mes En El Que Se Aprueba El Informe De Supervisión Por La Dirección [Cadena De Texto]}
+  \item{CANT_OBLIG}{Cantidad Total De Obligaciones Verificadas Por Supervisión Y Tipo De Análisis [Numérico]}
+  \item{NRO_MEMO}{Número Del Memorando A Dfai [Cadena De Texto]}
+  \item{NRO_CARTA}{Número De Carta De Notificación U Oficio Al Administrado [Cadena De Texto]}
+  \item{EMISION_CARTA}{Fecha De Aprobación Del De La Carta De Notificación U Oficio Al Administrado [Numérico]}
+  \item{NRO_OFIC}{Número De Carta U Oficio [Cadena De Texto]}
+  \item{NRO_MEMO}{Número De Memorando Hacia Archivo [Cadena De Texto]}
+}
 }

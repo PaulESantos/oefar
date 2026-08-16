@@ -15,20 +15,45 @@ oefa_get_resol_con_multa_firme(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Resolución con multa firmes 2019-2025
+Descarga los datos del conjunto de datos 'Resolución con multa firmes 2019-2025' del OEFA por su GUID (RESOL-CON-MULTA-FIRME).
+Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Resoluciones Emitidas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{MES}{Mes de Imposición de Multa [Cadena De Texto]}
+  \item{ADMINIST}{Administrado Mencionado en Resolución Corrrespondiente [Cadena De Texto]}
+  \item{EXPEDIEN}{Número de Expediente [Cadena De Texto]}
+  \item{AÑO_MULT}{Año de Imposición de Multa [Numérico]}
+  \item{SECTOR}{Sector al que pertenece el Administrado [Cadena De Texto]}
+  \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{INFRACCION}{Tipo de Multas Impuestas Por El Oefa Consideradas Como Una Obligación De Pago Por Parte Del Administrado [Cadena De Texto]}
+  \item{RESOL_1RA}{Resolución De Primera Instancia [Cadena De Texto]}
+  \item{RESOL_1RA}{Fecha De Emision De La Resolución De Primera Instancia [Fecha]}
+  \item{RESOL_2DA}{Resolución De Segunda Instancia [Cadena De Texto]}
+  \item{RESOL_2DA}{Fecha De Emision De La Resolución De Segunda Instancia [Fecha]}
+  \item{MULTA_UIT}{Multas Expresadas en UIT [Numérico]}
+  \item{MULTA_SO}{Multas Expresadas en Soles [Numérico]}
+}
 }

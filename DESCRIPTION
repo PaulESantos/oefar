@@ -1,9 +1,14 @@
 Package: oefar
 Type: Package
-Title: Acceso a la API de Datos Abiertos del OEFA de Perú
+Title: Acceso a la API de Datos Abiertos del 'OEFA' de Perú
 Version: 0.1.0
 Authors@R: person("Paul E.", "Santos Andrade", email = "paulefrens@gmail.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-6635-0375"))
-Description: Cliente en R para acceder, buscar y descargar los datos de evaluación, fiscalización y monitoreo ambiental del Organismo de Evaluación y Fiscalización Ambiental (OEFA) de Perú a través de la API v2 del portal de datos abiertos.
+Description: Access, search, and download environmental evaluation, supervision,
+    and enforcement datasets from the Organismo de Evaluacion y Fiscalizacion
+    Ambiental ('OEFA') of Peru via its Open Data Application Programming Interface ('API').
+    Provides helper functions for 98 specific datasets, automated column name cleaning
+    according to tidyverse conventions, custom pagination, and configurable timeout
+    parameters.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
@@ -16,6 +21,10 @@ Imports:
     rlang (>= 1.1.0),
     dplyr (>= 1.1.0)
 Suggests:
-    testthat (>= 3.0.0)
-URL: https://datosabiertos.oefa.gob.pe/
+    testthat (>= 3.0.0),
+    snakecase,
+    stringi,
+    stringr,
+    Rapp
+URL: https://datosabiertos.oefa.gob.pe, https://paulesantos.github.io/oefar/
 Config/roxygen2/version: 8.0.0

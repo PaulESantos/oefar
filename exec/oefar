@@ -1,0 +1,124 @@
+#!/usr/bin/env Rapp
+#| name: oefar
+#| title: CLI de Datos Abiertos del OEFA
+#| description: |
+#|   Herramienta de linea de comandos para explorar, buscar y descargar datos
+#|   abiertos del Organismo de Evaluacion y Fiscalizacion Ambiental (OEFA) de Peru.
+
+#| description: API Key de OEFA (opcional si esta configurada en la variable OEFA_API_KEY)
+#| short: k
+api_key <- NA_character_
+
+if (!is.na(api_key)) {
+  oefar::oefa_set_api_key(api_key)
+}
+
+switch(
+  command <- "",
+
+  #| title: Descargar un conjunto de datos por GUID
+  get = {
+    #| description: Identificador unico global (GUID) del conjunto de datos (ej. "DENUN-SINAD")
+    #| short: g
+    guid <- NULL
+
+    #| description: Cantidad maxima de filas a descargar
+    #| short: l
+    limit <- NA_integer_
+
+    #| description: Formato de salida ("csv", "json", "tibble")
+    #| short: f
+    format <- "csv"
+
+    #| description: Ruta del archivo de salida (si se omite, imprime a la consola)
+    #| short: o
+    output <- NA_character_
+
+    #| description: Limpiar los nombres de las columnas a minusculas y guiones bajos
+    clean_names <- TRUE
+
+    #| description: Tiempo maximo de espera en segundos para la conexion HTTP
+    timeout <- 60L
+
+    lim <- if (is.na(limit)) NULL else limit
+
+    res <- tryCatch({
+      oefar::oefa_get_data(
+        guid = guid,
+        limit = lim,
+        format = format,
+        clean_names = clean_names,
+        timeout = timeout
+      )
+    }, error = function(e) {
+      cat("Error al descargar dataset:", conditionMessage(e), "\n", file = stderr())
+      quit(status = 1)
+    })
+
+    if (!is.na(output)) {
+      if (is.character(res)) {
+        writeLines(res, output)
+      } else if (inherits(res, "data.frame")) {
+        utils::write.csv(res, output, row.names = FALSE)
+      }
+      cat(sprintf("Dataset guardado exitosamente en: %s\n", output))
+    } else {
+      if (is.character(res)) {
+        cat(res)
+      } else {
+        print(res)
+      }
+    }
+  },
+
+  #| title: Listar o buscar conjuntos de datos del catalogo
+  list = {
+    #| description: Termino de busqueda para filtrar datasets por titulo o GUID
+    #| short: q
+    query <- NA_character_
+
+    #| description: Cantidad maxima de datasets a listar
+    #| short: l
+    limit <- NA_integer_
+
+    q_val <- if (is.na(query)) NULL else query
+    lim_val <- if (is.na(limit)) NULL else limit
+
+    catalog <- tryCatch({
+      oefar::oefa_list_datastreams(query = q_val, limit = lim_val)
+    }, error = function(e) {
+      cat("Error al consultar el catalogo:", conditionMessage(e), "\n", file = stderr())
+      quit(status = 1)
+    })
+
+    if (nrow(catalog) == 0) {
+      cat("No se encontraron datasets con los criterios especificados.\n")
+    } else {
+      cat(sprintf("=== Catalogo OEFA (%d datasets encontrados) ===\n\n", nrow(catalog)))
+      for (i in seq_len(nrow(catalog))) {
+        guid_str <- if ("guid" %in% names(catalog)) catalog$guid[i] else "N/A"
+        title_str <- if ("title" %in% names(catalog)) catalog$title[i] else "Sin titulo"
+        cat(sprintf("  [%s] %s\n", guid_str, title_str))
+      }
+    }
+  },
+
+  #| title: Listar las categorias tematicas de datos
+  categories = {
+    cats <- tryCatch({
+      oefar::oefa_list_categories()
+    }, error = function(e) {
+      cat("Error al obtener las categorias:", conditionMessage(e), "\n", file = stderr())
+      quit(status = 1)
+    })
+
+    if (nrow(cats) == 0) {
+      cat("No se encontraron categorias.\n")
+    } else {
+      cat("=== Categorias Tematicas OEFA ===\n\n")
+      for (i in seq_len(nrow(cats))) {
+        cat(sprintf("  - %s (%d datasets)\n", cats$category_name[i], cats$total_datastreams[i]))
+      }
+    }
+  }
+)

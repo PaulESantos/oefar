@@ -15,20 +15,36 @@ oefa_get_publi_en_redes_socia_45921(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Publicaciones en redes sociales
+Descarga los datos del conjunto de datos 'Publicaciones en redes sociales' del OEFA por su GUID (PUBLI-EN-REDES-SOCIA-45921).
+Pertenece a la sección del Diccionario de Datos: Información Institucional > Interacción en redes sociales.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{MES}{Indica El Mes En El Que Se Hace La Publicación En La Red Social [Cadena De Texto]}
+  \item{FECHA}{Indica La Fecha En La Que Se Hace La Publicación En La Red Social [Fecha]}
+  \item{PUBLIC}{Especiica El Tipo De Publicación Que Se Hace En La Red Social [Cadena De Texto]}
+  \item{TEMA}{Especifica El Tema De La Publicación [Cadena De Texto]}
+  \item{RED_SOCI}{Especifica En Qué Red Social Se Hace La Mención [Cadena De Texto]}
+  \item{VISITAS_}{Detalla El Número De Visitas Hecha A La Publicación Pr Los Usuarios [Entero]}
+  \item{N°_VECES}{La Cantidad De Veces Que Se Comparte La Publicación [Entero]}
+}
 }

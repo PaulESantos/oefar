@@ -15,20 +15,45 @@ oefa_get_activ_afa_36113(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Actividades Afa 2018-2024
+Descarga los datos del conjunto de datos 'Actividades Afa 2018-2024' del OEFA por su GUID (ACTIV-AFA-36113).
+Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fortalecimiento de capacidades en fiscalización ambiental.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{INICIO}{Se Hace Referencia A La Fecha De Inicio De La Actividad Académica. [Fecha]}
+  \item{FECHA_FIN}{Se Hace Referencia A La Fecha De Termino De Actividad Académica. [Fecha]}
+  \item{ACTIVIDAD}{Se Hace Referencia A: Programa De Formación, Cursos Y Jornadas Académicas. [Cadena De Texto]}
+  \item{SUB_TIPO}{Hace Referencia A Subgrupos Programa De Formación(Diplomado, Programa Actualización, Pasantías, Curso De Extensión Universitaria), Cursos(Curso Básico, Curso Taller O Curso De Especialización), Jornadas Académicas(Taller, Charlas, Conferencias, Cátedras,Asistencia Técnica) [Cadena De Texto]}
+  \item{EVENTO}{Corresponde Al Nombre De La Actividad Académica. [Cadena De Texto]}
+  \item{DESTINAT}{Se Hace Referencia A: Colaboradores Del Oefa, Funcionarios Públicos, Administrados Y Ciudadanos [Cadena De Texto]}
+  \item{DEPARTAM}{Corresponde Al Departamento Donde Se Realiza La Actividad Académica. [Cadena De Texto]}
+  \item{PROVINCIA}{Corresponde A La Provincia Donde Se Realiza La Actividad Académica. [Cadena De Texto]}
+  \item{CIUDAD}{Corresponde A La Ciudad Donde Se Realiza La Actividad Académica. [Cadena De Texto]}
+  \item{AMBIENTE}{Lugar Donde Se Realiza La Actividad Académica. [Cadena De Texto]}
+  \item{HORARIO}{Se Hace Referencia Al Horario De La Actividad Académica. [Cadena De Texto]}
+  \item{HORAS}{Se Hace Referencia A La Cantidad De Horas Cronológicas. [Numérico]}
+  \item{CERTIFICACION}{Hace Referencia A La Certificación A Emitir(Certificado, Constancia O Ninguno) [Cadena De Texto]}
+  \item{MODALIDA}{Hace Referencia A La Modadlidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
+  \item{NRO_SESI}{Cantidad De Sesiones Que Tiene Una Actividad Académica. [Numérico]}
+  \item{META}{Hace Referencia A La Cantidad De Participantes Que Se Estima Capacitar. [Numérico]}
+}
 }

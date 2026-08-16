@@ -15,20 +15,36 @@ oefa_get_proye_norma_exter_65772(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Proyectos Normativos Externos 2018-2025
+Descarga los datos del conjunto de datos 'Proyectos Normativos Externos 2018-2025' del OEFA por su GUID (PROYE-NORMA-EXTER-65772).
+Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Opiniones técnicas a proyectos normativos.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{ORIGEN}{Procedencia Del Proyecto Normativo Externo [Cadena De Texto]}
+  \item{TEMA}{Denominación Del Proyectos Normativo Externo [Cadena De Texto]}
+  \item{JERARQUI}{Rango O Tipo Del Proyecto Normativo Externo [Cadena De Texto]}
+  \item{RESPONSAB}{Órganos O Áreas Del Oefa Responsables De Formular La Opinión Al Proyecto Normativo Externo [Cadena De Texto]}
+  \item{FECHA_ING}{Fecha En Que Ingresa El Proyecto Normativo Externo A La Smer, Para La Emisión De Una Opinión Técnica [Fecha]}
+  \item{FECHA_RE}{Fecha En La Que La Opnión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
+  \item{CANT_PROY}{Cantidad De Artículos En Los Cuales Se Formularon Recomendaciones Como Institución, A Incorporar En El Proyecto Normativo Externo [Numérico]}
+}
 }

@@ -15,20 +15,57 @@ oefa_get_regis_actos_admin_96376(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Registros actos administrativos 2021-2025
+Descarga los datos del conjunto de datos 'Registros actos administrativos 2021-2025' del OEFA por su GUID (REGIS-ACTOS-ADMIN-96376).
+Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Apelaciones Resueltas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{NRO_EXPE}{Número de Expediente Indicado en la Resolución Correspondiente [Cadena De Texto]}
+  \item{RAZON_SO}{Persona Natural O Jurídica, Así Como Cualquier Otra Forma Asociativa De Empresa O Patrimonio Autónomo, Que Desarrolla Una Actividad Económica, Servicio O Función Sujeta A Supervisión De La Autoridad De Supervisión. [Cadena De Texto]}
+  \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+  \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{INF_SUPER}{Documento Técnico Legal Aprobado Por La Autoridad De Supervisión Que Contiene Los Resultados De La Evaluación Del Cumplimiento De Las Obligaciones Fiscalizables En El Marco De Las Acciones De Supervisión. [Cadena De Texto]}
+  \item{INFORME_T}{Documento Que Contiene Los Hallazgos De Presuntas Infracciones Detectados Durante La Supervisión Con Su Respectivo Fundamento Técnico Y Legal. [Cadena De Texto]}
+  \item{SUPERV}{Inicio De Verificación Del Cumplimiento De Las Obligaciones Fiscalizables Y Funciones A Cargo De Las Efa. [Fecha]}
+  \item{FIN_SUPERV}{Fin De Verificación Del Cumplimiento De Las Obligaciones Fiscalizables Y Funciones A Cargo De Las Efa. [Fecha]}
+  \item{INFRACCION}{Referidas A Incidentes Y/O Emergencias Ambientales [Cadena De Texto]}
+  \item{MEDIDA_CORR}{Disposiciones A Través De Las Cuales Se Impone Al Administrado O La Administrada La Orden De Realizar Las Acciones Necesarias Para Revertir O Disminuir, En Lo Posible, El Efecto Nocivo Que La Conducta Infractora Hubiera Podido Producir En El Ambiente, Los Recursos Naturales Y La Salud De Las Personas. [Cadena De Texto]}
+  \item{MEDIDA_CAU}{Disposiciones A Través De Las Cuales Se Impone Al Administrado/A Una Orden Para Prevenir Un Daño Irreparable Al Ambiente, Los Recursos Naturales O La Salud De Las Personas, Ante La Detección De La Comisión De Una Presunta Infracción. [Cadena De Texto]}
+  \item{MES_EMISION}{Mes En Que Se Emite La Resolución [Numérico]}
+  \item{AÑO_DE_E}{Año En Que Se Emite La Resolución [Numérico]}
+  \item{N°_RESOL_ADM}{Número de Resolución De Responsabilidad Administrativa [Cadena De Texto]}
+  \item{FECHA_DE_RESOL}{Fecha de Resolución De Responsabilidad Administrativa [Fecha]}
+  \item{FECHA_DE_NOT}{Fecha de Notificación De Responsabilidad Administrativa [Fecha]}
+  \item{FECHA_DE_RE}{Fecha De Emision De Resolución De Reconsideración [Fecha]}
+  \item{RESOL_REC}{Número De Resolución De Reconsideración [Cadena De Texto]}
+  \item{FECHA_DE_RESOL2}{Fecha de Emisión de Resolución de Reconsideración [Fecha]}
+  \item{FECHA_DE_NOT3}{Fecha de Notificación De Resolución de Reconsideración [Fecha]}
+  \item{SENTIDO_}{Conclusiones descritas en La Resolución de Reconsideración [Cadena De Texto]}
+  \item{RESOL_APE}{Nro de Resolución TFA Correspondiente [Cadena De Texto]}
+  \item{FECHA_DE_RESOL4}{Fecha de Resolución TFA [Fecha]}
+  \item{SENTIDO_}{Sentidos Principales Indicados en Resolución [Cadena De Texto]}
+  \item{SENTIDO_}{Sentidos Indicados en La Resolución de Reconsideración [Cadena De Texto]}
+}
 }

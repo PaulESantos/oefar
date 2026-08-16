@@ -2,17 +2,52 @@
 % Please edit documentation in R/data.R
 \name{clean_column_names}
 \alias{clean_column_names}
-\title{Limpiar nombres de columnas a minusculas y guiones bajos}
+\title{Limpiar nombres de columnas o vectores de caracteres (inspirado en janitor::make_clean_names)}
 \usage{
-clean_column_names(names)
+clean_column_names(
+  string,
+  case = "snake",
+  replace = c(`'` = "", `"` = "", `\%` = "_percent_", `#` = "_number_"),
+  ascii = TRUE,
+  use_make_names = TRUE,
+  allow_dupes = FALSE,
+  sep_in = "\\\\.",
+  transliterations = "Latin-ASCII",
+  parsing_option = 1,
+  numerals = "asis",
+  ...
+)
 }
 \arguments{
-\item{names}{Vector de caracteres con los nombres originales de columnas}
+\item{string}{Vector de caracteres con nombres o un data.frame.}
+
+\item{case}{El caso de destino deseado (por defecto es `"snake"`).}
+
+\item{replace}{Vector de caracteres nombrado donde la clave se reemplaza por el valor.
+Por defecto \code{c("'" = "", "\"" = "", "\%" = "_percent_", "#" = "_number_")}.}
+
+\item{ascii}{Convertir los nombres a ASCII (\code{TRUE}, por defecto) o no (\code{FALSE}).}
+
+\item{use_make_names}{¿Aplicar \code{make.names()} para asegurar nombres validos de R? (\code{TRUE}, por defecto).}
+
+\item{allow_dupes}{Permitir duplicados en los nombres retornados (\code{FALSE}, por defecto).}
+
+\item{sep_in}{Separador de entrada para cambio de caso (por defecto \code{"\\\\."}).}
+
+\item{transliterations}{Especificacion de transliteraciones (por defecto \code{"Latin-ASCII"}).}
+
+\item{parsing_option}{Opcion de parseo (por defecto 1).}
+
+\item{numerals}{Tratamiento de numerales (por defecto \code{"asis"}).}
+
+\item{...}{Argumentos adicionales pasados a \code{snakecase::to_any_case()} si esta instalado.}
 }
 \value{
-Vector de caracteres limpios
+Regresa un vector de caracteres limpio o un data.frame con nombres de columna limpios.
 }
 \description{
-Limpiar nombres de columnas a minusculas y guiones bajos
+Limpia un vector de caracteres o un data.frame garantizando nombres unicos,
+transliteración ASCII de acentos (ej. español/latín), eliminación de comillas,
+conversión de caracteres como \% y # a texto, y formateo según el formato de caso deseado.
 }
 \keyword{internal}

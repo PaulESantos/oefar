@@ -3,9 +3,10 @@
 #' @description
 #' Obtiene, configura o verifica la presencia de la clave de API (API Key) necesaria
 #' para interactuar con el portal de Datos Abiertos del OEFA (Organismo de Evaluación
-#' y Fiscalización Ambiental de Perú).
+#' y Fiscalización Ambiental de Perú). La API Key puede crearse desde el portal de desarrolladores:
+#' \url{https://datosabiertos.oefa.gob.pe/developers/}.
 #'
-#' @param api_key Carácter. La API Key personal provista por el portal de Datos Abiertos de OEFA.
+#' @param api_key Carácter. La API Key personal obtenida desde \url{https://datosabiertos.oefa.gob.pe/developers/}.
 #' @param install Lógico. Si es \code{TRUE}, guarda la API Key de forma permanente en el archivo \code{.Renviron} del usuario. Por defecto es \code{FALSE}.
 #'
 #' @return
@@ -64,7 +65,7 @@ oefa_get_api_key <- function() {
       "x" = "No se ha encontrado la API Key de OEFA.",
       "i" = "Configure su API Key ejecutando: {.code oefa_set_api_key('TU_API_KEY')}",
       "i" = "O agregue {.code OEFA_API_KEY='TU_API_KEY'} en su archivo {.file .Renviron}.",
-      "i" = "Puede solicitar una API Key en {.url https://datosabiertos.oefa.gob.pe/}"
+      "i" = "Puede crear su API Key en {.url https://datosabiertos.oefa.gob.pe/developers/}"
     ))
   }
 

@@ -15,20 +15,42 @@ oefa_get_resol_subdi(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad maxima de filas.}
+\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial.}
+\item{offset}{Entero opcional. Registro inicial para paginación.}
 
-\item{...}{Parametros adicionales.}
+\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
 
-\item{format}{Formato de salida ("tibble", "csv", "json").}
+\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
 
-\item{clean_names}{Logico. Si es TRUE (por defecto), limpia nombres de columnas a minusculas con guiones bajos.}
+\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion (por defecto 60).}
+\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
 
-\item{api_key}{API Key de OEFA.}
+\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+}
+\value{
+Un \code{\link[tibble]{tibble}} con los registros del dataset.
 }
 \description{
-Descargar dataset: Resoluciones subdirectorales 2018-2025
+Descarga los datos del conjunto de datos 'Resoluciones subdirectorales 2018-2025' del OEFA por su GUID (RESOL-SUBDI).
+Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Resoluciones Emitidas.
+}
+\details{
+Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+\describe{
+  \item{N°_RESOL}{Número De La Resolución Subdirectoral [Cadena De Texto]}
+  \item{FECHA_RSD}{Fecha De Emision De La Resolución Subdirectoral [Fecha]}
+  \item{NRO_EXPE}{Número De Expediente De La Dfai [Cadena De Texto]}
+  \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+  \item{INFORME_}{Tipo De Informe (Informe De Supervision O Informe Tecnico Acusatorio) [Cadena De Texto]}
+  \item{NRO_INF}{Número De Informe [Cadena De Texto]}
+  \item{SUPERV}{Fecha De Inicio De La Supervision [Fecha]}
+  \item{RAZON_SO}{Nombre De La Razon Social Del Administrado [Cadena De Texto]}
+  \item{UNIDAD}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{TIPO_RSD}{Sentido Legal De La Resolución Subdirectoral [Cadena De Texto]}
+}
 }

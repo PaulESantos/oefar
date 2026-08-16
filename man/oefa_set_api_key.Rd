@@ -22,7 +22,7 @@ has_oefa_api_key()
 oefa_api_key()
 }
 \arguments{
-\item{api_key}{Carácter. La API Key personal provista por el portal de Datos Abiertos de OEFA.}
+\item{api_key}{Carácter. La API Key personal obtenida desde \url{https://datosabiertos.oefa.gob.pe/developers/}.}
 
 \item{install}{Lógico. Si es \code{TRUE}, guarda la API Key de forma permanente en el archivo \code{.Renviron} del usuario. Por defecto es \code{FALSE}.}
 }
@@ -34,7 +34,8 @@ oefa_api_key()
 \description{
 Obtiene, configura o verifica la presencia de la clave de API (API Key) necesaria
 para interactuar con el portal de Datos Abiertos del OEFA (Organismo de Evaluación
-y Fiscalización Ambiental de Perú).
+y Fiscalización Ambiental de Perú). La API Key puede crearse desde el portal de desarrolladores:
+\url{https://datosabiertos.oefa.gob.pe/developers/}.
 }
 \examples{
 \dontrun{
