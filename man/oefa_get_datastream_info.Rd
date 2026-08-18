@@ -3,22 +3,22 @@
 \name{oefa_get_datastream_info}
 \alias{oefa_get_datastream_info}
 \alias{oefa_get_dataset_info}
-\title{Obtener información detallada de un datastream específico}
+\title{Get detailed metadata for a specific datastream}
 \usage{
 oefa_get_datastream_info(guid, api_key = oefa_get_api_key())
 
 oefa_get_dataset_info(guid, api_key = oefa_get_api_key())
 }
 \arguments{
-\item{guid}{Carácter. El GUID (identificador único) del datastream (ej. "DENUN-SINAD").}
+\item{guid}{Character. The GUID (unique identifier) of the datastream (e.g., "DENUN-SINAD").}
 
-\item{api_key}{Carácter. API Key de OEFA.}
+\item{api_key}{Character. OEFA API Key.}
 }
 \value{
-Una lista o tibble con la información completa de metadatos del datastream.
+A list or tibble containing complete metadata for the datastream.
 }
 \description{
-Obtener información detallada de un datastream específico
+Get detailed metadata for a specific datastream
 }
 \examples{
 \dontrun{

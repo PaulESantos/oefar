@@ -1,6 +1,6 @@
 Package: oefar
 Type: Package
-Title: Acceso a la API de Datos Abiertos del 'OEFA' de Perú
+Title: Access to the 'OEFA' Open Data API of Peru
 Version: 0.1.0
 Authors@R: person("Paul E.", "Santos Andrade", email = "paulefrens@gmail.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-6635-0375"))
 Description: Access, search, and download environmental evaluation, supervision,
@@ -22,9 +22,13 @@ Imports:
     dplyr (>= 1.1.0)
 Suggests:
     testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
     snakecase,
     stringi,
     stringr,
     Rapp
+VignetteBuilder: knitr
 URL: https://datosabiertos.oefa.gob.pe, https://paulesantos.github.io/oefar/
 Config/roxygen2/version: 8.0.0
+

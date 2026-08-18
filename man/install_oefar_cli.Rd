@@ -2,20 +2,20 @@
 % Please edit documentation in R/cli.R
 \name{install_oefar_cli}
 \alias{install_oefar_cli}
-\title{Instalar el ejecutable CLI de oefar en el sistema}
+\title{Install the oefar CLI executable on the system}
 \usage{
 install_oefar_cli(destdir = NULL)
 }
 \arguments{
-\item{destdir}{Carácter opcional. Directorio destino donde se instalará el ejecutable.
-Por defecto utiliza el directorio estándar de ejecutables del sistema.}
+\item{destdir}{Optional character. Target directory where the executable will be installed.
+By default, uses the standard system executable directory.}
 }
 \value{
-La ruta absoluta del ejecutable instalado (de forma invisible).
+The absolute path of the installed executable (invisibly).
 }
 \description{
-Instala la herramienta de línea de comandos `oefar` en el sistema utilizando
-el paquete \pkg{Rapp}.
+Installs the `oefar` command line interface tool on the system using
+the \pkg{Rapp} package.
 }
 \examples{
 \dontrun{

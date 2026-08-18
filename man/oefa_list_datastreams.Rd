@@ -3,7 +3,7 @@
 \name{oefa_list_datastreams}
 \alias{oefa_list_datastreams}
 \alias{oefa_list_datasets}
-\title{Listar el catalogo de conjuntos de datos (datastreams) de OEFA}
+\title{List the OEFA dataset (datastream) catalog}
 \usage{
 oefa_list_datastreams(
   category = NULL,
@@ -22,40 +22,40 @@ oefa_list_datasets(
 )
 }
 \arguments{
-\item{category}{Carácter opcional. Filtrar los conjuntos de datos por nombre o ID de categoría.}
+\item{category}{Optional character. Filter datasets by category name or ID.}
 
-\item{query}{Carácter opcional. Filtrar por termino clave de búsqueda en el titulo o descripción.}
+\item{query}{Optional character. Filter by search keyword in title or description.}
 
-\item{limit}{Entero opcional. Numero máximo de registros a retornar.}
+\item{limit}{Optional integer. Maximum number of records to return.}
 
-\item{offset}{Entero opcional. Desplazamiento inicial para paginación.}
+\item{offset}{Optional integer. Initial offset for pagination.}
 
-\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+\item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} estructurado con los metadatos de los datastreams:
+A structured \code{\link[tibble]{tibble}} with datastream metadata:
 \itemize{
-  \item \code{guid}: Identificador único del dataset.
-  \item \code{title}: Titulo del conjunto de datos.
-  \item \code{description}: Descripción detallada del dataset.
-  \item \code{category_name}: Nombre de la categoría temática.
-  \item \code{category_id}: Identificador de la categoría.
-  \item \code{created_at}: Fecha de creación (timestamp Unix o formateado).
-  \item \code{modified_at}: Fecha de ultima modificación.
-  \item \code{link}: Enlace directo en el portal web.
+  \item \code{guid}: Unique dataset identifier.
+  \item \code{title}: Title of the dataset.
+  \item \code{description}: Detailed description of the dataset.
+  \item \code{category_name}: Name of the thematic category.
+  \item \code{category_id}: Identifier of the category.
+  \item \code{created_at}: Creation date (Unix timestamp or formatted).
+  \item \code{modified_at}: Last modification date.
+  \item \code{link}: Direct link on the web portal.
 }
 }
 \description{
-Obtiene el catalogo de conjuntos de datos (datastreams) disponibles en el portal de Datos
-Abiertos del OEFA (Organismo de Evaluación y Fiscalización Ambiental del Perú).
+Retrieves the catalog of datasets (datastreams) available on the OEFA (Environmental
+Evaluation and Enforcement Agency of Peru) Open Data portal.
 }
 \examples{
 \dontrun{
-# Listar todos los datastreams
+# List all datastreams
 catalog <- oefa_list_datastreams()
 head(catalog)
 
-# Buscar datastreams sobre denuncias
-denuncias_ds <- oefa_list_datastreams(query = "denuncias")
+# Search datastreams about environmental complaints
+complaints_ds <- oefa_list_datastreams(query = "denuncias")
 }
 }

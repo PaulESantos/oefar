@@ -1,29 +1,29 @@
-#' Descargar y consultar datos de un conjunto de datos (datastream) de OEFA
+#' Download and query data from an OEFA dataset (datastream)
 #'
 #' @description
-#' Descarga los datos de un conjunto de datos (datastream) del portal de Datos Abiertos
-#' del OEFA (Organismo de Evaluación y Fiscalización Ambiental) por su GUID y los
-#' retorna en un objeto de clase \code{\link[tibble]{tibble}} con nombres de columnas limpios.
-#' Permite ajustar el tiempo límite (timeout) de la descarga según el volumen de datos.
+#' Downloads data from a dataset (datastream) on the OEFA (Environmental Evaluation
+#' and Enforcement Agency of Peru) Open Data portal using its GUID and returns it as a
+#' \code{\link[tibble]{tibble}} object with cleaned column names.
+#' Allows adjusting the download timeout according to data volume.
 #'
-#' @param guid Carácter. Identificador único global del datastream (ej. "DENUN-SINAD").
-#' @param limit Entero opcional. Cantidad máxima de filas a descargar.
-#' @param offset Entero opcional. Registro inicial para paginación.
-#' @param pArgument0 Carácter opcional. Primer parámetro de filtro si el datastream es parametrizado por la API.
-#' @param ... Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
-#' @param format Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.
-#' @param clean_names Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.
-#' @param timeout Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).
-#' @param api_key Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.
+#' @param guid Character. Unique global identifier of the datastream (e.g., "DENUN-SINAD").
+#' @param limit Optional integer. Maximum number of rows to download.
+#' @param offset Optional integer. Initial record offset for pagination.
+#' @param pArgument0 Optional character. First filter parameter if the datastream is parameterized by the API.
+#' @param ... Additional query parameters (e.g., pArgument1, pArgument2).
+#' @param format Character. Desired download format: \code{"tibble"} (default), \code{"csv"}, or \code{"json"}.
+#' @param clean_names Logical. If \code{TRUE} (default), converts column names to lowercase snake_case.
+#' @param timeout Integer. Maximum wait time in seconds for HTTP connection (default 60 seconds).
+#' @param api_key Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.
 #'
-#' @return Un \code{\link[tibble]{tibble}} con los registros del conjunto de datos.
+#' @return A \code{\link[tibble]{tibble}} containing dataset records.
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' # Descargar denuncias SINADA con timeout de 120s
-#' denuncias <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
-#' print(denuncias)
+#' # Download SINADA complaints with a 120s timeout
+#' complaints <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
+#' print(complaints)
 #' }
 oefa_get_data <- function(guid, limit = NULL, offset = NULL, pArgument0 = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   if (missing(guid) || !is.character(guid) || nchar(trimws(guid)) == 0) {
@@ -210,27 +210,27 @@ fallback_to_any_case <- function(string, case = "snake") {
   res
 }
 
-#' Limpiar nombres de columnas o vectores de caracteres (inspirado en janitor::make_clean_names)
+#' Clean column names or character vectors (inspired by janitor::make_clean_names)
 #'
 #' @description
-#' Limpia un vector de caracteres o un data.frame garantizando nombres unicos,
-#' transliteración ASCII de acentos (ej. español/latín), eliminación de comillas,
-#' conversión de caracteres como \% y # a texto, y formateo según el formato de caso deseado.
+#' Cleans a character vector or data.frame ensuring unique names,
+#' ASCII transliteration of accents (e.g., Spanish/Latin), removal of quotes,
+#' conversion of characters such as \% and # to text, and formatting according to the desired case format.
 #'
-#' @param string Vector de caracteres con nombres o un data.frame.
-#' @param case El caso de destino deseado (por defecto es `"snake"`).
-#' @param replace Vector de caracteres nombrado donde la clave se reemplaza por el valor.
-#'   Por defecto \code{c("'" = "", "\"" = "", "\%" = "_percent_", "#" = "_number_")}.
-#' @param ascii Convertir los nombres a ASCII (\code{TRUE}, por defecto) o no (\code{FALSE}).
-#' @param use_make_names ¿Aplicar \code{make.names()} para asegurar nombres validos de R? (\code{TRUE}, por defecto).
-#' @param allow_dupes Permitir duplicados en los nombres retornados (\code{FALSE}, por defecto).
-#' @param sep_in Separador de entrada para cambio de caso (por defecto \code{"\\\\."}).
-#' @param transliterations Especificacion de transliteraciones (por defecto \code{"Latin-ASCII"}).
-#' @param parsing_option Opcion de parseo (por defecto 1).
-#' @param numerals Tratamiento de numerales (por defecto \code{"asis"}).
-#' @param ... Argumentos adicionales pasados a \code{snakecase::to_any_case()} si esta instalado.
+#' @param string Character vector with names or a data.frame.
+#' @param case Desired target case format (default is `"snake"`).
+#' @param replace Named character vector where key is replaced by value.
+#'   Default \code{c("'" = "", "\"" = "", "\%" = "_percent_", "#" = "_number_")}.
+#' @param ascii Convert names to ASCII (\code{TRUE}, default) or not (\code{FALSE}).
+#' @param use_make_names Whether to apply \code{make.names()} to ensure valid R names (\code{TRUE}, default).
+#' @param allow_dupes Allow duplicate names in returned output (\code{FALSE}, default).
+#' @param sep_in Input separator for case conversion (default \code{"\\\\."}).
+#' @param transliterations Specification of transliterations (default \code{"Latin-ASCII"}).
+#' @param parsing_option Parsing option (default 1).
+#' @param numerals Handling of numerals (default \code{"asis"}).
+#' @param ... Additional arguments passed to \code{snakecase::to_any_case()} if installed.
 #'
-#' @return Regresa un vector de caracteres limpio o un data.frame con nombres de columna limpios.
+#' @return Returns a clean character vector or a data.frame with cleaned column names.
 #' @keywords internal
 #' @export
 clean_column_names <- function(string,

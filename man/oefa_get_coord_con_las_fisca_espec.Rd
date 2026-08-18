@@ -2,7 +2,7 @@
 % Please edit documentation in R/datasets_specific.R
 \name{oefa_get_coord_con_las_fisca_espec}
 \alias{oefa_get_coord_con_las_fisca_espec}
-\title{Descargar dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)}
+\title{Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)}
 \usage{
 oefa_get_coord_con_las_fisca_espec(
   limit = NULL,
@@ -15,20 +15,20 @@ oefa_get_coord_con_las_fisca_espec(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
+\item{limit}{Optional integer. Maximum number of rows to download.}
 
-\item{offset}{Entero opcional. Registro inicial para paginación.}
+\item{offset}{Optional integer. Initial record offset for pagination.}
 
-\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
+\item{...}{Additional query parameters (e.g., pArgument1, pArgument2).}
 
-\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
+\item{format}{Character. Desired download format: \code{"tibble"} (default), \code{"csv"}, or \code{"json"}.}
 
-\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
+\item{clean_names}{Logical. If \code{TRUE} (default), converts column names to lowercase snake_case.}
 
-\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
+\item{timeout}{Integer. Maximum wait time in seconds for HTTP connection (default 60 seconds).}
 
-\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+\item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
 \description{
-Descargar dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
+Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
 }

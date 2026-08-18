@@ -3,20 +3,20 @@
 \name{oefa_list_categories}
 \alias{oefa_list_categories}
 \alias{oefa_list_topics}
-\title{Listar las categorías temáticas de datos del OEFA}
+\title{List thematic data categories from OEFA}
 \usage{
 oefa_list_categories(api_key = oefa_get_api_key())
 
 oefa_list_topics(api_key = oefa_get_api_key())
 }
 \arguments{
-\item{api_key}{Carácter. API Key de OEFA.}
+\item{api_key}{Character. OEFA API Key.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} con las categorías disponibles y el conteo de datastreams por categoría.
+A \code{\link[tibble]{tibble}} with available categories and total count of datastreams per category.
 }
 \description{
-Listar las categorías temáticas de datos del OEFA
+List thematic data categories from OEFA
 }
 \examples{
 \dontrun{

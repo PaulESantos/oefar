@@ -2,7 +2,7 @@
 % Please edit documentation in R/data.R
 \name{clean_column_names}
 \alias{clean_column_names}
-\title{Limpiar nombres de columnas o vectores de caracteres (inspirado en janitor::make_clean_names)}
+\title{Clean column names or character vectors (inspired by janitor::make_clean_names)}
 \usage{
 clean_column_names(
   string,
@@ -19,35 +19,35 @@ clean_column_names(
 )
 }
 \arguments{
-\item{string}{Vector de caracteres con nombres o un data.frame.}
+\item{string}{Character vector with names or a data.frame.}
 
-\item{case}{El caso de destino deseado (por defecto es `"snake"`).}
+\item{case}{Desired target case format (default is `"snake"`).}
 
-\item{replace}{Vector de caracteres nombrado donde la clave se reemplaza por el valor.
-Por defecto \code{c("'" = "", "\"" = "", "\%" = "_percent_", "#" = "_number_")}.}
+\item{replace}{Named character vector where key is replaced by value.
+Default \code{c("'" = "", "\"" = "", "\%" = "_percent_", "#" = "_number_")}.}
 
-\item{ascii}{Convertir los nombres a ASCII (\code{TRUE}, por defecto) o no (\code{FALSE}).}
+\item{ascii}{Convert names to ASCII (\code{TRUE}, default) or not (\code{FALSE}).}
 
-\item{use_make_names}{¿Aplicar \code{make.names()} para asegurar nombres validos de R? (\code{TRUE}, por defecto).}
+\item{use_make_names}{Whether to apply \code{make.names()} to ensure valid R names (\code{TRUE}, default).}
 
-\item{allow_dupes}{Permitir duplicados en los nombres retornados (\code{FALSE}, por defecto).}
+\item{allow_dupes}{Allow duplicate names in returned output (\code{FALSE}, default).}
 
-\item{sep_in}{Separador de entrada para cambio de caso (por defecto \code{"\\\\."}).}
+\item{sep_in}{Input separator for case conversion (default \code{"\\\\."}).}
 
-\item{transliterations}{Especificacion de transliteraciones (por defecto \code{"Latin-ASCII"}).}
+\item{transliterations}{Specification of transliterations (default \code{"Latin-ASCII"}).}
 
-\item{parsing_option}{Opcion de parseo (por defecto 1).}
+\item{parsing_option}{Parsing option (default 1).}
 
-\item{numerals}{Tratamiento de numerales (por defecto \code{"asis"}).}
+\item{numerals}{Handling of numerals (default \code{"asis"}).}
 
-\item{...}{Argumentos adicionales pasados a \code{snakecase::to_any_case()} si esta instalado.}
+\item{...}{Additional arguments passed to \code{snakecase::to_any_case()} if installed.}
 }
 \value{
-Regresa un vector de caracteres limpio o un data.frame con nombres de columna limpios.
+Returns a clean character vector or a data.frame with cleaned column names.
 }
 \description{
-Limpia un vector de caracteres o un data.frame garantizando nombres unicos,
-transliteración ASCII de acentos (ej. español/latín), eliminación de comillas,
-conversión de caracteres como \% y # a texto, y formateo según el formato de caso deseado.
+Cleans a character vector or data.frame ensuring unique names,
+ASCII transliteration of accents (e.g., Spanish/Latin), removal of quotes,
+conversion of characters such as \% and # to text, and formatting according to the desired case format.
 }
 \keyword{internal}

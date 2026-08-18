@@ -2,20 +2,20 @@
 % Please edit documentation in R/datastreams.R
 \name{oefa_search_datastreams}
 \alias{oefa_search_datastreams}
-\title{Buscar conjuntos de datos en el portal de OEFA}
+\title{Search datasets on the OEFA portal}
 \usage{
 oefa_search_datastreams(query, api_key = oefa_get_api_key())
 }
 \arguments{
-\item{query}{Carácter. Termino de búsqueda (ej. "denuncias", "fiscalizacion", "supervision").}
+\item{query}{Character. Search query term (e.g., "denuncias", "fiscalizacion", "supervision").}
 
-\item{api_key}{Carácter. API Key de OEFA.}
+\item{api_key}{Character. OEFA API Key.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} con los conjuntos de datos coincidentes.
+A \code{\link[tibble]{tibble}} with matching datasets.
 }
 \description{
-Buscar conjuntos de datos en el portal de OEFA
+Search datasets on the OEFA portal
 }
 \examples{
 \dontrun{

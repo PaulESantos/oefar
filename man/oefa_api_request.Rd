@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{oefa_api_request}
 \alias{oefa_api_request}
-\title{Realizar peticiones HTTP a la API de OEFA}
+\title{Perform HTTP requests to the OEFA API}
 \usage{
 oefa_api_request(
   endpoint,
@@ -12,19 +12,19 @@ oefa_api_request(
 )
 }
 \arguments{
-\item{endpoint}{Ruta relativa del endpoint (ej. "datastreams/").}
+\item{endpoint}{Relative path of the endpoint (e.g., "datastreams/").}
 
-\item{query}{Lista de parametros de consulta (query parameters).}
+\item{query}{List of query parameters.}
 
-\item{timeout}{Entero. Tiempo maximo de espera en segundos para la peticion HTTP (por defecto 60).}
+\item{timeout}{Integer. Maximum wait time in seconds for the HTTP request (default 60).}
 
-\item{api_key}{Clave de autenticacion API Key.}
+\item{api_key}{API Key authentication string.}
 }
 \value{
-Objeto httr2_response.
+An httr2_response object.
 }
 \description{
-Helper interno para construir y ejecutar solicitudes HTTP hacia los endpoints
-de la API v2 de Datos Abiertos del OEFA utilizando httr2.
+Internal helper to build and execute HTTP requests to the endpoints
+of the OEFA Open Data v2 API using httr2.
 }
 \keyword{internal}

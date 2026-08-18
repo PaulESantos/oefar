@@ -1,18 +1,18 @@
-# URL base del portal de Datos Abiertos de OEFA
+# Base URL for OEFA Open Data portal
 OEFA_BASE_URL <- "https://api.datosabiertos.oefa.gob.pe/api/v2/"
 OEFA_BASE_URL_HTTP <- "http://api.datosabiertos.oefa.gob.pe/api/v2/"
 
-#' Realizar peticiones HTTP a la API de OEFA
+#' Perform HTTP requests to the OEFA API
 #'
-#' Helper interno para construir y ejecutar solicitudes HTTP hacia los endpoints
-#' de la API v2 de Datos Abiertos del OEFA utilizando httr2.
+#' Internal helper to build and execute HTTP requests to the endpoints
+#' of the OEFA Open Data v2 API using httr2.
 #'
-#' @param endpoint Ruta relativa del endpoint (ej. "datastreams/").
-#' @param query Lista de parametros de consulta (query parameters).
-#' @param timeout Entero. Tiempo maximo de espera en segundos para la peticion HTTP (por defecto 60).
-#' @param api_key Clave de autenticacion API Key.
+#' @param endpoint Relative path of the endpoint (e.g., "datastreams/").
+#' @param query List of query parameters.
+#' @param timeout Integer. Maximum wait time in seconds for the HTTP request (default 60).
+#' @param api_key API Key authentication string.
 #'
-#' @return Objeto httr2_response.
+#' @return An httr2_response object.
 #' @keywords internal
 oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = oefa_get_api_key()) {
   if (is.null(api_key) || nchar(api_key) == 0) {
@@ -21,7 +21,7 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
 
   query[["auth_key"]] <- api_key
 
-  # Construir URL completa
+  # Build full URL
   endpoint <- gsub("^/", "", endpoint)
   url <- paste0(OEFA_BASE_URL, endpoint)
 
@@ -36,7 +36,7 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
   res <- tryCatch({
     httr2::req_perform(req)
   }, error = function(e) {
-    # Reintento con HTTP si HTTPS presenta inconvenientes
+    # Retry with HTTP if HTTPS encounters issues
     url_http <- paste0(OEFA_BASE_URL_HTTP, endpoint)
     req_http <- httr2::request(url_http) |>
       httr2::req_url_query(!!!query) |>
@@ -48,9 +48,9 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
       httr2::req_perform(req_http)
     }, error = function(e_http) {
       cli::cli_abort(c(
-        "x" = "Error al conectar con la API de OEFA.",
-        "i" = "Mensaje de error: {e$message}",
-        "i" = "Puede aumentar el tiempo limite especificando el parametro {.code timeout = 120} en la funcion."
+        "x" = "Error connecting to the OEFA API.",
+        "i" = "Error message: {e$message}",
+        "i" = "You can increase the timeout by specifying parameter {.code timeout = 120} in the function."
       ))
     })
   })
@@ -59,17 +59,17 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
   if (status >= 400) {
     msg <- tryCatch({
       body <- jsonlite::fromJSON(httr2::resp_body_string(res))
-      if (!is.null(body$error)) body$error else paste("Codigo HTTP", status)
-    }, error = function(e) paste("Codigo HTTP", status))
+      if (!is.null(body$error)) body$error else paste("HTTP code", status)
+    }, error = function(e) paste("HTTP code", status))
 
     extra_msg <- if (status == 500) {
-      c("i" = "El servidor del OEFA respondio con un error interno (500) para este conjunto de datos remoto.",
-        "i" = "Verifique si el dataset ha cambiado de GUID consultando el catalogo activo con: {.code oefa_list_datastreams()}")
+      c("i" = "The OEFA server responded with an internal error (500) for this remote dataset.",
+        "i" = "Verify if the dataset GUID has changed by consulting the active catalog with: {.code oefa_list_datastreams()}")
     } else NULL
 
     cli::cli_abort(c(
-      "x" = "La API de OEFA respondio con un error (HTTP {status}).",
-      "i" = "Detalle: {msg}",
+      "x" = "The OEFA API responded with an error (HTTP {status}).",
+      "i" = "Detail: {msg}",
       extra_msg
     ))
   }
@@ -77,10 +77,10 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
   res
 }
 
-#' Parsear respuesta JSON a tibble o lista
+#' Parse JSON response to tibble or list
 #'
-#' @param res Objeto httr2_response
-#' @return Objeto parseado (tibble o list)
+#' @param res httr2_response object
+#' @return Parsed object (tibble or list)
 #' @keywords internal
 parse_json_response <- function(res) {
   text <- httr2::resp_body_string(res, encoding = "UTF-8")

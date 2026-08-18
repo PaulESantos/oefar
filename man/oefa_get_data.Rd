@@ -3,7 +3,7 @@
 \name{oefa_get_data}
 \alias{oefa_get_data}
 \alias{oefa_read_datastream}
-\title{Descargar y consultar datos de un conjunto de datos (datastream) de OEFA}
+\title{Download and query data from an OEFA dataset (datastream)}
 \usage{
 oefa_get_data(
   guid,
@@ -30,37 +30,37 @@ oefa_read_datastream(
 )
 }
 \arguments{
-\item{guid}{Carácter. Identificador único global del datastream (ej. "DENUN-SINAD").}
+\item{guid}{Character. Unique global identifier of the datastream (e.g., "DENUN-SINAD").}
 
-\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
+\item{limit}{Optional integer. Maximum number of rows to download.}
 
-\item{offset}{Entero opcional. Registro inicial para paginación.}
+\item{offset}{Optional integer. Initial record offset for pagination.}
 
-\item{pArgument0}{Carácter opcional. Primer parámetro de filtro si el datastream es parametrizado por la API.}
+\item{pArgument0}{Optional character. First filter parameter if the datastream is parameterized by the API.}
 
-\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
+\item{...}{Additional query parameters (e.g., pArgument1, pArgument2).}
 
-\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
+\item{format}{Character. Desired download format: \code{"tibble"} (default), \code{"csv"}, or \code{"json"}.}
 
-\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
+\item{clean_names}{Logical. If \code{TRUE} (default), converts column names to lowercase snake_case.}
 
-\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
+\item{timeout}{Integer. Maximum wait time in seconds for HTTP connection (default 60 seconds).}
 
-\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+\item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} con los registros del conjunto de datos.
+A \code{\link[tibble]{tibble}} containing dataset records.
 }
 \description{
-Descarga los datos de un conjunto de datos (datastream) del portal de Datos Abiertos
-del OEFA (Organismo de Evaluación y Fiscalización Ambiental) por su GUID y los
-retorna en un objeto de clase \code{\link[tibble]{tibble}} con nombres de columnas limpios.
-Permite ajustar el tiempo límite (timeout) de la descarga según el volumen de datos.
+Downloads data from a dataset (datastream) on the OEFA (Environmental Evaluation
+and Enforcement Agency of Peru) Open Data portal using its GUID and returns it as a
+\code{\link[tibble]{tibble}} object with cleaned column names.
+Allows adjusting the download timeout according to data volume.
 }
 \examples{
 \dontrun{
-# Descargar denuncias SINADA con timeout de 120s
-denuncias <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
-print(denuncias)
+# Download SINADA complaints with a 120s timeout
+complaints <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
+print(complaints)
 }
 }

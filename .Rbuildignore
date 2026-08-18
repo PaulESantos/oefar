@@ -4,3 +4,13 @@
 ^vignettes/.*\.R$
 ^\.github$
 ^tests/testthat/_snaps$
+^codecov\.yml$
+^LICENSE\.md$
+^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^oefar_guids_y_funciones\.xlsx$
+^\.agents$
+^cran-comments\.md$
+

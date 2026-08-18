@@ -1,37 +1,37 @@
-#' Listar el catalogo de conjuntos de datos (datastreams) de OEFA
+#' List the OEFA dataset (datastream) catalog
 #'
 #' @description
-#' Obtiene el catalogo de conjuntos de datos (datastreams) disponibles en el portal de Datos
-#' Abiertos del OEFA (Organismo de Evaluación y Fiscalización Ambiental del Perú).
+#' Retrieves the catalog of datasets (datastreams) available on the OEFA (Environmental
+#' Evaluation and Enforcement Agency of Peru) Open Data portal.
 #'
-#' @param category Carácter opcional. Filtrar los conjuntos de datos por nombre o ID de categoría.
-#' @param query Carácter opcional. Filtrar por termino clave de búsqueda en el titulo o descripción.
-#' @param limit Entero opcional. Numero máximo de registros a retornar.
-#' @param offset Entero opcional. Desplazamiento inicial para paginación.
-#' @param api_key Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.
+#' @param category Optional character. Filter datasets by category name or ID.
+#' @param query Optional character. Filter by search keyword in title or description.
+#' @param limit Optional integer. Maximum number of records to return.
+#' @param offset Optional integer. Initial offset for pagination.
+#' @param api_key Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.
 #'
-#' @return Un \code{\link[tibble]{tibble}} estructurado con los metadatos de los datastreams:
+#' @return A structured \code{\link[tibble]{tibble}} with datastream metadata:
 #' \itemize{
-#'   \item \code{guid}: Identificador único del dataset.
-#'   \item \code{title}: Titulo del conjunto de datos.
-#'   \item \code{description}: Descripción detallada del dataset.
-#'   \item \code{category_name}: Nombre de la categoría temática.
-#'   \item \code{category_id}: Identificador de la categoría.
-#'   \item \code{created_at}: Fecha de creación (timestamp Unix o formateado).
-#'   \item \code{modified_at}: Fecha de ultima modificación.
-#'   \item \code{link}: Enlace directo en el portal web.
+#'   \item \code{guid}: Unique dataset identifier.
+#'   \item \code{title}: Title of the dataset.
+#'   \item \code{description}: Detailed description of the dataset.
+#'   \item \code{category_name}: Name of the thematic category.
+#'   \item \code{category_id}: Identifier of the category.
+#'   \item \code{created_at}: Creation date (Unix timestamp or formatted).
+#'   \item \code{modified_at}: Last modification date.
+#'   \item \code{link}: Direct link on the web portal.
 #' }
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' # Listar todos los datastreams
+#' # List all datastreams
 #' catalog <- oefa_list_datastreams()
 #' head(catalog)
 #'
-#' # Buscar datastreams sobre denuncias
-#' denuncias_ds <- oefa_list_datastreams(query = "denuncias")
+#' # Search datastreams about environmental complaints
+#' complaints_ds <- oefa_list_datastreams(query = "denuncias")
 #' }
 oefa_list_datastreams <- function(category = NULL, query = NULL, limit = NULL, offset = NULL, api_key = oefa_get_api_key()) {
   q_params <- list()
@@ -86,12 +86,12 @@ oefa_list_datastreams <- function(category = NULL, query = NULL, limit = NULL, o
   df
 }
 
-#' Obtener información detallada de un datastream específico
+#' Get detailed metadata for a specific datastream
 #'
-#' @param guid Carácter. El GUID (identificador único) del datastream (ej. "DENUN-SINAD").
-#' @param api_key Carácter. API Key de OEFA.
+#' @param guid Character. The GUID (unique identifier) of the datastream (e.g., "DENUN-SINAD").
+#' @param api_key Character. OEFA API Key.
 #'
-#' @return Una lista o tibble con la información completa de metadatos del datastream.
+#' @return A list or tibble containing complete metadata for the datastream.
 #' @export
 #'
 #' @examples
@@ -114,12 +114,12 @@ oefa_get_datastream_info <- function(guid, api_key = oefa_get_api_key()) {
   }
 }
 
-#' Buscar conjuntos de datos en el portal de OEFA
+#' Search datasets on the OEFA portal
 #'
-#' @param query Carácter. Termino de búsqueda (ej. "denuncias", "fiscalizacion", "supervision").
-#' @param api_key Carácter. API Key de OEFA.
+#' @param query Character. Search query term (e.g., "denuncias", "fiscalizacion", "supervision").
+#' @param api_key Character. OEFA API Key.
 #'
-#' @return Un \code{\link[tibble]{tibble}} con los conjuntos de datos coincidentes.
+#' @return A \code{\link[tibble]{tibble}} with matching datasets.
 #' @export
 #'
 #' @examples
@@ -134,11 +134,11 @@ oefa_search_datastreams <- function(query, api_key = oefa_get_api_key()) {
   oefa_list_datastreams(query = query, api_key = api_key)
 }
 
-#' Listar las categorías temáticas de datos del OEFA
+#' List thematic data categories from OEFA
 #'
-#' @param api_key Carácter. API Key de OEFA.
+#' @param api_key Character. OEFA API Key.
 #'
-#' @return Un \code{\link[tibble]{tibble}} con las categorías disponibles y el conteo de datastreams por categoría.
+#' @return A \code{\link[tibble]{tibble}} with available categories and total count of datastreams per category.
 #' @export
 #'
 #' @examples

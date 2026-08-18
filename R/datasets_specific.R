@@ -1,15 +1,15 @@
-# Funciones especificas dedicadas para los 98 conjuntos de datos del OEFA
+# Specific dedicated functions for the 98 OEFA datasets
 
 
 
-#' Descargar dataset: Denuncias SINADA
+#' Download dataset: Denuncias SINADA
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Denuncias SINADA' del OEFA por su GUID (DENUN-SINAD).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Servicio Nacional de Denuncias Ambientales.
+#' Downloads data for dataset 'Denuncias SINADA' from OEFA by its GUID (DENUN-SINAD).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Servicio Nacional de Denuncias Ambientales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{COD_SINADA}{Codificación Única Correspondiente A La Denuncia Ambiental Registrada En El Sistema Informático Del Sinada. [Cadena De Texto]}
 #'   \item{RECEPCION}{Corresponde Al Medio Utilizado Para Comunicar La Denuncia Ambiental Al Oefa, El Cual Puede Ser: Personal, Trámite Documentario, E-Mail, Página Web, App Móvil Y Teléfono. [Cadena De Texto]}
@@ -37,20 +37,20 @@
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_denun_sinad <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "DENUN-SINAD", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos Normativos OEFA
+#' Download dataset: Proyectos Normativos OEFA
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos Normativos OEFA' del OEFA por su GUID (PROYE-NORMA-OEFA).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Proyectos normativos del OEFA.
+#' Downloads data for dataset 'Proyectos Normativos OEFA' from OEFA by its GUID (PROYE-NORMA-OEFA).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Proyectos normativos del OEFA.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MEJ_REG}{Denominación Del Proyecto Normativo [Cadena De Texto]}
 #'   \item{ANALISIS_CR}{Indica Si El Proyecto Normativo Requiere Pasar Por Un Proceso De Análisis De Calidad Regulatoria (Ria) [Cadena De Texto]}
@@ -65,20 +65,20 @@ oefa_get_denun_sinad <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_norma_oefa <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-OEFA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos Normativos Externos
+#' Download dataset: Proyectos Normativos Externos
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos Normativos Externos' del OEFA por su GUID (PROYE-NORMA-EXTER).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Opiniones técnicas a proyectos normativos.
+#' Downloads data for dataset 'Proyectos Normativos Externos' from OEFA by its GUID (PROYE-NORMA-EXTER).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Opiniones técnicas a proyectos normativos.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{ORIGEN}{Procedencia Del Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{TEMA}{Denominación Del Proyectos Normativo Externo [Cadena De Texto]}
@@ -90,20 +90,20 @@ oefa_get_proye_norma_oefa <- function(limit = NULL, offset = NULL, ..., format =
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_norma_exter <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-EXTER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Informes de supervisión 2018
+#' Download dataset: Informes de supervisión 2018
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Informes de supervisión 2018' del OEFA por su GUID (INFOR-DE-LA-COORD-AGRIC).
-#' Pertenece a la sección del Diccionario de Datos: Supervisión ambiental > Supervisiones concluidas.
+#' Downloads data for dataset 'Informes de supervisión 2018' from OEFA by its GUID (INFOR-DE-LA-COORD-AGRIC).
+#' Belongs to Data Dictionary section: Supervisión ambiental > Supervisiones concluidas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{COORDINAC}{Coordinacion Responsable De La Supervisión [Cadena De Texto]}
 #'   \item{MES_SUPERV}{Mes De Ejecución De La Supervisión [Cadena De Texto]}
@@ -124,20 +124,20 @@ oefa_get_proye_norma_exter <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_infor_de_la_coord_agric <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-COORD-AGRIC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Pedidos fiscalía 2019-2025
+#' Download dataset: Pedidos fiscalía 2019-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Pedidos fiscalía 2019-2025' del OEFA por su GUID (PEDID-FISCA-2019-61940).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fiscalías Especializadas en Materia Ambiental.
+#' Downloads data for dataset 'Pedidos fiscalía 2019-2025' from OEFA by its GUID (PEDID-FISCA-2019-61940).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Fiscalías Especializadas en Materia Ambiental.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
 #'   \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
@@ -156,20 +156,20 @@ oefa_get_infor_de_la_coord_agric <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_pedid_fisca_2019_61940 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PEDID-FISCA-2019-61940", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos TI
+#' Download dataset: Proyectos TI
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos TI' del OEFA por su GUID (PROYE-TI-69998).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Acciones estratégicas en TI.
+#' Downloads data for dataset 'Proyectos TI' from OEFA by its GUID (PROYE-TI-69998).
+#' Belongs to Data Dictionary section: Información Institucional > Acciones estratégicas en TI.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{AÑO_PROY}{Año Correspondiente Al Proyecto [Numérico]}
 #'   \item{CATEGORIA}{Categoria De Implementacion De Proyecto [Cadena De Texto]}
@@ -178,20 +178,20 @@ oefa_get_pedid_fisca_2019_61940 <- function(limit = NULL, offset = NULL, ..., fo
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_ti_69998 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-TI-69998", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Seguidores en redes sociales
+#' Download dataset: Seguidores en redes sociales
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Seguidores en redes sociales' del OEFA por su GUID (SEGUI-EN-REDES-SOCIA).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Interacción en redes sociales.
+#' Downloads data for dataset 'Seguidores en redes sociales' from OEFA by its GUID (SEGUI-EN-REDES-SOCIA).
+#' Belongs to Data Dictionary section: Información Institucional > Interacción en redes sociales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MES}{Detalla El Mes En El Que Incorporan Nuevos Seguidores A Las Redes Sociales [Cadena De Texto]}
 #'   \item{RED_SOCI}{Indica En Qué Red Social Se Suman Nuevos Seguidores [Cadena De Texto]}
@@ -199,20 +199,20 @@ oefa_get_proye_ti_69998 <- function(limit = NULL, offset = NULL, ..., format = c
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_segui_en_redes_socia <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEGUI-EN-REDES-SOCIA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Procesos de selección de personal
+#' Download dataset: Procesos de selección de personal
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Procesos de selección de personal' del OEFA por su GUID (PROCE-DE-SELEC-DE-71611).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Personal.
+#' Downloads data for dataset 'Procesos de selección de personal' from OEFA by its GUID (PROCE-DE-SELEC-DE-71611).
+#' Belongs to Data Dictionary section: Información Institucional > Personal.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{REGISTRO}{Número Correlativo Que Hace Referncia A Una Convocatoria Una Convocatoria Cas [Entero]}
 #'   \item{AÑO_SELEC}{Año Que Inició Sus Labores En La Institución [Cadena De Texto]}
@@ -223,20 +223,20 @@ oefa_get_segui_en_redes_socia <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proce_de_selec_de_71611 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-SELEC-DE-71611", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Aporte por regulación
+#' Download dataset: Aporte por regulación
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Aporte por regulación' del OEFA por su GUID (APORT-POR-REGUL-80624).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Recaudación.
+#' Downloads data for dataset 'Aporte por regulación' from OEFA by its GUID (APORT-POR-REGUL-80624).
+#' Belongs to Data Dictionary section: Información Institucional > Recaudación.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{RESOL_APE}{Número De La Resolución De Ejecución Coactiva [Entero]}
 #'   \item{AÑO_EC}{Año De La Resolución De Ejecución Coactiva [Entero]}
@@ -246,20 +246,20 @@ oefa_get_proce_de_selec_de_71611 <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_aport_por_regul_80624 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APORT-POR-REGUL-80624", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Procedimientos de ejecución coactiva: Multas ambientales
+#' Download dataset: Procedimientos de ejecución coactiva: Multas ambientales
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Procedimientos de ejecución coactiva: Multas ambientales' del OEFA por su GUID (PROCE-DE-EJECU-COACT-14377).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Recaudación.
+#' Downloads data for dataset 'Procedimientos de ejecución coactiva: Multas ambientales' from OEFA by its GUID (PROCE-DE-EJECU-COACT-14377).
+#' Belongs to Data Dictionary section: Información Institucional > Recaudación.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{RESOL_EC}{Número De La Resolución De Ejecución Coactiva [Entero]}
 #'   \item{AÑO_REC}{Año De La Resolución De Ejecución Coactiva [Entero]}
@@ -271,20 +271,20 @@ oefa_get_aport_por_regul_80624 <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proce_de_ejecu_coact_14377 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-EJECU-COACT-14377", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Procedimientos de ejecución coactiva: Aporte por regulación
+#' Download dataset: Procedimientos de ejecución coactiva: Aporte por regulación
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Procedimientos de ejecución coactiva: Aporte por regulación' del OEFA por su GUID (PROCE-DE-EJECU-COACT-70031).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Recaudación.
+#' Downloads data for dataset 'Procedimientos de ejecución coactiva: Aporte por regulación' from OEFA by its GUID (PROCE-DE-EJECU-COACT-70031).
+#' Belongs to Data Dictionary section: Información Institucional > Recaudación.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{RESOL_APE}{Número De La Resolución De Ejecución Coactiva [Entero]}
 #'   \item{AÑO_EC}{Año De La Resolución De Ejecución Coactiva [Entero]}
@@ -294,20 +294,20 @@ oefa_get_proce_de_ejecu_coact_14377 <- function(limit = NULL, offset = NULL, ...
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proce_de_ejecu_coact_70031 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-EJECU-COACT-70031", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Información presupuestal
+#' Download dataset: Información presupuestal
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Información presupuestal' del OEFA por su GUID (INFOR-PRESU-89055).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Información presupuestal.
+#' Downloads data for dataset 'Información presupuestal' from OEFA by its GUID (INFOR-PRESU-89055).
+#' Belongs to Data Dictionary section: Información Institucional > Información presupuestal.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
 #'   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
@@ -339,20 +339,20 @@ oefa_get_proce_de_ejecu_coact_70031 <- function(limit = NULL, offset = NULL, ...
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_infor_presu_89055 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-PRESU-89055", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos de inversión
+#' Download dataset: Proyectos de inversión
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos de inversión' del OEFA por su GUID (PROYE-DE-INVER).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Información presupuestal.
+#' Downloads data for dataset 'Proyectos de inversión' from OEFA by its GUID (PROYE-DE-INVER).
+#' Belongs to Data Dictionary section: Información Institucional > Información presupuestal.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{INVERSION}{Descripción De La Inversion [Cadena De Texto]}
 #'   \item{CODIGO}{Código Único De Registro [Entero]}
@@ -365,20 +365,20 @@ oefa_get_infor_presu_89055 <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_de_inver <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-DE-INVER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Publicaciones en redes sociales
+#' Download dataset: Publicaciones en redes sociales
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Publicaciones en redes sociales' del OEFA por su GUID (PUBLI-EN-REDES-SOCIA-45921).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Interacción en redes sociales.
+#' Downloads data for dataset 'Publicaciones en redes sociales' from OEFA by its GUID (PUBLI-EN-REDES-SOCIA-45921).
+#' Belongs to Data Dictionary section: Información Institucional > Interacción en redes sociales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MES}{Indica El Mes En El Que Se Hace La Publicación En La Red Social [Cadena De Texto]}
 #'   \item{FECHA}{Indica La Fecha En La Que Se Hace La Publicación En La Red Social [Fecha]}
@@ -390,20 +390,20 @@ oefa_get_proye_de_inver <- function(limit = NULL, offset = NULL, ..., format = c
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_publi_en_redes_socia_45921 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PUBLI-EN-REDES-SOCIA-45921", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Seguidores en redes sociales 2
+#' Download dataset: Seguidores en redes sociales 2
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Seguidores en redes sociales 2' del OEFA por su GUID (SEGUI-EN-REDES-SOCIA-87207).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Interacción en redes sociales.
+#' Downloads data for dataset 'Seguidores en redes sociales 2' from OEFA by its GUID (SEGUI-EN-REDES-SOCIA-87207).
+#' Belongs to Data Dictionary section: Información Institucional > Interacción en redes sociales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MES}{Detalla El Mes En El Que Incorporan Nuevos Seguidores A Las Redes Sociales [Cadena De Texto]}
 #'   \item{RED_SOCI}{Indica En Qué Red Social Se Suman Nuevos Seguidores [Cadena De Texto]}
@@ -411,20 +411,20 @@ oefa_get_publi_en_redes_socia_45921 <- function(limit = NULL, offset = NULL, ...
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_segui_en_redes_socia_87207 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEGUI-EN-REDES-SOCIA-87207", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Aporte por regulación 2
+#' Download dataset: Aporte por regulación 2
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Aporte por regulación 2' del OEFA por su GUID (APORT-POR-REGUL-66627).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Recaudación.
+#' Downloads data for dataset 'Aporte por regulación 2' from OEFA by its GUID (APORT-POR-REGUL-66627).
+#' Belongs to Data Dictionary section: Información Institucional > Recaudación.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{AÑO_REG}{Año Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{MES}{Mes Correspondiente Al Aporte [Cadena De Texto]}
@@ -434,20 +434,20 @@ oefa_get_segui_en_redes_socia_87207 <- function(limit = NULL, offset = NULL, ...
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_aport_por_regul_66627 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APORT-POR-REGUL-66627", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Actividades Afa 2018-2024
+#' Download dataset: Actividades Afa 2018-2024
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Actividades Afa 2018-2024' del OEFA por su GUID (ACTIV-AFA-36113).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fortalecimiento de capacidades en fiscalización ambiental.
+#' Downloads data for dataset 'Actividades Afa 2018-2024' from OEFA by its GUID (ACTIV-AFA-36113).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Fortalecimiento de capacidades en fiscalización ambiental.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{INICIO}{Se Hace Referencia A La Fecha De Inicio De La Actividad Académica. [Fecha]}
 #'   \item{FECHA_FIN}{Se Hace Referencia A La Fecha De Termino De Actividad Académica. [Fecha]}
@@ -468,20 +468,20 @@ oefa_get_aport_por_regul_66627 <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_activ_afa_36113 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACTIV-AFA-36113", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos Normativos Externos 2018-2025
+#' Download dataset: Proyectos Normativos Externos 2018-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos Normativos Externos 2018-2025' del OEFA por su GUID (PROYE-NORMA-EXTER-65772).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Opiniones técnicas a proyectos normativos.
+#' Downloads data for dataset 'Proyectos Normativos Externos 2018-2025' from OEFA by its GUID (PROYE-NORMA-EXTER-65772).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Opiniones técnicas a proyectos normativos.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{ORIGEN}{Procedencia Del Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{TEMA}{Denominación Del Proyectos Normativo Externo [Cadena De Texto]}
@@ -493,20 +493,20 @@ oefa_get_activ_afa_36113 <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_norma_exter_65772 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-EXTER-65772", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Proyectos Normativos OEFA 2018-2025
+#' Download dataset: Proyectos Normativos OEFA 2018-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Proyectos Normativos OEFA 2018-2025' del OEFA por su GUID (PROYE-NORMA-OEFA-64027).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Proyectos normativos del OEFA.
+#' Downloads data for dataset 'Proyectos Normativos OEFA 2018-2025' from OEFA by its GUID (PROYE-NORMA-OEFA-64027).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Proyectos normativos del OEFA.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MEJ_REG}{Denominación Del Proyecto Normativo [Cadena De Texto]}
 #'   \item{ANALISIS_CR}{Indica Si El Proyecto Normativo Requiere Pasar Por Un Proceso De Análisis De Calidad Regulatoria (Ria) [Cadena De Texto]}
@@ -521,20 +521,20 @@ oefa_get_proye_norma_exter_65772 <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_proye_norma_oefa_64027 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-OEFA-64027", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Denuncias SINADA 2019-2025
+#' Download dataset: Denuncias SINADA 2019-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Denuncias SINADA 2019-2025' del OEFA por su GUID (DENUN-SINAD-61293).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Servicio Nacional de Denuncias Ambientales.
+#' Downloads data for dataset 'Denuncias SINADA 2019-2025' from OEFA by its GUID (DENUN-SINAD-61293).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Servicio Nacional de Denuncias Ambientales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{COD_SINADA}{Codificación Única Correspondiente A La Denuncia Ambiental Registrada En El Sistema Informático Del Sinada. [Cadena De Texto]}
 #'   \item{RECEPCION}{Corresponde Al Medio Utilizado Para Comunicar La Denuncia Ambiental Al Oefa, El Cual Puede Ser: Personal, Trámite Documentario, E-Mail, Página Web, App Móvil Y Teléfono. [Cadena De Texto]}
@@ -562,20 +562,20 @@ oefa_get_proye_norma_oefa_64027 <- function(limit = NULL, offset = NULL, ..., fo
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_denun_sinad_61293 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "DENUN-SINAD-61293", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Resoluciones directorales 2018-2025
+#' Download dataset: Resoluciones directorales 2018-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Resoluciones directorales 2018-2025' del OEFA por su GUID (RESOL-DIREC-50309).
-#' Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Resoluciones Emitidas.
+#' Downloads data for dataset 'Resoluciones directorales 2018-2025' from OEFA by its GUID (RESOL-DIREC-50309).
+#' Belongs to Data Dictionary section: Fiscalización Ambiental > Resoluciones Emitidas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{N°_RESOL}{Número De Resolución Directoral Correspondiente [Cadena De Texto]}
 #'   \item{FECHA_RD}{Fecha de Resolución Directoral [Fecha]}
@@ -590,20 +590,20 @@ oefa_get_denun_sinad_61293 <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_resol_direc_50309 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-DIREC-50309", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Resoluciones subdirectorales 2018-2025
+#' Download dataset: Resoluciones subdirectorales 2018-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Resoluciones subdirectorales 2018-2025' del OEFA por su GUID (RESOL-SUBDI).
-#' Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Resoluciones Emitidas.
+#' Downloads data for dataset 'Resoluciones subdirectorales 2018-2025' from OEFA by its GUID (RESOL-SUBDI).
+#' Belongs to Data Dictionary section: Fiscalización Ambiental > Resoluciones Emitidas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{N°_RESOL}{Número De La Resolución Subdirectoral [Cadena De Texto]}
 #'   \item{FECHA_RSD}{Fecha De Emision De La Resolución Subdirectoral [Fecha]}
@@ -621,20 +621,20 @@ oefa_get_resol_direc_50309 <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_resol_subdi <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-SUBDI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Registros actos administrativos 2021-2025
+#' Download dataset: Registros actos administrativos 2021-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Registros actos administrativos 2021-2025' del OEFA por su GUID (REGIS-ACTOS-ADMIN-96376).
-#' Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Apelaciones Resueltas.
+#' Downloads data for dataset 'Registros actos administrativos 2021-2025' from OEFA by its GUID (REGIS-ACTOS-ADMIN-96376).
+#' Belongs to Data Dictionary section: Fiscalización Ambiental > Apelaciones Resueltas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_EXPE}{Número de Expediente Indicado en la Resolución Correspondiente [Cadena De Texto]}
 #'   \item{RAZON_SO}{Persona Natural O Jurídica, Así Como Cualquier Otra Forma Asociativa De Empresa O Patrimonio Autónomo, Que Desarrolla Una Actividad Económica, Servicio O Función Sujeta A Supervisión De La Autoridad De Supervisión. [Cadena De Texto]}
@@ -667,20 +667,20 @@ oefa_get_resol_subdi <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_regis_actos_admin_96376 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "REGIS-ACTOS-ADMIN-96376", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Expedientes resueltos 2021-2025
+#' Download dataset: Expedientes resueltos 2021-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Expedientes resueltos 2021-2025' del OEFA por su GUID (EXPED-RESUE-15640).
-#' Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Apelaciones Resueltas.
+#' Downloads data for dataset 'Expedientes resueltos 2021-2025' from OEFA by its GUID (EXPED-RESUE-15640).
+#' Belongs to Data Dictionary section: Fiscalización Ambiental > Apelaciones Resueltas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{SECTOR}{Rama O División De La Actividad Económica Al Que Pertenece El Administrado. [Cadena De Texto]}
 #'   \item{NRO_EXPE_ADM}{Número De Expediente Que Se Genera Al Iniciar Un Procedimiento Administrativo Sancionador [Cadena De Texto]}
@@ -696,20 +696,20 @@ oefa_get_regis_actos_admin_96376 <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_exped_resue_15640 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EXPED-RESUE-15640", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Resolución con multa firmes 2019-2025
+#' Download dataset: Resolución con multa firmes 2019-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Resolución con multa firmes 2019-2025' del OEFA por su GUID (RESOL-CON-MULTA-FIRME).
-#' Pertenece a la sección del Diccionario de Datos: Fiscalización Ambiental > Resoluciones Emitidas.
+#' Downloads data for dataset 'Resolución con multa firmes 2019-2025' from OEFA by its GUID (RESOL-CON-MULTA-FIRME).
+#' Belongs to Data Dictionary section: Fiscalización Ambiental > Resoluciones Emitidas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MES}{Mes de Imposición de Multa [Cadena De Texto]}
 #'   \item{ADMINIST}{Administrado Mencionado en Resolución Corrrespondiente [Cadena De Texto]}
@@ -730,20 +730,20 @@ oefa_get_exped_resue_15640 <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-CON-MULTA-FIRME", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Medidas administrativas de las direcciones de supervisión
+#' Download dataset: Medidas administrativas de las direcciones de supervisión
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Medidas administrativas de las direcciones de supervisión' del OEFA por su GUID (MEDID-ADMIN-DE-LAS-DIREC).
-#' Pertenece a la sección del Diccionario de Datos: Supervisión ambiental > Medidas Administrativas.
+#' Downloads data for dataset 'Medidas administrativas de las direcciones de supervisión' from OEFA by its GUID (MEDID-ADMIN-DE-LAS-DIREC).
+#' Belongs to Data Dictionary section: Supervisión ambiental > Medidas Administrativas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{SECTOR}{Sector [Cadena De Texto]}
 #'   \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
@@ -770,34 +770,34 @@ oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_medid_admin_de_las_direc <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "MEDID-ADMIN-DE-LAS-DIREC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Informes de la Dirección de Supervisión 2019-2025
+#' Download dataset: Informes de la Dirección de Supervisión 2019-2025
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_infor_de_la_direc_28304 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-DIREC-28304", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Informes de la Dirección de Supervisión 2018
+#' Download dataset: Informes de la Dirección de Supervisión 2018
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_infor_de_la_direc_de <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-DIREC-DE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Componente ambiental Suelo
+#' Download dataset: EAC - Componente ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Componente ambiental Suelo' del OEFA por su GUID (EAC-COMPO-AMBIE-SUELO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Componente ambiental Suelo' from OEFA by its GUID (EAC-COMPO-AMBIE-SUELO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -822,20 +822,20 @@ oefa_get_infor_de_la_direc_de <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Sedimento 2020-2025
+#' Download dataset: EAC - Sedimento 2020-2025
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Sedimento 2020-2025' del OEFA por su GUID (EAC-SEDIM-91086).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Sedimento 2020-2025' from OEFA by its GUID (EAC-SEDIM-91086).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -860,20 +860,20 @@ oefa_get_eac_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_sedim_91086 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-SEDIM-91086", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Sedimento
+#' Download dataset: EAC - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Sedimento' del OEFA por su GUID (EAC-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Sedimento' from OEFA by its GUID (EAC-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -898,27 +898,27 @@ oefa_get_eac_sedim_91086 <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Ruido
+#' Download dataset: EAC - Ruido
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_eac_ruido <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-RUIDO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Componente Hidrobiología
+#' Download dataset: EAC - Componente Hidrobiología
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Componente Hidrobiología' del OEFA por su GUID (EAC-COMPO-HIDRO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Componente Hidrobiología' from OEFA by its GUID (EAC-COMPO-HIDRO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -946,20 +946,20 @@ oefa_get_eac_ruido <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Biota
+#' Download dataset: EAC - Biota
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Biota' del OEFA por su GUID (EAC-BIOTA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Biota' from OEFA by its GUID (EAC-BIOTA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -983,20 +983,20 @@ oefa_get_eac_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_biota <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-BIOTA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Componente ambiental Aire
+#' Download dataset: EAC - Componente ambiental Aire
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Componente ambiental Aire' del OEFA por su GUID (EAC-COMPO-AMBIE-AIRE).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Componente ambiental Aire' from OEFA by its GUID (EAC-COMPO-AMBIE-AIRE).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1020,20 +1020,20 @@ oefa_get_eac_biota <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAC - Componente ambiental Agua
+#' Download dataset: EAC - Componente ambiental Agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAC - Componente ambiental Agua' del OEFA por su GUID (EAC-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+#' Downloads data for dataset 'EAC - Componente ambiental Agua' from OEFA by its GUID (EAC-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1057,38 +1057,38 @@ oefa_get_eac_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eac_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: IPASH - Componente Ambiental Suelo
+#' Download dataset: IPASH - Componente Ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'IPASH - Componente Ambiental Suelo' del OEFA por su GUID (IPASH-COMPO-AMBIE-SUELO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
+#' Downloads data for dataset 'IPASH - Componente Ambiental Suelo' from OEFA by its GUID (IPASH-COMPO-AMBIE-SUELO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_ipash_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Componente ambiental Suelo
+#' Download dataset: EAS - Componente ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAS - Componente ambiental Suelo' del OEFA por su GUID (EAS-COMPO-AMBIE-SUELO-18111).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
+#' Downloads data for dataset 'EAS - Componente ambiental Suelo' from OEFA by its GUID (EAS-COMPO-AMBIE-SUELO-18111).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1113,20 +1113,20 @@ oefa_get_ipash_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eas_compo_ambie_suelo_18111 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-SUELO-18111", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Componente Hidrobiología
+#' Download dataset: EAS - Componente Hidrobiología
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAS - Componente Hidrobiología' del OEFA por su GUID (EAS-COMPO-HIDRO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
+#' Downloads data for dataset 'EAS - Componente Hidrobiología' from OEFA by its GUID (EAS-COMPO-HIDRO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1154,27 +1154,27 @@ oefa_get_eas_compo_ambie_suelo_18111 <- function(limit = NULL, offset = NULL, ..
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eas_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Componente ambiental Aire
+#' Download dataset: EAS - Componente ambiental Aire
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_eas_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Componente Hidrobiología 2
+#' Download dataset: EAS - Componente Hidrobiología 2
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAS - Componente Hidrobiología 2' del OEFA por su GUID (EAS-COMPO-HIDRO-66459).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
+#' Downloads data for dataset 'EAS - Componente Hidrobiología 2' from OEFA by its GUID (EAS-COMPO-HIDRO-66459).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1202,20 +1202,20 @@ oefa_get_eas_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eas_compo_hidro_66459 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-HIDRO-66459", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Biota
+#' Download dataset: EAT - Biota
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Biota' del OEFA por su GUID (EAT-COMPO-BIOLO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Biota' from OEFA by its GUID (EAT-COMPO-BIOLO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1239,128 +1239,128 @@ oefa_get_eas_compo_hidro_66459 <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_compo_biolo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-BIOLO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: ISIM - Componente Ambiental Suelo
+#' Download dataset: ISIM - Componente Ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'ISIM - Componente Ambiental Suelo' del OEFA por su GUID (ISIM-COMPO-AMBIE-SUELO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
+#' Downloads data for dataset 'ISIM - Componente Ambiental Suelo' from OEFA by its GUID (ISIM-COMPO-AMBIE-SUELO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_isim_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: ISIM - Sedimento
+#' Download dataset: ISIM - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'ISIM - Sedimento' del OEFA por su GUID (ISIM-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
+#' Downloads data for dataset 'ISIM - Sedimento' from OEFA by its GUID (ISIM-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_isim_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: ISIM - Hidrobiología
+#' Download dataset: ISIM - Hidrobiología
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'ISIM - Hidrobiología' del OEFA por su GUID (ISIM-HIDRO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
+#' Downloads data for dataset 'ISIM - Hidrobiología' from OEFA by its GUID (ISIM-HIDRO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_isim_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: ISIM - Componente Ambiental Agua
+#' Download dataset: ISIM - Componente Ambiental Agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'ISIM - Componente Ambiental Agua' del OEFA por su GUID (ISIM-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
+#' Downloads data for dataset 'ISIM - Componente Ambiental Agua' from OEFA by its GUID (ISIM-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_isim_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: IPASH - Sedimento
+#' Download dataset: IPASH - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'IPASH - Sedimento' del OEFA por su GUID (IPASH-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
+#' Downloads data for dataset 'IPASH - Sedimento' from OEFA by its GUID (IPASH-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_ipash_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: IPASH - Componente Ambiental Agua
+#' Download dataset: IPASH - Componente Ambiental Agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'IPASH - Componente Ambiental Agua' del OEFA por su GUID (IPASH-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
+#' Downloads data for dataset 'IPASH - Componente Ambiental Agua' from OEFA by its GUID (IPASH-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_ipash_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Componente ambiental Suelo
+#' Download dataset: EAF - Componente ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAF - Componente ambiental Suelo' del OEFA por su GUID (EAF-COMPO-AMBIE-SUELO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+#' Downloads data for dataset 'EAF - Componente ambiental Suelo' from OEFA by its GUID (EAF-COMPO-AMBIE-SUELO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1385,20 +1385,20 @@ oefa_get_ipash_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., fo
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eaf_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Sedimento
+#' Download dataset: EAF - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAF - Sedimento' del OEFA por su GUID (EAF-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+#' Downloads data for dataset 'EAF - Sedimento' from OEFA by its GUID (EAF-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1423,20 +1423,20 @@ oefa_get_eaf_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eaf_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Componente Hidrobiología
+#' Download dataset: EAF - Componente Hidrobiología
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAF - Componente Hidrobiología' del OEFA por su GUID (EAF-COMPO-HIDRO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+#' Downloads data for dataset 'EAF - Componente Hidrobiología' from OEFA by its GUID (EAF-COMPO-HIDRO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1464,20 +1464,20 @@ oefa_get_eaf_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eaf_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Componente ambiental Aire
+#' Download dataset: EAF - Componente ambiental Aire
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAF - Componente ambiental Aire' del OEFA por su GUID (EAF-COMPO-AMBIE-AIRE).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+#' Downloads data for dataset 'EAF - Componente ambiental Aire' from OEFA by its GUID (EAF-COMPO-AMBIE-AIRE).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1501,20 +1501,20 @@ oefa_get_eaf_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eaf_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Componente ambiental agua
+#' Download dataset: EAF - Componente ambiental agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAF - Componente ambiental agua' del OEFA por su GUID (EAF-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
+#' Downloads data for dataset 'EAF - Componente ambiental agua' from OEFA by its GUID (EAF-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales focales (EAF).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1538,27 +1538,27 @@ oefa_get_eaf_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eaf_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAF - Flora y Fauna
+#' Download dataset: EAF - Flora y Fauna
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_eaf_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Sedimento
+#' Download dataset: EAS - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAS - Sedimento' del OEFA por su GUID (EAS-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
+#' Downloads data for dataset 'EAS - Sedimento' from OEFA by its GUID (EAS-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1583,27 +1583,27 @@ oefa_get_eaf_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eas_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Flora y Fauna
+#' Download dataset: EAS - Flora y Fauna
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_eas_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAS - Componente ambiental Agua
+#' Download dataset: EAS - Componente ambiental Agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAS - Componente ambiental Agua' del OEFA por su GUID (EAS-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
+#' Downloads data for dataset 'EAS - Componente ambiental Agua' from OEFA by its GUID (EAS-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de seguimiento (EAS).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1627,20 +1627,20 @@ oefa_get_eas_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eas_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Componente ambiental Suelo
+#' Download dataset: EAT - Componente ambiental Suelo
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Componente ambiental Suelo' del OEFA por su GUID (EAT-COMPO-AMBIE-SUELO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Componente ambiental Suelo' from OEFA by its GUID (EAT-COMPO-AMBIE-SUELO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1665,20 +1665,20 @@ oefa_get_eas_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Sedimento
+#' Download dataset: EAT - Sedimento
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Sedimento' del OEFA por su GUID (EAT-SEDIM).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Sedimento' from OEFA by its GUID (EAT-SEDIM).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1703,20 +1703,20 @@ oefa_get_eat_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Ruido y Vibraciones
+#' Download dataset: EAT - Ruido y Vibraciones
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Ruido y Vibraciones' del OEFA por su GUID (EAT-RUIDO-Y-VIBRA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Ruido y Vibraciones' from OEFA by its GUID (EAT-RUIDO-Y-VIBRA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1739,20 +1739,20 @@ oefa_get_eat_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_ruido_y_vibra <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-RUIDO-Y-VIBRA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Componente Biota (Hidrobiología)
+#' Download dataset: EAT - Componente Biota (Hidrobiología)
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Componente Biota (Hidrobiología)' del OEFA por su GUID (EAT-COMPO-HIDRO).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Componente Biota (Hidrobiología)' from OEFA by its GUID (EAT-COMPO-HIDRO).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1780,20 +1780,20 @@ oefa_get_eat_ruido_y_vibra <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Biota (Flora y Fauna)
+#' Download dataset: EAT - Biota (Flora y Fauna)
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Biota (Flora y Fauna)' del OEFA por su GUID (EAT-FLORA-Y-FAUNA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Biota (Flora y Fauna)' from OEFA by its GUID (EAT-FLORA-Y-FAUNA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1817,27 +1817,27 @@ oefa_get_eat_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Flora y Fauna - EAT
+#' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_flora_y_fauna_eat_82093 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "FLORA-Y-FAUNA-EAT-82093", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Componente ambiental Aire
+#' Download dataset: EAT - Componente ambiental Aire
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Componente ambiental Aire' del OEFA por su GUID (EAT-COMPO-AMBIE-AIRE).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Componente ambiental Aire' from OEFA by its GUID (EAT-COMPO-AMBIE-AIRE).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1861,20 +1861,20 @@ oefa_get_flora_y_fauna_eat_82093 <- function(limit = NULL, offset = NULL, ..., f
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: EAT - Componente ambiental Agua
+#' Download dataset: EAT - Componente ambiental Agua
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'EAT - Componente ambiental Agua' del OEFA por su GUID (EAT-COMPO-AMBIE-AGUA).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'EAT - Componente ambiental Agua' from OEFA by its GUID (EAT-COMPO-AMBIE-AGUA).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -1898,27 +1898,27 @@ oefa_get_eat_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eat_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Resoluciones TFA - PRueba
+#' Download dataset: Resoluciones TFA - PRueba
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_resol_tfa_prueb <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-TFA-PRUEB", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Pedidos fiscalía 2018
+#' Download dataset: Pedidos fiscalía 2018
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Pedidos fiscalía 2018' del OEFA por su GUID (PEDID-FISCA-2018).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fiscalías Especializadas en Materia Ambiental.
+#' Downloads data for dataset 'Pedidos fiscalía 2018' from OEFA by its GUID (PEDID-FISCA-2018).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Fiscalías Especializadas en Materia Ambiental.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
 #'   \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
@@ -1936,76 +1936,76 @@ oefa_get_resol_tfa_prueb <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_pedid_fisca_2018 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PEDID-FISCA-2018", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Identificación de las evaluaciones ambientales
+#' Download dataset: Identificación de las evaluaciones ambientales
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_ident_de_las_evalu_ambie <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-LAS-EVALU-AMBIE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Identificación de acciones de fiscalización ambiental
+#' Download dataset: Identificación de acciones de fiscalización ambiental
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_ident_de_accio_de_fisca <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-ACCIO-DE-FISCA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Identificación de acciones de supervisión ambiental
+#' Download dataset: Identificación de acciones de supervisión ambiental
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_ident_de_accio_de_super <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-ACCIO-DE-SUPER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Prueba IPASH
+#' Download dataset: Prueba IPASH
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_prueb_ipash <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PRUEB-IPASH", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Prueba ISIM
+#' Download dataset: Prueba ISIM
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_prueb_isim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PRUEB-ISIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente ambiental Agua - EAT
+#' Download dataset: Componente ambiental Agua - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_compo_ambie_agua_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-AGUA-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente ambiental Sedimento - EAT
+#' Download dataset: Componente ambiental Sedimento - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente hidroquímico - EAT
+#' Download dataset: Componente hidroquímico - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_compo_hidro_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-HIDRO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente biológico - EAT
+#' Download dataset: Componente biológico - EAT
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Componente biológico - EAT' del OEFA por su GUID (COMPO-BIOLO-EAT).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'Componente biológico - EAT' from OEFA by its GUID (COMPO-BIOLO-EAT).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -2033,20 +2033,20 @@ oefa_get_compo_hidro_eat <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_compo_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-BIOLO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente ambiental Biológico - EAT
+#' Download dataset: Componente ambiental Biológico - EAT
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Componente ambiental Biológico - EAT' del OEFA por su GUID (COMPO-AMBIE-BIOLO-EAT).
-#' Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
+#' Downloads data for dataset 'Componente ambiental Biológico - EAT' from OEFA by its GUID (COMPO-AMBIE-BIOLO-EAT).
+#' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación Ambiental Temprana (EAT).
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
 #'   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
@@ -2074,83 +2074,83 @@ oefa_get_compo_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_compo_ambie_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-BIOLO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Componente ambiental Suelo - EAT
+#' Download dataset: Componente ambiental Suelo - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_compo_ambie_suelo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-SUELO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Evaluaciones ambientales de causalidad (EAC)
+#' Download dataset: Evaluaciones ambientales de causalidad (EAC)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_evalu_ambie_causal_eac <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-CAUSAL-EAC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Evaluaciones ambientales tempranas (EAT)
+#' Download dataset: Evaluaciones ambientales tempranas (EAT)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_evalu_ambie_temp_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-TEMP-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Flora y Fauna - EAT
+#' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_flora_y_fauna_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "FLORA-Y-FAUNA-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Evaluaciones ambientales de seguimiento (EAS)
+#' Download dataset: Evaluaciones ambientales de seguimiento (EAS)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_evalu_ambie_de_segui <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-DE-SEGUI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Evaluaciones ambientales focalizadas (EAF)
+#' Download dataset: Evaluaciones ambientales focalizadas (EAF)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_evalu_ambie_foca_eaf <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-FOCA-EAF", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
+#' Download dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_ident_de_pasiv_ambie_del <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-PASIV-AMBIE-DEL", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
+#' Download dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_evalu_ambie_para_la_ident <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-PARA-LA-IDENT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Supervisiones concluidas - Informes elaborados
+#' Download dataset: Supervisiones concluidas - Informes elaborados
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-ELABO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Medidas administrativas
+#' Download dataset: Medidas administrativas
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Medidas administrativas' del OEFA por su GUID (MEDID-ADMIN).
-#' Pertenece a la sección del Diccionario de Datos: Supervisión ambiental > Medidas Administrativas.
+#' Downloads data for dataset 'Medidas administrativas' from OEFA by its GUID (MEDID-ADMIN).
+#' Belongs to Data Dictionary section: Supervisión ambiental > Medidas Administrativas.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{SECTOR}{Sector [Cadena De Texto]}
 #'   \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
@@ -2177,27 +2177,27 @@ oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_medid_admin <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "MEDID-ADMIN", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Resoluciones emitidas
+#' Download dataset: Resoluciones emitidas
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_resol_emiti <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-EMITI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Aprobación de la selección de personal
+#' Download dataset: Aprobación de la selección de personal
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Aprobación de la selección de personal' del OEFA por su GUID (APROB-DEL-SELE).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Personal.
+#' Downloads data for dataset 'Aprobación de la selección de personal' from OEFA by its GUID (APROB-DEL-SELE).
+#' Belongs to Data Dictionary section: Información Institucional > Personal.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{REGISTRO}{Número Correlativo Que Hace Referncia A Una Convocatoria Una Convocatoria Cas [Entero]}
 #'   \item{AÑO_SELEC}{Año Que Inició Sus Labores En La Institución [Cadena De Texto]}
@@ -2208,27 +2208,27 @@ oefa_get_resol_emiti <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_aprob_del_sele <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APROB-DEL-SELE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
+#' Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_coord_con_las_fisca_espec <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COORD-CON-LAS-FISCA-ESPEC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Actividades AFA
+#' Download dataset: Actividades AFA
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Actividades AFA' del OEFA por su GUID (ACTIV-AFA).
-#' Pertenece a la sección del Diccionario de Datos: Politicas y Estrategias > Fortalecimiento de capacidades en fiscalización ambiental.
+#' Downloads data for dataset 'Actividades AFA' from OEFA by its GUID (ACTIV-AFA).
+#' Belongs to Data Dictionary section: Politicas y Estrategias > Fortalecimiento de capacidades en fiscalización ambiental.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{INICIO}{Se Hace Referencia A La Fecha De Inicio De La Actividad Académica. [Fecha]}
 #'   \item{FECHA_FIN}{Se Hace Referencia A La Fecha De Termino De Actividad Académica. [Fecha]}
@@ -2249,41 +2249,41 @@ oefa_get_coord_con_las_fisca_espec <- function(limit = NULL, offset = NULL, ...,
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_activ_afa <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACTIV-AFA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Opiniones Técnicas a proyectos normativos
+#' Download dataset: Opiniones Técnicas a proyectos normativos
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_opin_tecni <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "OPIN-TECNI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Atención de denuncias en el SINADA
+#' Download dataset: Atención de denuncias en el SINADA
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_aten_denun_en_el_sna_ambie <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ATEN-DENUN-EN-EL-SNA-AMBIE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Acciones estratégicas en TI
+#' Download dataset: Acciones estratégicas en TI
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_accio_estra_en_ti <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACCIO-ESTRA-EN-TI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Información presupuestal
+#' Download dataset: Información presupuestal
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Información presupuestal' del OEFA por su GUID (EJE-DEL-PRESU).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Información presupuestal.
+#' Downloads data for dataset 'Información presupuestal' from OEFA by its GUID (EJE-DEL-PRESU).
+#' Belongs to Data Dictionary section: Información Institucional > Información presupuestal.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
 #'   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
@@ -2315,20 +2315,20 @@ oefa_get_accio_estra_en_ti <- function(limit = NULL, offset = NULL, ..., format 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_eje_del_presu <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EJE-DEL-PRESU", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Interacción en redes sociales
+#' Download dataset: Interacción en redes sociales
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Interacción en redes sociales' del OEFA por su GUID (INTER-EN-REDES-SOCIA).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Interacción en redes sociales.
+#' Downloads data for dataset 'Interacción en redes sociales' from OEFA by its GUID (INTER-EN-REDES-SOCIA).
+#' Belongs to Data Dictionary section: Información Institucional > Interacción en redes sociales.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{MES}{Detalla El Mes En El Que Incorporan Nuevos Seguidores A Las Redes Sociales [Cadena De Texto]}
 #'   \item{RED_SOCI}{Indica En Qué Red Social Se Suman Nuevos Seguidores [Cadena De Texto]}
@@ -2336,27 +2336,27 @@ oefa_get_eje_del_presu <- function(limit = NULL, offset = NULL, ..., format = c(
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_inter_en_redes_socia <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INTER-EN-REDES-SOCIA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Información del personal
+#' Download dataset: Información del personal
 #' @inheritParams oefa_get_data
 #' @export
 oefa_get_infor_del_perso <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DEL-PERSO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
 
-#' Descargar dataset: Recaudación
+#' Download dataset: Recaudación
 #'
 #' @description
-#' Descarga los datos del conjunto de datos 'Recaudación' del OEFA por su GUID (RECAU-84768).
-#' Pertenece a la sección del Diccionario de Datos: Información Institucional > Recaudación.
+#' Downloads data for dataset 'Recaudación' from OEFA by its GUID (RECAU-84768).
+#' Belongs to Data Dictionary section: Información Institucional > Recaudación.
 #'
 #' @details
-#' Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+#' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
 #'   \item{AÑO_REG}{Año Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{MES}{Mes Correspondiente Al Aporte [Cadena De Texto]}
@@ -2366,7 +2366,7 @@ oefa_get_infor_del_perso <- function(limit = NULL, offset = NULL, ..., format = 
 #' }
 #'
 #' @inheritParams oefa_get_data
-#' @return Un \code{\link[tibble]{tibble}} con los registros del dataset.
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 oefa_get_recau_84768 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RECAU-84768", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)

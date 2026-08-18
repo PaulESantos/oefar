@@ -2,7 +2,7 @@
 % Please edit documentation in R/datasets_specific.R
 \name{oefa_get_infor_presu_89055}
 \alias{oefa_get_infor_presu_89055}
-\title{Descargar dataset: Información presupuestal}
+\title{Download dataset: Información presupuestal}
 \usage{
 oefa_get_infor_presu_89055(
   limit = NULL,
@@ -15,29 +15,29 @@ oefa_get_infor_presu_89055(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
+\item{limit}{Optional integer. Maximum number of rows to download.}
 
-\item{offset}{Entero opcional. Registro inicial para paginación.}
+\item{offset}{Optional integer. Initial record offset for pagination.}
 
-\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
+\item{...}{Additional query parameters (e.g., pArgument1, pArgument2).}
 
-\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
+\item{format}{Character. Desired download format: \code{"tibble"} (default), \code{"csv"}, or \code{"json"}.}
 
-\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
+\item{clean_names}{Logical. If \code{TRUE} (default), converts column names to lowercase snake_case.}
 
-\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
+\item{timeout}{Integer. Maximum wait time in seconds for HTTP connection (default 60 seconds).}
 
-\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+\item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} con los registros del dataset.
+A \code{\link[tibble]{tibble}} with dataset records.
 }
 \description{
-Descarga los datos del conjunto de datos 'Información presupuestal' del OEFA por su GUID (INFOR-PRESU-89055).
-Pertenece a la sección del Diccionario de Datos: Información Institucional > Información presupuestal.
+Downloads data for dataset 'Información presupuestal' from OEFA by its GUID (INFOR-PRESU-89055).
+Belongs to Data Dictionary section: Información Institucional > Información presupuestal.
 }
 \details{
-Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 \describe{
   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}

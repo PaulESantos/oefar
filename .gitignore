@@ -9,3 +9,5 @@ tests/testthat/_snaps/
 .httr-oauth
 .DS_Store
 .quarto
+docs
+.agents

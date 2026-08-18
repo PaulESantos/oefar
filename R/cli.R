@@ -1,13 +1,13 @@
-#' Instalar el ejecutable CLI de oefar en el sistema
+#' Install the oefar CLI executable on the system
 #'
 #' @description
-#' Instala la herramienta de línea de comandos `oefar` en el sistema utilizando
-#' el paquete \pkg{Rapp}.
+#' Installs the `oefar` command line interface tool on the system using
+#' the \pkg{Rapp} package.
 #'
-#' @param destdir Carácter opcional. Directorio destino donde se instalará el ejecutable.
-#'   Por defecto utiliza el directorio estándar de ejecutables del sistema.
+#' @param destdir Optional character. Target directory where the executable will be installed.
+#'   By default, uses the standard system executable directory.
 #'
-#' @return La ruta absoluta del ejecutable instalado (de forma invisible).
+#' @return The absolute path of the installed executable (invisibly).
 #' @export
 #'
 #' @examples

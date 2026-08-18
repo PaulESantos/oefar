@@ -2,17 +2,17 @@
 % Please edit documentation in R/utils.R
 \name{parse_json_response}
 \alias{parse_json_response}
-\title{Parsear respuesta JSON a tibble o lista}
+\title{Parse JSON response to tibble or list}
 \usage{
 parse_json_response(res)
 }
 \arguments{
-\item{res}{Objeto httr2_response}
+\item{res}{httr2_response object}
 }
 \value{
-Objeto parseado (tibble o list)
+Parsed object (tibble or list)
 }
 \description{
-Parsear respuesta JSON a tibble o lista
+Parse JSON response to tibble or list
 }
 \keyword{internal}

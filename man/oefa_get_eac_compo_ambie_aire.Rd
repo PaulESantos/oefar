@@ -2,7 +2,7 @@
 % Please edit documentation in R/datasets_specific.R
 \name{oefa_get_eac_compo_ambie_aire}
 \alias{oefa_get_eac_compo_ambie_aire}
-\title{Descargar dataset: EAC - Componente ambiental Aire}
+\title{Download dataset: EAC - Componente ambiental Aire}
 \usage{
 oefa_get_eac_compo_ambie_aire(
   limit = NULL,
@@ -15,29 +15,29 @@ oefa_get_eac_compo_ambie_aire(
 )
 }
 \arguments{
-\item{limit}{Entero opcional. Cantidad máxima de filas a descargar.}
+\item{limit}{Optional integer. Maximum number of rows to download.}
 
-\item{offset}{Entero opcional. Registro inicial para paginación.}
+\item{offset}{Optional integer. Initial record offset for pagination.}
 
-\item{...}{Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).}
+\item{...}{Additional query parameters (e.g., pArgument1, pArgument2).}
 
-\item{format}{Carácter. Formato de descarga deseado: \code{"tibble"} (por defecto), \code{"csv"} o \code{"json"}.}
+\item{format}{Character. Desired download format: \code{"tibble"} (default), \code{"csv"}, or \code{"json"}.}
 
-\item{clean_names}{Lógico. Si es \code{TRUE} (por defecto), convierte los nombres de las columnas a minúsculas con guiones bajos.}
+\item{clean_names}{Logical. If \code{TRUE} (default), converts column names to lowercase snake_case.}
 
-\item{timeout}{Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por defecto 60 segundos).}
+\item{timeout}{Integer. Maximum wait time in seconds for HTTP connection (default 60 seconds).}
 
-\item{api_key}{Carácter. API Key de OEFA. Por defecto utiliza \code{oefa_get_api_key()}.}
+\item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
 \value{
-Un \code{\link[tibble]{tibble}} con los registros del dataset.
+A \code{\link[tibble]{tibble}} with dataset records.
 }
 \description{
-Descarga los datos del conjunto de datos 'EAC - Componente ambiental Aire' del OEFA por su GUID (EAC-COMPO-AMBIE-AIRE).
-Pertenece a la sección del Diccionario de Datos: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
+Downloads data for dataset 'EAC - Componente ambiental Aire' from OEFA by its GUID (EAC-COMPO-AMBIE-AIRE).
+Belongs to Data Dictionary section: Evaluación ambiental > Evaluaciones ambientales de causalidad (EAC).
 }
 \details{
-Estructura principal de campos según el Diccionario de Datos Oficial del OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 \describe{
   \item{NRO_INFO}{Número Del Informe Correspondiente [Cadena De Texto]}
   \item{EVALUACION}{Nombre De Evaluacion [Cadena De Texto]}
