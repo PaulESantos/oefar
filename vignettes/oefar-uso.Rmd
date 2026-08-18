@@ -10,8 +10,7 @@ vignette: >
 ```{prefix_chunk, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  eval = FALSE
+  comment = "#>"
 )
 ```
 
@@ -60,7 +59,8 @@ OEFA_API_KEY="TU_API_KEY_AQUI"
 ### Listar categorías temáticas
 El OEFA organiza sus conjuntos de datos en distintas categorías temáticas. Puede obtener el listado completo y el conteo de datastreams por categoría con `oefa_list_categories()`:
 
-```r
+```{r}
+library(oefar)
 # Obtener las categorías de datos disponibles
 categorias <- oefa_list_categories()
 print(categorias)
@@ -69,7 +69,7 @@ print(categorias)
 ### Listar el catálogo completo de datastreams
 Para ver los conjuntos de datos disponibles en el portal, utilice `oefa_list_datastreams()`:
 
-```r
+```{r}
 # Listar todos los datastreams disponibles
 catalogo <- oefa_list_datastreams()
 head(catalogo[, c("guid", "title", "category_name")])
@@ -78,7 +78,7 @@ head(catalogo[, c("guid", "title", "category_name")])
 ### Buscar conjuntos de datos por palabras clave
 Puede filtrar el catálogo buscando términos específicos en los títulos o descripciones de los datasets mediante `oefa_search_datastreams()`:
 
-```r
+```{r}
 # Buscar datasets relacionados con denuncias ambientales
 denuncias_ds <- oefa_search_datastreams("denuncias")
 print(denuncias_ds[, c("guid", "title")])
@@ -91,7 +91,7 @@ print(monitoreo_ds[, c("guid", "title")])
 ### Consultar metadatos de un datastream específico
 Para inspeccionar la información detallada de un dataset en particular (su descripción, fecha de modificación, enlace web, etc.), use `oefa_get_datastream_info()` ingresando su GUID:
 
-```r
+```{r}
 # Obtener información del datastream de denuncias SINADA
 info <- oefa_get_datastream_info("DENUN-SINAD")
 print(info)
@@ -104,7 +104,7 @@ print(info)
 ### Descarga genérica con `oefa_get_data()`
 Cualquier conjunto de datos puede descargarse indicando su `guid` en la función `oefa_get_data()`:
 
-```r
+```{r}
 # Descargar los primeros 50 registros del dataset DENUN-SINAD
 denuncias_gen <- oefa_get_data(guid = "DENUN-SINAD", limit = 50)
 print(denuncias_gen)
@@ -113,7 +113,7 @@ print(denuncias_gen)
 ### Descarga con Funciones Dedicadas (`oefa_get_<nombre>`)
 El paquete incluye **98 funciones dedicadas** para cada dataset del catálogo del OEFA. Estas funciones facilitan la descarga directa sin necesidad de recordar el GUID:
 
-```r
+```{r}
 # 1. Descargar Denuncias Ambientales Registradas en el SINADA
 denuncias <- oefa_get_denun_sinad(limit = 100)
 head(denuncias)
@@ -134,7 +134,7 @@ head(seleccion_personal)
 ### Paginación de resultados (`limit` y `offset`)
 Para controlar la cantidad de registros retornados o iterar sobre bloques de datos grandes, utilice los argumentos `limit` y `offset`:
 
-```r
+```{r}
 # Descargar el segundo bloque de 100 registros (del 101 al 200)
 bloque2 <- oefa_get_denun_sinad(limit = 100, offset = 100)
 ```
@@ -142,7 +142,7 @@ bloque2 <- oefa_get_denun_sinad(limit = 100, offset = 100)
 ### Manejo del tiempo límite de descarga (`timeout`)
 Al descargar grandes volúmenes de datos o en conexiones con latencia alta, es posible ajustar el tiempo límite de la solicitud HTTP en segundos (por defecto es 60s):
 
-```r
+```{r}
 # Ampliar el tiempo de espera a 180 segundos para descargas extensas
 datos_extensos <- oefa_get_denun_sinad(limit = 1000, timeout = 180)
 ```
@@ -153,7 +153,7 @@ datos_extensos <- oefa_get_denun_sinad(limit = 1000, timeout = 180)
 
 Por defecto, todas las funciones de descarga aplican `clean_column_names()` a las columnas del `tibble` resultante, convirtiendo los nombres a minúsculas en formato `snake_case`, removiendo tildes, caracteres especiales y símbolos:
 
-```r
+```{r}
 # Si prefiere conservar los nombres originales del OEFA:
 datos_raw <- oefa_get_denun_sinad(limit = 10, clean_names = FALSE)
 names(datos_raw)
