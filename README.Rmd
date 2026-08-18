@@ -67,7 +67,7 @@ The package will automatically detect the key via `oefa_get_api_key()`.
 
 ### 1. Catalog Exploration
 
-```{r, eval = FALSE}
+```{r}
 library(oefar)
 
 # List all OEFA data categories
@@ -87,7 +87,7 @@ print(complaints_ds[, c("guid", "title")])
 
 The package includes **98 dedicated helper functions** prefixed with `oefa_get_<dataset_name>()` for direct download:
 
-```{r, eval = FALSE}
+```{r}
 # Download SINADA complaints dataset
 complaints <- oefa_get_denun_sinad(limit = 100)
 print(complaints)
@@ -105,7 +105,7 @@ print(water)
 
 For large data downloads or higher-latency connections, you can adjust the request timeout parameter:
 
-```{r, eval = FALSE}
+```{r}
 # Extend wait timeout to 120 seconds for a large dataset
 large_complaints <- oefa_get_denun_sinad_61293(timeout = 120)
 

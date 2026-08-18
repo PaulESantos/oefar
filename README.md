@@ -14,24 +14,22 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 coverage](https://codecov.io/gh/PaulESantos/oefar/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/oefar)
 <!-- badges: end -->
 
-**`oefar`** es un paquete en R diseñado para facilitar el acceso,
-exploración y descarga directa de datos abiertos del **Organismo de
-Evaluación y Fiscalización Ambiental (OEFA)** de Perú a través de la API
-v2 de su portal de datos abiertos
+**`oefar`** is an R package designed to facilitate access, exploration,
+and direct downloading of open data from the **Agency for Environmental
+Assessment and Enforcement (OEFA)** of Peru via its v2 Open Data API
 ([datosabiertos.oefa.gob.pe](https://datosabiertos.oefa.gob.pe/)).
 
-El paquete proporciona **98 funciones específicas dedicadas** para cada
-conjunto de datos del catálogo oficial, formateo automático de nombres
-de columnas en formato limpio (minúsculas y guiones bajos), manejo
-configurable de tiempos límite de espera (`timeout`), y soporte nativo
-para `tibble`.
+The package provides **98 dedicated functions** for each dataset in the
+official catalog, automatic column name cleaning into snake_case
+according to tidyverse conventions, configurable timeout handling, and
+native `tibble` support.
 
 ------------------------------------------------------------------------
 
-## Instalación
+## Installation
 
-Puedes instalar la versión en desarrollo del paquete `oefar` desde
-GitHub usando `remotes` o `devtools`:
+You can install the development version of `oefar` from GitHub using
+`remotes` or `devtools`:
 
 ``` r
 # install.packages("remotes")
@@ -40,46 +38,44 @@ remotes::install_github("paulefrens/oefar")
 
 ------------------------------------------------------------------------
 
-## Configuración de la API Key
+## API Key Configuration
 
-Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con
-una **API Key personal**, la cual puede crearse y obtenerse directamente
-desde el portal de desarrolladores del OEFA:
+To use the OEFA Open Data API, a **personal API Key** is required. You
+can obtain one directly from the OEFA developer portal:
 <https://datosabiertos.oefa.gob.pe/developers/>.
 
-### Configuración temporal en la sesión:
+### Temporary configuration for current session:
 
 ``` r
 library(oefar)
 
-# Establecer la API Key en la sesion actual
-oefa_set_api_key("TU_API_KEY_AQUI")
+# Set the API Key for the current R session
+oefa_set_api_key("YOUR_API_KEY_HERE")
 ```
 
-### Configuración permanente en el entorno local de R (`.Renviron`):
+### Permanent configuration in local R environment (`.Renviron`):
 
-Se recomienda añadir la clave al archivo `.Renviron` bajo el nombre
+It is recommended to add your key to your `.Renviron` file as
 `OEFA_API_KEY`:
 
 ``` env
-OEFA_API_KEY="TU_API_KEY_AQUI"
+OEFA_API_KEY="YOUR_API_KEY_HERE"
 ```
 
-El paquete detectará automáticamente la clave cargada mediante
-`oefa_get_api_key()`.
+The package will automatically detect the key via `oefa_get_api_key()`.
 
 ------------------------------------------------------------------------
 
-## Ejemplos de Uso
+## Usage Examples
 
-### 1. Exploración del Catálogo de Datasets
+### 1. Catalog Exploration
 
 ``` r
 library(oefar)
 
-# Listar todas las categorias de datos del OEFA
-categorias <- oefa_list_categories()
-print(categorias)
+# List all OEFA data categories
+categories <- oefa_list_categories()
+print(categories)
 ```
 
     ## # A tibble: 6 × 3
@@ -93,9 +89,9 @@ print(categorias)
     ## 6 84084       "Políticas y estrategias "                   9
 
 ``` r
-# Listar los 78 conjuntos de datos (datastreams) disponibles
-catalogo <- oefa_list_datastreams()
-head(catalogo[, c("guid", "title", "category_name")])
+# List all available datasets (datastreams)
+catalog <- oefa_list_datastreams()
+head(catalog[, c("guid", "title", "category_name")])
 ```
 
     ## # A tibble: 6 × 3
@@ -109,9 +105,9 @@ head(catalogo[, c("guid", "title", "category_name")])
     ## 6 PROYE-TI-69998          Proyectos TI                  "Información Institucio…
 
 ``` r
-# Buscar datasets por palabras clave (ej. "denuncias", "agua", "supervisión")
-denuncias_ds <- oefa_search_datastreams("denuncias")
-print(denuncias_ds[, c("guid", "title")])
+# Search datasets by keyword (e.g., "denuncias", "agua", "supervision")
+complaints_ds <- oefa_search_datastreams("denuncias")
+print(complaints_ds[, c("guid", "title")])
 ```
 
     ## # A tibble: 2 × 2
@@ -120,15 +116,15 @@ print(denuncias_ds[, c("guid", "title")])
     ## 1 DENUN-SINAD       Denuncias SINADA          
     ## 2 DENUN-SINAD-61293 Denuncias SINADA 2019-2025
 
-### 2. Descarga de Datasets con Funciones Dedicadas
+### 2. Downloading Datasets with Dedicated Functions
 
-El paquete incluye **78 funciones dedicadas** con el prefijo
-`oefa_get_<nombre_dataset>()` para la descarga directa:
+The package includes **98 dedicated helper functions** prefixed with
+`oefa_get_<dataset_name>()` for direct download:
 
 ``` r
-# Descargar el dataset de Denuncias SINADA
-denuncias <- oefa_get_denun_sinad(limit = 100)
-print(denuncias)
+# Download SINADA complaints dataset
+complaints <- oefa_get_denun_sinad(limit = 100)
+print(complaints)
 ```
 
     ## # A tibble: 99 × 23
@@ -153,9 +149,9 @@ print(denuncias)
     ## #   estado <chr>
 
 ``` r
-# Descargar Procesos de Selección de Personal
-personal <- oefa_get_proce_de_selec_de_71611(limit = 50)
-print(personal)
+# Download Personnel Selection Processes
+personnel <- oefa_get_proce_de_selec_de_71611(limit = 50)
+print(personnel)
 ```
 
     ## # A tibble: 49 × 6
@@ -174,9 +170,9 @@ print(personal)
     ## # ℹ 39 more rows
 
 ``` r
-# Descargar Monitoreo de Agua (EAC)
-agua <- oefa_get_eac_compo_ambie_agua(limit = 100)
-print(agua)
+# Download Environmental Monitoring - Water (EAC)
+water <- oefa_get_eac_compo_ambie_agua(limit = 100)
+print(water)
 ```
 
     ## # A tibble: 99 × 20
@@ -200,67 +196,51 @@ print(agua)
     ## #   descripcion_de_ubicacion <chr>, tipo_de_muestra <chr>,
     ## #   tipo_de_analisis <chr>, fecha <chr>, hora <chr>, valor <chr>, …
 
-### 3. Ajuste del Tiempo Límite (`timeout`)
+### 3. Adjusting Request Timeout
 
-Para descargas de volumen amplio o conexiones con alta latencia, puedes
-ajustar el tiempo límite directamente como argumento en la función:
+For large data downloads or higher-latency connections, you can adjust
+the request timeout parameter:
 
 ``` r
-# Ampliar el tiempo limite de espera a 120 segundos para un dataset grande
-denuncias_amplio <- oefa_get_denun_sinad_61293(timeout = 120)
+# Extend wait timeout to 120 seconds for a large dataset
+large_complaints <- oefa_get_denun_sinad_61293(timeout = 120)
 
-# O mediante la funcion genérica oefa_get_data()
-datos_gen <- oefa_get_data(guid = "DENUN-SINAD-61293", timeout = 180)
+# Or using the generic oefa_get_data() function
+generic_data <- oefa_get_data(guid = "DENUN-SINAD-61293", timeout = 180)
 ```
 
 ------------------------------------------------------------------------
 
-## Atribución y Referencia Oficial al OEFA
+## Data Attribution and Official Reference
 
-Los datos distribuidos y consumidos a través de este paquete pertenecen
-y son provistos públicamente por el **Organismo de Evaluación y
-Fiscalización Ambiental (OEFA)** del Gobierno del Perú.
+Data distributed and consumed through this package belongs to and is
+publicly provided by the **Agency for Environmental Assessment and
+Enforcement (OEFA)** of the Government of Peru.
 
-### Citar el Paquete y la Fuente de Datos
+### Citing the Package and Data Source
 
-En R, puedes obtener la citación formal ejecutando:
+In R, you can view formal citation details by running:
 
 ``` r
 citation("oefar")
 ```
 
-    ## Para citar el paquete 'oefar' en publicaciones utilice: Para
-    ## referenciar la fuente de datos oficial del OEFA:
-    ## 
-    ##   Santos Andrade, P. E. (2026). oefar: Acceso a la API de Datos
-    ##   Abiertos del OEFA de Perú. R package version 0.1.0. URL:
-    ##   https://datosabiertos.oefa.gob.pe/.
-    ## 
-    ##   Organismo de Evaluación y Fiscalización Ambiental - OEFA. (2026).
-    ##   Portal de Datos Abiertos del OEFA [Base de datos en línea]. Gobierno
-    ##   del Perú. URL: https://datosabiertos.oefa.gob.pe/.
-    ## 
-    ## To see these entries in BibTeX format, use 'print(<citation>,
-    ## bibtex=TRUE)', 'toBibtex(.)', or set
-    ## 'options(citation.bibtex.max=999)'.
+#### R Package Citation:
 
-#### Citación del Paquete R:
-
-> Santos Andrade, P. E. (2026). *oefar: Acceso a la API de Datos
-> Abiertos del OEFA de Perú*. Paquete en R versión 0.1.0. URL:
+> Santos Andrade, P. E. (2026). *oefar: Access to the ‘OEFA’ Open Data
+> API of Peru*. R package version 0.1.0. URL:
 > <https://datosabiertos.oefa.gob.pe/>.
 
-#### Referencia a la Fuente Oficial de Datos (OEFA):
+#### Official Data Source Reference (OEFA):
 
-> Organismo de Evaluación y Fiscalización Ambiental - OEFA. (2026).
-> *Portal de Datos Abiertos del OEFA* \[Base de datos en línea\].
-> Gobierno del Perú. URL: <https://datosabiertos.oefa.gob.pe/>.
+> Agency for Environmental Assessment and Enforcement - OEFA. (2026).
+> *OEFA Open Data Portal* \[Online database\]. Government of Peru. URL:
+> <https://datosabiertos.oefa.gob.pe/>.
 
 ------------------------------------------------------------------------
 
-## Licencia
+## License
 
-Este paquete está licenciado bajo la [Licencia MIT](LICENSE). Los datos
-de fiscalización ambiental son propiedad del estado peruano (OEFA) y se
-rigen bajo los términos de la Plataforma Nacional de Datos Abiertos del
-Perú.
+This package is licensed under the [MIT License](LICENSE). Environmental
+enforcement data is property of the Peruvian state (OEFA) and is subject
+to the terms of Peru’s National Open Data Platform.
