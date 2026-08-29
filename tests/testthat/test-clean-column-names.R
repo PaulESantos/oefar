@@ -39,5 +39,5 @@ test_that("clean_column_names acepta data.frames directamente", {
 
 test_that("clean_column_names advierte sobre simbolo micro o mu", {
   x <- c("concentracion_\u00b5g_l")
-  expect_warning(clean_column_names(x), "Atencion! El simbolo mu o micro")
+  expect_warning(clean_column_names(x), "mu o micro")
 })

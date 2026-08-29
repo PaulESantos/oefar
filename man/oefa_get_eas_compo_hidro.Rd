@@ -64,3 +64,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{MEDIDA}{Unidad Utilizada Para Medir Parametro [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_eas_compo_hidro(limit = 10)
+}
+}

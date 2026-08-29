@@ -48,3 +48,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{N°_VECES}{La Cantidad De Veces Que Se Comparte La Publicación [Entero]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_publi_en_redes_socia_45921(limit = 10)
+}
+}

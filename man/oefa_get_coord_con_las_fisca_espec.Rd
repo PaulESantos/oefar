@@ -32,3 +32,8 @@ oefa_get_coord_con_las_fisca_espec(
 \description{
 Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
 }
+\examples{
+\dontrun{
+df <- oefa_get_coord_con_las_fisca_espec(limit = 10)
+}
+}

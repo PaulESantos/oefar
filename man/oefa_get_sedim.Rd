@@ -32,3 +32,8 @@ oefa_get_sedim(
 \description{
 Download dataset: Componente ambiental Sedimento - EAT
 }
+\examples{
+\dontrun{
+df <- oefa_get_sedim(limit = 10)
+}
+}

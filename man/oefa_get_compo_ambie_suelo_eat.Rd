@@ -32,3 +32,8 @@ oefa_get_compo_ambie_suelo_eat(
 \description{
 Download dataset: Componente ambiental Suelo - EAT
 }
+\examples{
+\dontrun{
+df <- oefa_get_compo_ambie_suelo_eat(limit = 10)
+}
+}

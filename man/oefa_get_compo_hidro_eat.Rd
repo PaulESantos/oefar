@@ -32,3 +32,8 @@ oefa_get_compo_hidro_eat(
 \description{
 Download dataset: Componente hidroquímico - EAT
 }
+\examples{
+\dontrun{
+df <- oefa_get_compo_hidro_eat(limit = 10)
+}
+}

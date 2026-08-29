@@ -42,7 +42,12 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{AÑO_REG}{Año Correspondiente Al Aporte [Cadena De Texto]}
   \item{MES}{Mes Correspondiente Al Aporte [Cadena De Texto]}
   \item{R.U.C.}{R.U.C. Correspondiente Al Aportante [Numérico]}
-  \item{RAZON_SO}{Razon Social Correspondiente Al Aportante [Cadena De Texto]}
+  \item{RAZON_SO}{Razón Social Correspondiente Al Aportante [Cadena De Texto]}
   \item{SECTOR}{Sector Económico Correspondiente Al Aportante [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_recau_84768(limit = 10)
 }
 }

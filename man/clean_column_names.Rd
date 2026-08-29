@@ -50,4 +50,10 @@ Cleans a character vector or data.frame ensuring unique names,
 ASCII transliteration of accents (e.g., Spanish/Latin), removal of quotes,
 conversion of characters such as \% and # to text, and formatting according to the desired case format.
 }
+\examples{
+clean_column_names(c("CÓDIGO ÚNICO", "N° Expediente", "Tasa \%"))
+
+df <- data.frame(`Área Total` = 1:5, `N° Casos` = 6:10, check.names = FALSE)
+clean_column_names(df)
+}
 \keyword{internal}

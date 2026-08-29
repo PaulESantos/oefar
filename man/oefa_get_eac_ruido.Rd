@@ -32,3 +32,8 @@ oefa_get_eac_ruido(
 \description{
 Download dataset: EAC - Ruido
 }
+\examples{
+\dontrun{
+df <- oefa_get_eac_ruido(limit = 10)
+}
+}

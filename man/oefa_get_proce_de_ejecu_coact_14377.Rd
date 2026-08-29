@@ -48,3 +48,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{ESTADO}{Estado [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_proce_de_ejecu_coact_14377(limit = 10)
+}
+}

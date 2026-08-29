@@ -32,3 +32,8 @@ oefa_get_evalu_ambie_causal_eac(
 \description{
 Download dataset: Evaluaciones ambientales de causalidad (EAC)
 }
+\examples{
+\dontrun{
+df <- oefa_get_evalu_ambie_causal_eac(limit = 10)
+}
+}

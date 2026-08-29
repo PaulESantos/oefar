@@ -36,8 +36,8 @@ A \code{\link[tibble]{tibble}} with dataset records.
 Downloads data for dataset 'ISIM - Sedimento' from OEFA by its GUID (ISIM-SEDIM).
 Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 }
-\details{
-Main field structure according to OEFA's Official Data Dictionary:
-\describe{
+\examples{
+\dontrun{
+df <- oefa_get_isim_sedim(limit = 10)
 }
 }

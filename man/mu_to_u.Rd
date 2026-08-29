@@ -2,11 +2,11 @@
 % Please edit documentation in R/data.R
 \name{mu_to_u}
 \alias{mu_to_u}
-\title{Constante para mapear simbolos micro/mu a 'u'}
+\title{Constante para mapear símbolos micro/mu a 'u'}
 \usage{
 mu_to_u
 }
 \description{
-Constante para mapear simbolos micro/mu a 'u'
+Constante para mapear símbolos micro/mu a 'u'
 }
 \keyword{internal}

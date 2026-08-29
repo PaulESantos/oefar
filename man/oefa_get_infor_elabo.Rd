@@ -32,3 +32,8 @@ oefa_get_infor_elabo(
 \description{
 Download dataset: Supervisiones concluidas - Informes elaborados
 }
+\examples{
+\dontrun{
+df <- oefa_get_infor_elabo(limit = 10)
+}
+}

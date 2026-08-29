@@ -47,7 +47,7 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
   \item{DEPARTAM}{Departamento [Cadena De Texto]}
   \item{PROVINCIA}{Provincia [Cadena De Texto]}
-  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
   \item{INFRACCION}{Tipo de Multas Impuestas Por El Oefa Consideradas Como Una Obligación De Pago Por Parte Del Administrado [Cadena De Texto]}
   \item{RESOL_1RA}{Resolución De Primera Instancia [Cadena De Texto]}
   \item{RESOL_1RA}{Fecha De Emision De La Resolución De Primera Instancia [Fecha]}
@@ -55,5 +55,10 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{RESOL_2DA}{Fecha De Emision De La Resolución De Segunda Instancia [Fecha]}
   \item{MULTA_UIT}{Multas Expresadas en UIT [Numérico]}
   \item{MULTA_SO}{Multas Expresadas en Soles [Numérico]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_resol_con_multa_firme(limit = 10)
 }
 }

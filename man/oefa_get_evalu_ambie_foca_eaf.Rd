@@ -32,3 +32,8 @@ oefa_get_evalu_ambie_foca_eaf(
 \description{
 Download dataset: Evaluaciones ambientales focalizadas (EAF)
 }
+\examples{
+\dontrun{
+df <- oefa_get_evalu_ambie_foca_eaf(limit = 10)
+}
+}

@@ -32,3 +32,8 @@ oefa_get_eas_flora_y_fauna(
 \description{
 Download dataset: EAS - Flora y Fauna
 }
+\examples{
+\dontrun{
+df <- oefa_get_eas_flora_y_fauna(limit = 10)
+}
+}

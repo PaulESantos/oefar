@@ -32,3 +32,8 @@ oefa_get_ident_de_las_evalu_ambie(
 \description{
 Download dataset: Identificación de las evaluaciones ambientales
 }
+\examples{
+\dontrun{
+df <- oefa_get_ident_de_las_evalu_ambie(limit = 10)
+}
+}

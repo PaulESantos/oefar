@@ -32,3 +32,8 @@ oefa_get_accio_estra_en_ti(
 \description{
 Download dataset: Acciones estratégicas en TI
 }
+\examples{
+\dontrun{
+df <- oefa_get_accio_estra_en_ti(limit = 10)
+}
+}

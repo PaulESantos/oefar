@@ -59,3 +59,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{PARAMETR}{Parámetros Que Superan El Eca O Lmp [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_eat_ruido_y_vibra(limit = 10)
+}
+}

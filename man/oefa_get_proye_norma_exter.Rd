@@ -44,7 +44,12 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{JERARQUI}{Rango O Tipo Del Proyecto Normativo Externo [Cadena De Texto]}
   \item{RESPONSAB}{Órganos O Áreas Del Oefa Responsables De Formular La Opinión Al Proyecto Normativo Externo [Cadena De Texto]}
   \item{FECHA_ING}{Fecha En Que Ingresa El Proyecto Normativo Externo A La Smer, Para La Emisión De Una Opinión Técnica [Fecha]}
-  \item{FECHA_RE}{Fecha En La Que La Opnión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
+  \item{FECHA_RE}{Fecha En La Que La Opinión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
   \item{CANT_PROY}{Cantidad De Artículos En Los Cuales Se Formularon Recomendaciones Como Institución, A Incorporar En El Proyecto Normativo Externo [Numérico]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_proye_norma_exter(limit = 10)
 }
 }

@@ -32,3 +32,8 @@ oefa_get_evalu_ambie_de_segui(
 \description{
 Download dataset: Evaluaciones ambientales de seguimiento (EAS)
 }
+\examples{
+\dontrun{
+df <- oefa_get_evalu_ambie_de_segui(limit = 10)
+}
+}

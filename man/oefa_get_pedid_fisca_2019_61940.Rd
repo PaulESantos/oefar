@@ -39,19 +39,24 @@ Belongs to Data Dictionary section: Politicas y Estrategias > Fiscalías Especia
 \details{
 Main field structure according to OEFA's Official Data Dictionary:
 \describe{
-  \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
+  \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalías [Cadena De Texto]}
   \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
-  \item{DOCUMENT}{Oficio Recibido De Fiscalia [Cadena De Texto]}
+  \item{DOCUMENT}{Oficio Recibido De Fiscalía [Cadena De Texto]}
   \item{FECHA_OEFA}{Fecha Que El Documento Ingresa A Oefa [Fecha]}
-  \item{REMITENT}{Fiscalia Que Remite El Oficio [Cadena De Texto]}
+  \item{REMITENT}{Fiscalía Que Remite El Oficio [Cadena De Texto]}
   \item{SECTOR}{Sector Al Que Pertenece El Delito [Cadena De Texto]}
-  \item{PLAZO_FI}{Plazo Indicado Por Fiscalia [Fecha]}
-  \item{DOC_EMITIDO}{Tipo De Documento Con El Que Se Absuelve El Requrimiento De Fiscalia [Cadena De Texto]}
+  \item{PLAZO_FI}{Plazo Indicado Por Fiscalía [Fecha]}
+  \item{DOC_EMITIDO}{Tipo De Documento Con El Que Se Absuelve El Requerimiento De Fiscalía [Cadena De Texto]}
   \item{NRO_INF}{Número De Informe U Oficio [Cadena De Texto]}
   \item{FECHA_EM}{Fecha En La Que Sale El Informe U Oficio [Fecha]}
   \item{OFICIO_SEFA}{Oficio Con El Que Se Envia El Informe [Cadena De Texto]}
   \item{FECHA_RE}{Fecha Con La Que Sale El Oficio De Remision [Fecha]}
-  \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solictado [Cadena De Texto]}
+  \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solicitado [Cadena De Texto]}
   \item{DILIGENC}{Indica Si Se Realiza Diligencia [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_pedid_fisca_2019_61940(limit = 10)
 }
 }

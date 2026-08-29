@@ -7,7 +7,7 @@ Description: Access, search, and download environmental evaluation, supervision,
     and enforcement datasets from the Organismo de Evaluacion y Fiscalizacion
     Ambiental ('OEFA') of Peru via its Open Data Application Programming Interface ('API').
     Provides helper functions for 98 specific datasets, automated column name cleaning
-    according to tidyverse conventions, custom pagination, and configurable timeout
+    according to 'tidyverse' conventions, custom pagination, and configurable timeout
     parameters.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -29,6 +29,6 @@ Suggests:
     stringr,
     Rapp
 VignetteBuilder: knitr
-URL: https://datosabiertos.oefa.gob.pe, https://paulesantos.github.io/oefar/
+URL: https://datosabiertos.oefa.gob.pe, https://paulesantos.github.io/oefar/, https://github.com/PaulESantos/oefar
+BugReports: https://github.com/PaulESantos/oefar/issues
 Config/roxygen2/version: 8.0.0
-

@@ -42,7 +42,7 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
   \item{GENERICA}{Categoria De Gasto Que Corresponde A Los Creditos Presupuestarios Agrupados En Gastos Corrientes, Gastos De Capital Y El Servicio De Deuda [Cadena De Texto]}
-  \item{SEC_FUNC}{Identificacion Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
+  \item{SEC_FUNC}{Identificación Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
   \item{PRESUP}{Categoria Presupuestal Que Comprende Los Elementos Relacionados A La Metodologia Del Presupuesto [Cadena De Texto]}
   \item{PRESUP_AGR}{Categoria Presupuestaria Agregrada [Cadena De Texto]}
   \item{AREA_IP}{Organo/Direccion Que Cuenta Con El Presupuesto [Cadena De Texto]}
@@ -66,5 +66,10 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{EJEC_2T}{Presupuesto Ejecutado En El Segundo Trimestre [Entero]}
   \item{EJEC_3T}{Presupuesto Ejecutado En El Tercer Trimestre [Entero]}
   \item{EJEC_4T}{Presupuesto Ejecutado En El Cuarto Trimestre [Entero]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_eje_del_presu(limit = 10)
 }
 }

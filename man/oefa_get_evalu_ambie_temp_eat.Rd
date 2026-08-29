@@ -32,3 +32,8 @@ oefa_get_evalu_ambie_temp_eat(
 \description{
 Download dataset: Evaluaciones ambientales tempranas (EAT)
 }
+\examples{
+\dontrun{
+df <- oefa_get_evalu_ambie_temp_eat(limit = 10)
+}
+}

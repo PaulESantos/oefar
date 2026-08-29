@@ -32,3 +32,8 @@ oefa_get_prueb_ipash(
 \description{
 Download dataset: Prueba IPASH
 }
+\examples{
+\dontrun{
+df <- oefa_get_prueb_ipash(limit = 10)
+}
+}

@@ -32,13 +32,18 @@
 #'   \item{RADIACIO}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
 #'   \item{VISUAL}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
 #'   \item{SONORA}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
-#'   \item{INDIRECT}{Se Refiere A La Competenca De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
+#'   \item{INDIRECT}{Se Refiere A La Competencia De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
 #'   \item{ESTADO}{Los Estados Son Los Siguientes: I)Derivada: Cuando La Denuncia Ha Sido Registrada Y Derivada Al Órgano Del Oefa; Ii) En Seguimiento: Cuando Se Haya Oficiado A La(S) Efa O Cuando El Órgano De Línea O La Efa Comunique Acciones; Iii) Archivada: En Los Casos Que Se Determine Que La Denuncia No Es Ambiental, Los Datos Proporcionados Resulten Insuficientes, Se Establezca Denuncia Maliciosa O Cuando Se Determine Que No Hay Una Efa Competente; Y Iv) Cerrada: Cuando Se De Por Atendida La Denuncia Ambiental (No Hallazgo De Incumplimientos O Inicio De Pas). [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_denun_sinad(limit = 10)
+#' }
 oefa_get_denun_sinad <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "DENUN-SINAD", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -67,6 +72,11 @@ oefa_get_denun_sinad <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_norma_oefa(limit = 10)
+#' }
 oefa_get_proye_norma_oefa <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-OEFA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -85,13 +95,18 @@ oefa_get_proye_norma_oefa <- function(limit = NULL, offset = NULL, ..., format =
 #'   \item{JERARQUI}{Rango O Tipo Del Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{RESPONSAB}{Órganos O Áreas Del Oefa Responsables De Formular La Opinión Al Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{FECHA_ING}{Fecha En Que Ingresa El Proyecto Normativo Externo A La Smer, Para La Emisión De Una Opinión Técnica [Fecha]}
-#'   \item{FECHA_RE}{Fecha En La Que La Opnión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
+#'   \item{FECHA_RE}{Fecha En La Que La Opinión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
 #'   \item{CANT_PROY}{Cantidad De Artículos En Los Cuales Se Formularon Recomendaciones Como Institución, A Incorporar En El Proyecto Normativo Externo [Numérico]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_norma_exter(limit = 10)
+#' }
 oefa_get_proye_norma_exter <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-EXTER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -108,7 +123,7 @@ oefa_get_proye_norma_exter <- function(limit = NULL, offset = NULL, ..., format 
 #'   \item{COORDINAC}{Coordinacion Responsable De La Supervisión [Cadena De Texto]}
 #'   \item{MES_SUPERV}{Mes De Ejecución De La Supervisión [Cadena De Texto]}
 #'   \item{NRO_EXPE}{Número Del Informe De Supervisión Aprobado [Cadena De Texto]}
-#'   \item{ADMINIST}{Razon Social Del Administrado [Cadena De Texto]}
+#'   \item{ADMINIST}{Razón Social Del Administrado [Cadena De Texto]}
 #'   \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
 #'   \item{ACT_FUNC}{La Actividad Está Directamente Ligada A La Noción De Producción;No Hay Producción Sin Actividad. Producir Es Crear Bienes O Suministrar Servicios Dentro De Un Proceso De Producción Que Requiere Factores (Materia Prima, Trabajo Y Capital Fijo, Entre Otros) .Las Actividades Se Clasifican Según La Competencia De Cada Sector. [Cadena De Texto]}
 #'   \item{TIPO_SUPERV}{En Función De La Programación, La Supervisión Puede Ser Regular O Especial. [Cadena De Texto]}
@@ -126,6 +141,11 @@ oefa_get_proye_norma_exter <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_de_la_coord_agric(limit = 10)
+#' }
 oefa_get_infor_de_la_coord_agric <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-COORD-AGRIC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -139,25 +159,30 @@ oefa_get_infor_de_la_coord_agric <- function(limit = NULL, offset = NULL, ..., f
 #' @details
 #' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
-#'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
+#'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalías [Cadena De Texto]}
 #'   \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
-#'   \item{DOCUMENT}{Oficio Recibido De Fiscalia [Cadena De Texto]}
+#'   \item{DOCUMENT}{Oficio Recibido De Fiscalía [Cadena De Texto]}
 #'   \item{FECHA_OEFA}{Fecha Que El Documento Ingresa A Oefa [Fecha]}
-#'   \item{REMITENT}{Fiscalia Que Remite El Oficio [Cadena De Texto]}
+#'   \item{REMITENT}{Fiscalía Que Remite El Oficio [Cadena De Texto]}
 #'   \item{SECTOR}{Sector Al Que Pertenece El Delito [Cadena De Texto]}
-#'   \item{PLAZO_FI}{Plazo Indicado Por Fiscalia [Fecha]}
-#'   \item{DOC_EMITIDO}{Tipo De Documento Con El Que Se Absuelve El Requrimiento De Fiscalia [Cadena De Texto]}
+#'   \item{PLAZO_FI}{Plazo Indicado Por Fiscalía [Fecha]}
+#'   \item{DOC_EMITIDO}{Tipo De Documento Con El Que Se Absuelve El Requerimiento De Fiscalía [Cadena De Texto]}
 #'   \item{NRO_INF}{Número De Informe U Oficio [Cadena De Texto]}
 #'   \item{FECHA_EM}{Fecha En La Que Sale El Informe U Oficio [Fecha]}
 #'   \item{OFICIO_SEFA}{Oficio Con El Que Se Envia El Informe [Cadena De Texto]}
 #'   \item{FECHA_RE}{Fecha Con La Que Sale El Oficio De Remision [Fecha]}
-#'   \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solictado [Cadena De Texto]}
+#'   \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solicitado [Cadena De Texto]}
 #'   \item{DILIGENC}{Indica Si Se Realiza Diligencia [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_pedid_fisca_2019_61940(limit = 10)
+#' }
 oefa_get_pedid_fisca_2019_61940 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PEDID-FISCA-2019-61940", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -180,6 +205,11 @@ oefa_get_pedid_fisca_2019_61940 <- function(limit = NULL, offset = NULL, ..., fo
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_ti_69998(limit = 10)
+#' }
 oefa_get_proye_ti_69998 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-TI-69998", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -201,6 +231,11 @@ oefa_get_proye_ti_69998 <- function(limit = NULL, offset = NULL, ..., format = c
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_segui_en_redes_socia(limit = 10)
+#' }
 oefa_get_segui_en_redes_socia <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEGUI-EN-REDES-SOCIA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -214,7 +249,7 @@ oefa_get_segui_en_redes_socia <- function(limit = NULL, offset = NULL, ..., form
 #' @details
 #' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
-#'   \item{REGISTRO}{Número Correlativo Que Hace Referncia A Una Convocatoria Una Convocatoria Cas [Entero]}
+#'   \item{REGISTRO}{Número Correlativo Que Hace Referencia A Una Convocatoria Una Convocatoria Cas [Entero]}
 #'   \item{AÑO_SELEC}{Año Que Inició Sus Labores En La Institución [Cadena De Texto]}
 #'   \item{MES}{Mes Que Inició Sus Labores En La Institución [Cadena De Texto]}
 #'   \item{ESTADO}{Estado Del Proceso De Selección [Cadena De Texto]}
@@ -225,6 +260,11 @@ oefa_get_segui_en_redes_socia <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proce_de_selec_de_71611(limit = 10)
+#' }
 oefa_get_proce_de_selec_de_71611 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-SELEC-DE-71611", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -248,6 +288,11 @@ oefa_get_proce_de_selec_de_71611 <- function(limit = NULL, offset = NULL, ..., f
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_aport_por_regul_80624(limit = 10)
+#' }
 oefa_get_aport_por_regul_80624 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APORT-POR-REGUL-80624", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -273,6 +318,11 @@ oefa_get_aport_por_regul_80624 <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proce_de_ejecu_coact_14377(limit = 10)
+#' }
 oefa_get_proce_de_ejecu_coact_14377 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-EJECU-COACT-14377", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -296,6 +346,11 @@ oefa_get_proce_de_ejecu_coact_14377 <- function(limit = NULL, offset = NULL, ...
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proce_de_ejecu_coact_70031(limit = 10)
+#' }
 oefa_get_proce_de_ejecu_coact_70031 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROCE-DE-EJECU-COACT-70031", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -312,7 +367,7 @@ oefa_get_proce_de_ejecu_coact_70031 <- function(limit = NULL, offset = NULL, ...
 #'   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
 #'   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
 #'   \item{GENERICA}{Categoria De Gasto Que Corresponde A Los Creditos Presupuestarios Agrupados En Gastos Corrientes, Gastos De Capital Y El Servicio De Deuda [Cadena De Texto]}
-#'   \item{SEC_FUNC}{Identificacion Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
+#'   \item{SEC_FUNC}{Identificación Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
 #'   \item{PRESUP}{Categoria Presupuestal Que Comprende Los Elementos Relacionados A La Metodologia Del Presupuesto [Cadena De Texto]}
 #'   \item{PRESUP_AGR}{Categoria Presupuestaria Agregrada [Cadena De Texto]}
 #'   \item{AREA_IP}{Organo/Direccion Que Cuenta Con El Presupuesto [Cadena De Texto]}
@@ -341,6 +396,11 @@ oefa_get_proce_de_ejecu_coact_70031 <- function(limit = NULL, offset = NULL, ...
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_presu_89055(limit = 10)
+#' }
 oefa_get_infor_presu_89055 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-PRESU-89055", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -367,6 +427,11 @@ oefa_get_infor_presu_89055 <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_de_inver(limit = 10)
+#' }
 oefa_get_proye_de_inver <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-DE-INVER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -392,6 +457,11 @@ oefa_get_proye_de_inver <- function(limit = NULL, offset = NULL, ..., format = c
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_publi_en_redes_socia_45921(limit = 10)
+#' }
 oefa_get_publi_en_redes_socia_45921 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PUBLI-EN-REDES-SOCIA-45921", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -413,6 +483,11 @@ oefa_get_publi_en_redes_socia_45921 <- function(limit = NULL, offset = NULL, ...
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_segui_en_redes_socia_87207(limit = 10)
+#' }
 oefa_get_segui_en_redes_socia_87207 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEGUI-EN-REDES-SOCIA-87207", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -429,13 +504,18 @@ oefa_get_segui_en_redes_socia_87207 <- function(limit = NULL, offset = NULL, ...
 #'   \item{AÑO_REG}{Año Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{MES}{Mes Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{R.U.C.}{R.U.C. Correspondiente Al Aportante [Numérico]}
-#'   \item{RAZON_SO}{Razon Social Correspondiente Al Aportante [Cadena De Texto]}
+#'   \item{RAZON_SO}{Razón Social Correspondiente Al Aportante [Cadena De Texto]}
 #'   \item{SECTOR}{Sector Económico Correspondiente Al Aportante [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_aport_por_regul_66627(limit = 10)
+#' }
 oefa_get_aport_por_regul_66627 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APORT-POR-REGUL-66627", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -462,7 +542,7 @@ oefa_get_aport_por_regul_66627 <- function(limit = NULL, offset = NULL, ..., for
 #'   \item{HORARIO}{Se Hace Referencia Al Horario De La Actividad Académica. [Cadena De Texto]}
 #'   \item{HORAS}{Se Hace Referencia A La Cantidad De Horas Cronológicas. [Numérico]}
 #'   \item{CERTIFICACION}{Hace Referencia A La Certificación A Emitir(Certificado, Constancia O Ninguno) [Cadena De Texto]}
-#'   \item{MODALIDA}{Hace Referencia A La Modadlidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
+#'   \item{MODALIDA}{Hace Referencia A La Modalidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
 #'   \item{NRO_SESI}{Cantidad De Sesiones Que Tiene Una Actividad Académica. [Numérico]}
 #'   \item{META}{Hace Referencia A La Cantidad De Participantes Que Se Estima Capacitar. [Numérico]}
 #' }
@@ -470,6 +550,11 @@ oefa_get_aport_por_regul_66627 <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_activ_afa_36113(limit = 10)
+#' }
 oefa_get_activ_afa_36113 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACTIV-AFA-36113", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -488,13 +573,18 @@ oefa_get_activ_afa_36113 <- function(limit = NULL, offset = NULL, ..., format = 
 #'   \item{JERARQUI}{Rango O Tipo Del Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{RESPONSAB}{Órganos O Áreas Del Oefa Responsables De Formular La Opinión Al Proyecto Normativo Externo [Cadena De Texto]}
 #'   \item{FECHA_ING}{Fecha En Que Ingresa El Proyecto Normativo Externo A La Smer, Para La Emisión De Una Opinión Técnica [Fecha]}
-#'   \item{FECHA_RE}{Fecha En La Que La Opnión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
+#'   \item{FECHA_RE}{Fecha En La Que La Opinión Formulada Respecto Al Proyecto Normativo Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y Este Se Considera Como Atendido [Fecha]}
 #'   \item{CANT_PROY}{Cantidad De Artículos En Los Cuales Se Formularon Recomendaciones Como Institución, A Incorporar En El Proyecto Normativo Externo [Numérico]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_norma_exter_65772(limit = 10)
+#' }
 oefa_get_proye_norma_exter_65772 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-EXTER-65772", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -523,6 +613,11 @@ oefa_get_proye_norma_exter_65772 <- function(limit = NULL, offset = NULL, ..., f
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_proye_norma_oefa_64027(limit = 10)
+#' }
 oefa_get_proye_norma_oefa_64027 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PROYE-NORMA-OEFA-64027", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -557,13 +652,18 @@ oefa_get_proye_norma_oefa_64027 <- function(limit = NULL, offset = NULL, ..., fo
 #'   \item{RADIACIO}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
 #'   \item{VISUAL}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
 #'   \item{SONORA}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
-#'   \item{INDIRECT}{Se Refiere A La Competenca De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
+#'   \item{INDIRECT}{Se Refiere A La Competencia De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
 #'   \item{ESTADO}{Los Estados Son Los Siguientes: I)Derivada: Cuando La Denuncia Ha Sido Registrada Y Derivada Al Órgano Del Oefa; Ii) En Seguimiento: Cuando Se Haya Oficiado A La(S) Efa O Cuando El Órgano De Línea O La Efa Comunique Acciones; Iii) Archivada: En Los Casos Que Se Determine Que La Denuncia No Es Ambiental, Los Datos Proporcionados Resulten Insuficientes, Se Establezca Denuncia Maliciosa O Cuando Se Determine Que No Hay Una Efa Competente; Y Iv) Cerrada: Cuando Se De Por Atendida La Denuncia Ambiental (No Hallazgo De Incumplimientos O Inicio De Pas). [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_denun_sinad_61293(limit = 10)
+#' }
 oefa_get_denun_sinad_61293 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "DENUN-SINAD-61293", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -580,18 +680,23 @@ oefa_get_denun_sinad_61293 <- function(limit = NULL, offset = NULL, ..., format 
 #'   \item{N°_RESOL}{Número De Resolución Directoral Correspondiente [Cadena De Texto]}
 #'   \item{FECHA_RD}{Fecha de Resolución Directoral [Fecha]}
 #'   \item{NRO_EXPE}{Número de Expediente de RD [Cadena De Texto]}
-#'   \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
-#'   \item{RAZON_SO}{Razon Social Del Administrado [Cadena De Texto]}
+#'   \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
+#'   \item{RAZON_SO}{Razón Social Del Administrado [Cadena De Texto]}
 #'   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-#'   \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
 #'   \item{TIPO_RD}{Tipo De Rd [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_resol_direc_50309(limit = 10)
+#' }
 oefa_get_resol_direc_50309 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-DIREC-50309", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -608,21 +713,26 @@ oefa_get_resol_direc_50309 <- function(limit = NULL, offset = NULL, ..., format 
 #'   \item{N°_RESOL}{Número De La Resolución Subdirectoral [Cadena De Texto]}
 #'   \item{FECHA_RSD}{Fecha De Emision De La Resolución Subdirectoral [Fecha]}
 #'   \item{NRO_EXPE}{Número De Expediente De La Dfai [Cadena De Texto]}
-#'   \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+#'   \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
 #'   \item{INFORME_}{Tipo De Informe (Informe De Supervision O Informe Tecnico Acusatorio) [Cadena De Texto]}
 #'   \item{NRO_INF}{Número De Informe [Cadena De Texto]}
 #'   \item{SUPERV}{Fecha De Inicio De La Supervision [Fecha]}
-#'   \item{RAZON_SO}{Nombre De La Razon Social Del Administrado [Cadena De Texto]}
+#'   \item{RAZON_SO}{Nombre De La Razón Social Del Administrado [Cadena De Texto]}
 #'   \item{UNIDAD}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-#'   \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
 #'   \item{TIPO_RSD}{Sentido Legal De La Resolución Subdirectoral [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_resol_subdi(limit = 10)
+#' }
 oefa_get_resol_subdi <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-SUBDI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -638,11 +748,11 @@ oefa_get_resol_subdi <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' \describe{
 #'   \item{NRO_EXPE}{Número de Expediente Indicado en la Resolución Correspondiente [Cadena De Texto]}
 #'   \item{RAZON_SO}{Persona Natural O Jurídica, Así Como Cualquier Otra Forma Asociativa De Empresa O Patrimonio Autónomo, Que Desarrolla Una Actividad Económica, Servicio O Función Sujeta A Supervisión De La Autoridad De Supervisión. [Cadena De Texto]}
-#'   \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+#'   \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
 #'   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-#'   \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-#'   \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
 #'   \item{INF_SUPER}{Documento Técnico Legal Aprobado Por La Autoridad De Supervisión Que Contiene Los Resultados De La Evaluación Del Cumplimiento De Las Obligaciones Fiscalizables En El Marco De Las Acciones De Supervisión. [Cadena De Texto]}
 #'   \item{INFORME_T}{Documento Que Contiene Los Hallazgos De Presuntas Infracciones Detectados Durante La Supervisión Con Su Respectivo Fundamento Técnico Y Legal. [Cadena De Texto]}
 #'   \item{SUPERV}{Inicio De Verificación Del Cumplimiento De Las Obligaciones Fiscalizables Y Funciones A Cargo De Las Efa. [Fecha]}
@@ -669,6 +779,11 @@ oefa_get_resol_subdi <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_regis_actos_admin_96376(limit = 10)
+#' }
 oefa_get_regis_actos_admin_96376 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "REGIS-ACTOS-ADMIN-96376", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -698,6 +813,11 @@ oefa_get_regis_actos_admin_96376 <- function(limit = NULL, offset = NULL, ..., f
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_exped_resue_15640(limit = 10)
+#' }
 oefa_get_exped_resue_15640 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EXPED-RESUE-15640", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -719,7 +839,7 @@ oefa_get_exped_resue_15640 <- function(limit = NULL, offset = NULL, ..., format 
 #'   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
 #'   \item{DEPARTAM}{Departamento [Cadena De Texto]}
 #'   \item{PROVINCIA}{Provincia [Cadena De Texto]}
-#'   \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+#'   \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
 #'   \item{INFRACCION}{Tipo de Multas Impuestas Por El Oefa Consideradas Como Una Obligación De Pago Por Parte Del Administrado [Cadena De Texto]}
 #'   \item{RESOL_1RA}{Resolución De Primera Instancia [Cadena De Texto]}
 #'   \item{RESOL_1RA}{Fecha De Emision De La Resolución De Primera Instancia [Fecha]}
@@ -732,6 +852,11 @@ oefa_get_exped_resue_15640 <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_resol_con_multa_firme(limit = 10)
+#' }
 oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-CON-MULTA-FIRME", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -747,7 +872,7 @@ oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., for
 #' \describe{
 #'   \item{SECTOR}{Sector [Cadena De Texto]}
 #'   \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
-#'   \item{TITULAR}{Razon Social Del Administrado [Cadena De Texto]}
+#'   \item{TITULAR}{Razón Social Del Administrado [Cadena De Texto]}
 #'   \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
 #'   \item{DET_HECHOS}{Fecha De Deteccion De Los Hechos [Fecha]}
 #'   \item{NRO_RESOL}{Número De Resolución Directoral Que Dicta La Medida [Cadena De Texto]}
@@ -760,7 +885,7 @@ oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., for
 #'   \item{INF_SUPERC}{Informe De Supervisión De Cumplimiento De La Medida Admnistrativa [Cadena De Texto]}
 #'   \item{NRO_RESOLV}{Número De La Resolución De Variacion [Cadena De Texto]}
 #'   \item{NRO_TEC}{Número De Informe Técnico [Cadena De Texto]}
-#'   \item{NRO_CONSID}{Número De Resolución De Reconsideracion [Cadena De Texto]}
+#'   \item{NRO_CONSID}{Número De Resolución De Reconsideración [Cadena De Texto]}
 #'   \item{NRO_TFA}{Número De Resolución Del Tfa Del Recurso Impugnado [Cadena De Texto]}
 #'   \item{REGION}{Indica Region Donde Impuso La Medida. [Cadena De Texto]}
 #'   \item{PROVINCIA}{Indica Provincia Donde Impuso La Medida. [Cadena De Texto]}
@@ -772,6 +897,11 @@ oefa_get_resol_con_multa_firme <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_medid_admin_de_las_direc(limit = 10)
+#' }
 oefa_get_medid_admin_de_las_direc <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "MEDID-ADMIN-DE-LAS-DIREC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -779,6 +909,11 @@ oefa_get_medid_admin_de_las_direc <- function(limit = NULL, offset = NULL, ..., 
 #' Download dataset: Informes de la Dirección de Supervisión 2019-2025
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_de_la_direc_28304(limit = 10)
+#' }
 oefa_get_infor_de_la_direc_28304 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-DIREC-28304", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -786,6 +921,11 @@ oefa_get_infor_de_la_direc_28304 <- function(limit = NULL, offset = NULL, ..., f
 #' Download dataset: Informes de la Dirección de Supervisión 2018
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_de_la_direc_de(limit = 10)
+#' }
 oefa_get_infor_de_la_direc_de <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DE-LA-DIREC-DE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -824,6 +964,11 @@ oefa_get_infor_de_la_direc_de <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_compo_ambie_suelo(limit = 10)
+#' }
 oefa_get_eac_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -862,6 +1007,11 @@ oefa_get_eac_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_sedim_91086(limit = 10)
+#' }
 oefa_get_eac_sedim_91086 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-SEDIM-91086", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -900,6 +1050,11 @@ oefa_get_eac_sedim_91086 <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_sedim(limit = 10)
+#' }
 oefa_get_eac_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -907,6 +1062,11 @@ oefa_get_eac_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' Download dataset: EAC - Ruido
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_ruido(limit = 10)
+#' }
 oefa_get_eac_ruido <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-RUIDO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -948,6 +1108,11 @@ oefa_get_eac_ruido <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_compo_hidro(limit = 10)
+#' }
 oefa_get_eac_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -985,6 +1150,11 @@ oefa_get_eac_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_biota(limit = 10)
+#' }
 oefa_get_eac_biota <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-BIOTA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1022,6 +1192,11 @@ oefa_get_eac_biota <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_compo_ambie_aire(limit = 10)
+#' }
 oefa_get_eac_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1059,6 +1234,11 @@ oefa_get_eac_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eac_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_eac_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAC-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1069,14 +1249,14 @@ oefa_get_eac_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 #' Downloads data for dataset 'IPASH - Componente Ambiental Suelo' from OEFA by its GUID (IPASH-COMPO-AMBIE-SUELO).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ipash_compo_ambie_suelo(limit = 10)
+#' }
 oefa_get_ipash_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1115,6 +1295,11 @@ oefa_get_ipash_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., f
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_compo_ambie_suelo_18111(limit = 10)
+#' }
 oefa_get_eas_compo_ambie_suelo_18111 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-SUELO-18111", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1156,6 +1341,11 @@ oefa_get_eas_compo_ambie_suelo_18111 <- function(limit = NULL, offset = NULL, ..
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_compo_hidro(limit = 10)
+#' }
 oefa_get_eas_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1163,6 +1353,11 @@ oefa_get_eas_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' Download dataset: EAS - Componente ambiental Aire
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_compo_ambie_aire(limit = 10)
+#' }
 oefa_get_eas_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1204,6 +1399,11 @@ oefa_get_eas_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_compo_hidro_66459(limit = 10)
+#' }
 oefa_get_eas_compo_hidro_66459 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-HIDRO-66459", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1241,6 +1441,11 @@ oefa_get_eas_compo_hidro_66459 <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_compo_biolo(limit = 10)
+#' }
 oefa_get_eat_compo_biolo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-BIOLO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1251,14 +1456,14 @@ oefa_get_eat_compo_biolo <- function(limit = NULL, offset = NULL, ..., format = 
 #' Downloads data for dataset 'ISIM - Componente Ambiental Suelo' from OEFA by its GUID (ISIM-COMPO-AMBIE-SUELO).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_isim_compo_ambie_suelo(limit = 10)
+#' }
 oefa_get_isim_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1269,14 +1474,14 @@ oefa_get_isim_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., fo
 #' Downloads data for dataset 'ISIM - Sedimento' from OEFA by its GUID (ISIM-SEDIM).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_isim_sedim(limit = 10)
+#' }
 oefa_get_isim_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1287,14 +1492,14 @@ oefa_get_isim_sedim <- function(limit = NULL, offset = NULL, ..., format = c("ti
 #' Downloads data for dataset 'ISIM - Hidrobiología' from OEFA by its GUID (ISIM-HIDRO).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_isim_hidro(limit = 10)
+#' }
 oefa_get_isim_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1305,14 +1510,14 @@ oefa_get_isim_hidro <- function(limit = NULL, offset = NULL, ..., format = c("ti
 #' Downloads data for dataset 'ISIM - Componente Ambiental Agua' from OEFA by its GUID (ISIM-COMPO-AMBIE-AGUA).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de sitios impactados (ISIM).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_isim_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_isim_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ISIM-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1323,14 +1528,14 @@ oefa_get_isim_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., for
 #' Downloads data for dataset 'IPASH - Sedimento' from OEFA by its GUID (IPASH-SEDIM).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ipash_sedim(limit = 10)
+#' }
 oefa_get_ipash_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1341,14 +1546,14 @@ oefa_get_ipash_sedim <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' Downloads data for dataset 'IPASH - Componente Ambiental Agua' from OEFA by its GUID (IPASH-COMPO-AMBIE-AGUA).
 #' Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 #'
-#' @details
-#' Main field structure according to OEFA's Official Data Dictionary:
-#' \describe{
-#' }
-#'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ipash_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_ipash_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IPASH-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1387,6 +1592,11 @@ oefa_get_ipash_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., fo
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_compo_ambie_suelo(limit = 10)
+#' }
 oefa_get_eaf_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1425,6 +1635,11 @@ oefa_get_eaf_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_sedim(limit = 10)
+#' }
 oefa_get_eaf_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1466,6 +1681,11 @@ oefa_get_eaf_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_compo_hidro(limit = 10)
+#' }
 oefa_get_eaf_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1503,6 +1723,11 @@ oefa_get_eaf_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_compo_ambie_aire(limit = 10)
+#' }
 oefa_get_eaf_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1540,6 +1765,11 @@ oefa_get_eaf_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_eaf_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1547,6 +1777,11 @@ oefa_get_eaf_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: EAF - Flora y Fauna
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eaf_flora_y_fauna(limit = 10)
+#' }
 oefa_get_eaf_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAF-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1585,6 +1820,11 @@ oefa_get_eaf_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_sedim(limit = 10)
+#' }
 oefa_get_eas_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1592,6 +1832,11 @@ oefa_get_eas_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' Download dataset: EAS - Flora y Fauna
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_flora_y_fauna(limit = 10)
+#' }
 oefa_get_eas_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1629,6 +1874,11 @@ oefa_get_eas_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eas_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_eas_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAS-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1667,6 +1917,11 @@ oefa_get_eas_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_compo_ambie_suelo(limit = 10)
+#' }
 oefa_get_eat_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-SUELO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1705,6 +1960,11 @@ oefa_get_eat_compo_ambie_suelo <- function(limit = NULL, offset = NULL, ..., for
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_sedim(limit = 10)
+#' }
 oefa_get_eat_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1741,6 +2001,11 @@ oefa_get_eat_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_ruido_y_vibra(limit = 10)
+#' }
 oefa_get_eat_ruido_y_vibra <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-RUIDO-Y-VIBRA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1782,6 +2047,11 @@ oefa_get_eat_ruido_y_vibra <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_compo_hidro(limit = 10)
+#' }
 oefa_get_eat_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-HIDRO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1819,6 +2089,11 @@ oefa_get_eat_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_flora_y_fauna(limit = 10)
+#' }
 oefa_get_eat_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-FLORA-Y-FAUNA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1826,6 +2101,11 @@ oefa_get_eat_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 #' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_flora_y_fauna_eat_82093(limit = 10)
+#' }
 oefa_get_flora_y_fauna_eat_82093 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "FLORA-Y-FAUNA-EAT-82093", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1863,6 +2143,11 @@ oefa_get_flora_y_fauna_eat_82093 <- function(limit = NULL, offset = NULL, ..., f
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_compo_ambie_aire(limit = 10)
+#' }
 oefa_get_eat_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-AIRE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1900,6 +2185,11 @@ oefa_get_eat_compo_ambie_aire <- function(limit = NULL, offset = NULL, ..., form
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eat_compo_ambie_agua(limit = 10)
+#' }
 oefa_get_eat_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EAT-COMPO-AMBIE-AGUA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1907,6 +2197,11 @@ oefa_get_eat_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Resoluciones TFA - PRueba
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_resol_tfa_prueb(limit = 10)
+#' }
 oefa_get_resol_tfa_prueb <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-TFA-PRUEB", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1920,24 +2215,29 @@ oefa_get_resol_tfa_prueb <- function(limit = NULL, offset = NULL, ..., format = 
 #' @details
 #' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
-#'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalias [Cadena De Texto]}
+#'   \item{TIPO_DE_PEDIDO}{Tipo De Pedido Solicitado Por Las Fiscalías [Cadena De Texto]}
 #'   \item{AMERITA_}{Indica Si El Pedido Solicitado Amerita Respuesta [Booleano]}
-#'   \item{DOCUMENT}{Oficio Recibido De Fiscalia [Cadena De Texto]}
+#'   \item{DOCUMENT}{Oficio Recibido De Fiscalía [Cadena De Texto]}
 #'   \item{FECHA_OEFA}{Fecha Que El Documento Ingresa A Oefa [Fecha]}
-#'   \item{REMITENT}{Fiscalia Que Remite El Oficio [Cadena De Texto]}
+#'   \item{REMITENT}{Fiscalía Que Remite El Oficio [Cadena De Texto]}
 #'   \item{SECTOR}{Sector Al Que Pertenece El Delito [Cadena De Texto]}
-#'   \item{PLAZO_FI}{Plazo Indicado Por Fiscalia [Fecha]}
-#'   \item{TIPO_DOC}{Tipo De Documento Con El Que Se Absuelve El Requrimiento De Fiscalia [Cadena De Texto]}
+#'   \item{PLAZO_FI}{Plazo Indicado Por Fiscalía [Fecha]}
+#'   \item{TIPO_DOC}{Tipo De Documento Con El Que Se Absuelve El Requerimiento De Fiscalía [Cadena De Texto]}
 #'   \item{NRO_INF}{Número De Informe U Oficio [Cadena De Texto]}
 #'   \item{FECHA_EM}{Fecha En La Que Sale El Informe U Oficio [Fecha]}
 #'   \item{OFICIO_SEFA}{Oficio Con El Que Se Envia El Informe [Cadena De Texto]}
 #'   \item{FECHA_RE}{Fecha Con La Que Sale El Oficio De Remision [Fecha]}
-#'   \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solictado [Cadena De Texto]}
+#'   \item{ESTADO}{Estado En El Que Se Encuentra El Pedido Solicitado [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_pedid_fisca_2018(limit = 10)
+#' }
 oefa_get_pedid_fisca_2018 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PEDID-FISCA-2018", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1945,6 +2245,11 @@ oefa_get_pedid_fisca_2018 <- function(limit = NULL, offset = NULL, ..., format =
 #' Download dataset: Identificación de las evaluaciones ambientales
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ident_de_las_evalu_ambie(limit = 10)
+#' }
 oefa_get_ident_de_las_evalu_ambie <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-LAS-EVALU-AMBIE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1952,6 +2257,11 @@ oefa_get_ident_de_las_evalu_ambie <- function(limit = NULL, offset = NULL, ..., 
 #' Download dataset: Identificación de acciones de fiscalización ambiental
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ident_de_accio_de_fisca(limit = 10)
+#' }
 oefa_get_ident_de_accio_de_fisca <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-ACCIO-DE-FISCA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1959,6 +2269,11 @@ oefa_get_ident_de_accio_de_fisca <- function(limit = NULL, offset = NULL, ..., f
 #' Download dataset: Identificación de acciones de supervisión ambiental
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ident_de_accio_de_super(limit = 10)
+#' }
 oefa_get_ident_de_accio_de_super <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-ACCIO-DE-SUPER", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1966,6 +2281,11 @@ oefa_get_ident_de_accio_de_super <- function(limit = NULL, offset = NULL, ..., f
 #' Download dataset: Prueba IPASH
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_prueb_ipash(limit = 10)
+#' }
 oefa_get_prueb_ipash <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PRUEB-IPASH", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1973,6 +2293,11 @@ oefa_get_prueb_ipash <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' Download dataset: Prueba ISIM
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_prueb_isim(limit = 10)
+#' }
 oefa_get_prueb_isim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "PRUEB-ISIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1980,6 +2305,11 @@ oefa_get_prueb_isim <- function(limit = NULL, offset = NULL, ..., format = c("ti
 #' Download dataset: Componente ambiental Agua - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_compo_ambie_agua_eat(limit = 10)
+#' }
 oefa_get_compo_ambie_agua_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-AGUA-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1987,6 +2317,11 @@ oefa_get_compo_ambie_agua_eat <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Componente ambiental Sedimento - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_sedim(limit = 10)
+#' }
 oefa_get_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "SEDIM", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -1994,6 +2329,11 @@ oefa_get_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble"
 #' Download dataset: Componente hidroquímico - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_compo_hidro_eat(limit = 10)
+#' }
 oefa_get_compo_hidro_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-HIDRO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2035,6 +2375,11 @@ oefa_get_compo_hidro_eat <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_compo_biolo_eat(limit = 10)
+#' }
 oefa_get_compo_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-BIOLO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2076,6 +2421,11 @@ oefa_get_compo_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_compo_ambie_biolo_eat(limit = 10)
+#' }
 oefa_get_compo_ambie_biolo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-BIOLO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2083,6 +2433,11 @@ oefa_get_compo_ambie_biolo_eat <- function(limit = NULL, offset = NULL, ..., for
 #' Download dataset: Componente ambiental Suelo - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_compo_ambie_suelo_eat(limit = 10)
+#' }
 oefa_get_compo_ambie_suelo_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COMPO-AMBIE-SUELO-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2090,6 +2445,11 @@ oefa_get_compo_ambie_suelo_eat <- function(limit = NULL, offset = NULL, ..., for
 #' Download dataset: Evaluaciones ambientales de causalidad (EAC)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_evalu_ambie_causal_eac(limit = 10)
+#' }
 oefa_get_evalu_ambie_causal_eac <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-CAUSAL-EAC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2097,6 +2457,11 @@ oefa_get_evalu_ambie_causal_eac <- function(limit = NULL, offset = NULL, ..., fo
 #' Download dataset: Evaluaciones ambientales tempranas (EAT)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_evalu_ambie_temp_eat(limit = 10)
+#' }
 oefa_get_evalu_ambie_temp_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-TEMP-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2104,6 +2469,11 @@ oefa_get_evalu_ambie_temp_eat <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_flora_y_fauna_eat(limit = 10)
+#' }
 oefa_get_flora_y_fauna_eat <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "FLORA-Y-FAUNA-EAT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2111,6 +2481,11 @@ oefa_get_flora_y_fauna_eat <- function(limit = NULL, offset = NULL, ..., format 
 #' Download dataset: Evaluaciones ambientales de seguimiento (EAS)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_evalu_ambie_de_segui(limit = 10)
+#' }
 oefa_get_evalu_ambie_de_segui <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-DE-SEGUI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2118,6 +2493,11 @@ oefa_get_evalu_ambie_de_segui <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Evaluaciones ambientales focalizadas (EAF)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_evalu_ambie_foca_eaf(limit = 10)
+#' }
 oefa_get_evalu_ambie_foca_eaf <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-FOCA-EAF", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2125,6 +2505,11 @@ oefa_get_evalu_ambie_foca_eaf <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_ident_de_pasiv_ambie_del(limit = 10)
+#' }
 oefa_get_ident_de_pasiv_ambie_del <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "IDENT-DE-PASIV-AMBIE-DEL", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2132,6 +2517,11 @@ oefa_get_ident_de_pasiv_ambie_del <- function(limit = NULL, offset = NULL, ..., 
 #' Download dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_evalu_ambie_para_la_ident(limit = 10)
+#' }
 oefa_get_evalu_ambie_para_la_ident <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EVALU-AMBIE-PARA-LA-IDENT", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2139,6 +2529,11 @@ oefa_get_evalu_ambie_para_la_ident <- function(limit = NULL, offset = NULL, ...,
 #' Download dataset: Supervisiones concluidas - Informes elaborados
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_elabo(limit = 10)
+#' }
 oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-ELABO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2154,7 +2549,7 @@ oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' \describe{
 #'   \item{SECTOR}{Sector [Cadena De Texto]}
 #'   \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
-#'   \item{TITULAR}{Razon Social Del Administrado [Cadena De Texto]}
+#'   \item{TITULAR}{Razón Social Del Administrado [Cadena De Texto]}
 #'   \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
 #'   \item{DET_HECHOS}{Fecha De Deteccion De Los Hechos [Fecha]}
 #'   \item{NRO_RESOL}{Número De Resolución Directoral Que Dicta La Medida [Cadena De Texto]}
@@ -2167,7 +2562,7 @@ oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("t
 #'   \item{INF_SUPERC}{Informe De Supervisión De Cumplimiento De La Medida Admnistrativa [Cadena De Texto]}
 #'   \item{NRO_RESOLV}{Número De La Resolución De Variacion [Cadena De Texto]}
 #'   \item{NRO_TEC}{Número De Informe Técnico [Cadena De Texto]}
-#'   \item{NRO_CONSID}{Número De Resolución De Reconsideracion [Cadena De Texto]}
+#'   \item{NRO_CONSID}{Número De Resolución De Reconsideración [Cadena De Texto]}
 #'   \item{NRO_TFA}{Número De Resolución Del Tfa Del Recurso Impugnado [Cadena De Texto]}
 #'   \item{REGION}{Indica Region Donde Impuso La Medida. [Cadena De Texto]}
 #'   \item{PROVINCIA}{Indica Provincia Donde Impuso La Medida. [Cadena De Texto]}
@@ -2179,6 +2574,11 @@ oefa_get_infor_elabo <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_medid_admin(limit = 10)
+#' }
 oefa_get_medid_admin <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "MEDID-ADMIN", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2186,6 +2586,11 @@ oefa_get_medid_admin <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' Download dataset: Resoluciones emitidas
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_resol_emiti(limit = 10)
+#' }
 oefa_get_resol_emiti <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RESOL-EMITI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2199,7 +2604,7 @@ oefa_get_resol_emiti <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' @details
 #' Main field structure according to OEFA's Official Data Dictionary:
 #' \describe{
-#'   \item{REGISTRO}{Número Correlativo Que Hace Referncia A Una Convocatoria Una Convocatoria Cas [Entero]}
+#'   \item{REGISTRO}{Número Correlativo Que Hace Referencia A Una Convocatoria Una Convocatoria Cas [Entero]}
 #'   \item{AÑO_SELEC}{Año Que Inició Sus Labores En La Institución [Cadena De Texto]}
 #'   \item{MES}{Mes Que Inició Sus Labores En La Institución [Cadena De Texto]}
 #'   \item{ESTADO}{Estado Del Proceso De Selección [Cadena De Texto]}
@@ -2210,6 +2615,11 @@ oefa_get_resol_emiti <- function(limit = NULL, offset = NULL, ..., format = c("t
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_aprob_del_sele(limit = 10)
+#' }
 oefa_get_aprob_del_sele <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "APROB-DEL-SELE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2217,6 +2627,11 @@ oefa_get_aprob_del_sele <- function(limit = NULL, offset = NULL, ..., format = c
 #' Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_coord_con_las_fisca_espec(limit = 10)
+#' }
 oefa_get_coord_con_las_fisca_espec <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "COORD-CON-LAS-FISCA-ESPEC", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2243,7 +2658,7 @@ oefa_get_coord_con_las_fisca_espec <- function(limit = NULL, offset = NULL, ...,
 #'   \item{HORARIO}{Se Hace Referencia Al Horario De La Actividad Académica. [Cadena De Texto]}
 #'   \item{HORAS}{Se Hace Referencia A La Cantidad De Horas Cronológicas. [Numérico]}
 #'   \item{CERTIFICACION}{Hace Referencia A La Certificación A Emitir(Certificado, Constancia O Ninguno) [Cadena De Texto]}
-#'   \item{MODALIDA}{Hace Referencia A La Modadlidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
+#'   \item{MODALIDA}{Hace Referencia A La Modalidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
 #'   \item{NRO_SESI}{Cantidad De Sesiones Que Tiene Una Actividad Académica. [Numérico]}
 #'   \item{META}{Hace Referencia A La Cantidad De Participantes Que Se Estima Capacitar. [Numérico]}
 #' }
@@ -2251,6 +2666,11 @@ oefa_get_coord_con_las_fisca_espec <- function(limit = NULL, offset = NULL, ...,
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_activ_afa(limit = 10)
+#' }
 oefa_get_activ_afa <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACTIV-AFA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2258,6 +2678,11 @@ oefa_get_activ_afa <- function(limit = NULL, offset = NULL, ..., format = c("tib
 #' Download dataset: Opiniones Técnicas a proyectos normativos
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_opin_tecni(limit = 10)
+#' }
 oefa_get_opin_tecni <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "OPIN-TECNI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2265,6 +2690,11 @@ oefa_get_opin_tecni <- function(limit = NULL, offset = NULL, ..., format = c("ti
 #' Download dataset: Atención de denuncias en el SINADA
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_aten_denun_en_el_sna_ambie(limit = 10)
+#' }
 oefa_get_aten_denun_en_el_sna_ambie <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ATEN-DENUN-EN-EL-SNA-AMBIE", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2272,6 +2702,11 @@ oefa_get_aten_denun_en_el_sna_ambie <- function(limit = NULL, offset = NULL, ...
 #' Download dataset: Acciones estratégicas en TI
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_accio_estra_en_ti(limit = 10)
+#' }
 oefa_get_accio_estra_en_ti <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "ACCIO-ESTRA-EN-TI", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2288,7 +2723,7 @@ oefa_get_accio_estra_en_ti <- function(limit = NULL, offset = NULL, ..., format 
 #'   \item{FINANCIAMIENT}{Nomenclatura Y Definicion De Fuentes De Financiamiento [Cadena De Texto]}
 #'   \item{GASTO}{Categoria De Gasto Asignada [Cadena De Texto]}
 #'   \item{GENERICA}{Categoria De Gasto Que Corresponde A Los Creditos Presupuestarios Agrupados En Gastos Corrientes, Gastos De Capital Y El Servicio De Deuda [Cadena De Texto]}
-#'   \item{SEC_FUNC}{Identificacion Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
+#'   \item{SEC_FUNC}{Identificación Correlativa De La Meta Asignada A Nivel De Unidad Ejecutora [Entero]}
 #'   \item{PRESUP}{Categoria Presupuestal Que Comprende Los Elementos Relacionados A La Metodologia Del Presupuesto [Cadena De Texto]}
 #'   \item{PRESUP_AGR}{Categoria Presupuestaria Agregrada [Cadena De Texto]}
 #'   \item{AREA_IP}{Organo/Direccion Que Cuenta Con El Presupuesto [Cadena De Texto]}
@@ -2317,6 +2752,11 @@ oefa_get_accio_estra_en_ti <- function(limit = NULL, offset = NULL, ..., format 
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_eje_del_presu(limit = 10)
+#' }
 oefa_get_eje_del_presu <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "EJE-DEL-PRESU", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2338,6 +2778,11 @@ oefa_get_eje_del_presu <- function(limit = NULL, offset = NULL, ..., format = c(
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_inter_en_redes_socia(limit = 10)
+#' }
 oefa_get_inter_en_redes_socia <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INTER-EN-REDES-SOCIA", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2345,6 +2790,11 @@ oefa_get_inter_en_redes_socia <- function(limit = NULL, offset = NULL, ..., form
 #' Download dataset: Información del personal
 #' @inheritParams oefa_get_data
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_infor_del_perso(limit = 10)
+#' }
 oefa_get_infor_del_perso <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "INFOR-DEL-PERSO", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }
@@ -2361,13 +2811,18 @@ oefa_get_infor_del_perso <- function(limit = NULL, offset = NULL, ..., format = 
 #'   \item{AÑO_REG}{Año Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{MES}{Mes Correspondiente Al Aporte [Cadena De Texto]}
 #'   \item{R.U.C.}{R.U.C. Correspondiente Al Aportante [Numérico]}
-#'   \item{RAZON_SO}{Razon Social Correspondiente Al Aportante [Cadena De Texto]}
+#'   \item{RAZON_SO}{Razón Social Correspondiente Al Aportante [Cadena De Texto]}
 #'   \item{SECTOR}{Sector Económico Correspondiente Al Aportante [Cadena De Texto]}
 #' }
 #'
 #' @inheritParams oefa_get_data
 #' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' df <- oefa_get_recau_84768(limit = 10)
+#' }
 oefa_get_recau_84768 <- function(limit = NULL, offset = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   oefa_get_data(guid = "RECAU-84768", limit = limit, offset = offset, ..., format = format, clean_names = clean_names, timeout = timeout, api_key = api_key)
 }

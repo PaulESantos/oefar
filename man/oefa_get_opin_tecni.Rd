@@ -32,3 +32,8 @@ oefa_get_opin_tecni(
 \description{
 Download dataset: Opiniones Técnicas a proyectos normativos
 }
+\examples{
+\dontrun{
+df <- oefa_get_opin_tecni(limit = 10)
+}
+}

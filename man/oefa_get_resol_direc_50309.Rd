@@ -42,12 +42,17 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{N°_RESOL}{Número De Resolución Directoral Correspondiente [Cadena De Texto]}
   \item{FECHA_RD}{Fecha de Resolución Directoral [Fecha]}
   \item{NRO_EXPE}{Número de Expediente de RD [Cadena De Texto]}
-  \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
-  \item{RAZON_SO}{Razon Social Del Administrado [Cadena De Texto]}
+  \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
+  \item{RAZON_SO}{Razón Social Del Administrado [Cadena De Texto]}
   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-  \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
   \item{TIPO_RD}{Tipo De Rd [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_resol_direc_50309(limit = 10)
 }
 }

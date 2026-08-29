@@ -32,3 +32,8 @@ oefa_get_infor_de_la_direc_de(
 \description{
 Download dataset: Informes de la Dirección de Supervisión 2018
 }
+\examples{
+\dontrun{
+df <- oefa_get_infor_de_la_direc_de(limit = 10)
+}
+}

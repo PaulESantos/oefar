@@ -36,8 +36,8 @@ A \code{\link[tibble]{tibble}} with dataset records.
 Downloads data for dataset 'IPASH - Componente Ambiental Suelo' from OEFA by its GUID (IPASH-COMPO-AMBIE-SUELO).
 Belongs to Data Dictionary section: Evaluación ambiental > Evaluación ambiental para la identificación de pasivos ambientales del subsector hidrocarburos (IPASH).
 }
-\details{
-Main field structure according to OEFA's Official Data Dictionary:
-\describe{
+\examples{
+\dontrun{
+df <- oefa_get_ipash_compo_ambie_suelo(limit = 10)
 }
 }

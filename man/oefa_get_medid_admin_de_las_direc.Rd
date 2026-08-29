@@ -41,7 +41,7 @@ Main field structure according to OEFA's Official Data Dictionary:
 \describe{
   \item{SECTOR}{Sector [Cadena De Texto]}
   \item{NRO_EXPE}{Número De Expediente [Cadena De Texto]}
-  \item{TITULAR}{Razon Social Del Administrado [Cadena De Texto]}
+  \item{TITULAR}{Razón Social Del Administrado [Cadena De Texto]}
   \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
   \item{DET_HECHOS}{Fecha De Deteccion De Los Hechos [Fecha]}
   \item{NRO_RESOL}{Número De Resolución Directoral Que Dicta La Medida [Cadena De Texto]}
@@ -54,12 +54,17 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{INF_SUPERC}{Informe De Supervisión De Cumplimiento De La Medida Admnistrativa [Cadena De Texto]}
   \item{NRO_RESOLV}{Número De La Resolución De Variacion [Cadena De Texto]}
   \item{NRO_TEC}{Número De Informe Técnico [Cadena De Texto]}
-  \item{NRO_CONSID}{Número De Resolución De Reconsideracion [Cadena De Texto]}
+  \item{NRO_CONSID}{Número De Resolución De Reconsideración [Cadena De Texto]}
   \item{NRO_TFA}{Número De Resolución Del Tfa Del Recurso Impugnado [Cadena De Texto]}
   \item{REGION}{Indica Region Donde Impuso La Medida. [Cadena De Texto]}
   \item{PROVINCIA}{Indica Provincia Donde Impuso La Medida. [Cadena De Texto]}
   \item{DISTRITO}{Indica Distrito Donde Impuso La Medida. [Cadena De Texto]}
   \item{MANDATO}{Descripción Del Mandato [Cadena De Texto]}
   \item{REVOCACION}{Indica Si Revocó La Medida Administrativa [Booleano]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_medid_admin_de_las_direc(limit = 10)
 }
 }

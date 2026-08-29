@@ -46,3 +46,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{SECTOR}{Sector Económico [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_aport_por_regul_80624(limit = 10)
+}
+}

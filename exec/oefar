@@ -51,7 +51,7 @@ switch(
         timeout = timeout
       )
     }, error = function(e) {
-      cat("Error al descargar dataset:", conditionMessage(e), "\n", file = stderr())
+      cli::cli_alert_danger("Error al descargar dataset: {conditionMessage(e)}")
       quit(status = 1)
     })
 
@@ -61,7 +61,7 @@ switch(
       } else if (inherits(res, "data.frame")) {
         utils::write.csv(res, output, row.names = FALSE)
       }
-      cat(sprintf("Dataset guardado exitosamente en: %s\n", output))
+      cli::cli_alert_success("Dataset guardado exitosamente en: {.file {output}}")
     } else {
       if (is.character(res)) {
         cat(res)
@@ -87,19 +87,21 @@ switch(
     catalog <- tryCatch({
       oefar::oefa_list_datastreams(query = q_val, limit = lim_val)
     }, error = function(e) {
-      cat("Error al consultar el catalogo:", conditionMessage(e), "\n", file = stderr())
+      cli::cli_alert_danger("Error al consultar el cat\u00e1logo: {conditionMessage(e)}")
       quit(status = 1)
     })
 
     if (nrow(catalog) == 0) {
-      cat("No se encontraron datasets con los criterios especificados.\n")
+      cli::cli_alert_info("No se encontraron datasets con los criterios especificados.")
     } else {
-      cat(sprintf("=== Catalogo OEFA (%d datasets encontrados) ===\n\n", nrow(catalog)))
+      cli::cli_h1("Cat\u00e1logo OEFA ({nrow(catalog)} dataset{?s} encontrado{?s})")
+      cli::cli_ul()
       for (i in seq_len(nrow(catalog))) {
         guid_str <- if ("guid" %in% names(catalog)) catalog$guid[i] else "N/A"
-        title_str <- if ("title" %in% names(catalog)) catalog$title[i] else "Sin titulo"
-        cat(sprintf("  [%s] %s\n", guid_str, title_str))
+        title_str <- if ("title" %in% names(catalog)) catalog$title[i] else "Sin t\u00edtulo"
+        cli::cli_li("[{.field {guid_str}}] {.emph {title_str}}")
       }
+      cli::cli_end()
     }
   },
 
@@ -108,17 +110,19 @@ switch(
     cats <- tryCatch({
       oefar::oefa_list_categories()
     }, error = function(e) {
-      cat("Error al obtener las categorias:", conditionMessage(e), "\n", file = stderr())
+      cli::cli_alert_danger("Error al obtener las categor\u00edas: {conditionMessage(e)}")
       quit(status = 1)
     })
 
     if (nrow(cats) == 0) {
-      cat("No se encontraron categorias.\n")
+      cli::cli_alert_info("No se encontraron categor\u00edas disponibles.")
     } else {
-      cat("=== Categorias Tematicas OEFA ===\n\n")
+      cli::cli_h1("Categor\u00edas Tem\u00e1ticas OEFA")
+      cli::cli_ul()
       for (i in seq_len(nrow(cats))) {
-        cat(sprintf("  - %s (%d datasets)\n", cats$category_name[i], cats$total_datastreams[i]))
+        cli::cli_li("{.strong {cats$category_name[i]}} ({cats$total_datastreams[i]} dataset{?s})")
       }
+      cli::cli_end()
     }
   }
 )

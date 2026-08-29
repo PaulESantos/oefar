@@ -32,3 +32,8 @@ oefa_get_ident_de_accio_de_fisca(
 \description{
 Download dataset: Identificación de acciones de fiscalización ambiental
 }
+\examples{
+\dontrun{
+df <- oefa_get_ident_de_accio_de_fisca(limit = 10)
+}
+}

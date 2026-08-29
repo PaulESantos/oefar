@@ -51,3 +51,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{FECHA_NOR}{Fecha De La Resolución De Publicación De La Norma [Fecha]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_proye_norma_oefa(limit = 10)
+}
+}

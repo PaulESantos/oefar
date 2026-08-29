@@ -41,11 +41,11 @@ Main field structure according to OEFA's Official Data Dictionary:
 \describe{
   \item{NRO_EXPE}{Número de Expediente Indicado en la Resolución Correspondiente [Cadena De Texto]}
   \item{RAZON_SO}{Persona Natural O Jurídica, Así Como Cualquier Otra Forma Asociativa De Empresa O Patrimonio Autónomo, Que Desarrolla Una Actividad Económica, Servicio O Función Sujeta A Supervisión De La Autoridad De Supervisión. [Cadena De Texto]}
-  \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+  \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
   \item{U_AMB}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-  \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
   \item{INF_SUPER}{Documento Técnico Legal Aprobado Por La Autoridad De Supervisión Que Contiene Los Resultados De La Evaluación Del Cumplimiento De Las Obligaciones Fiscalizables En El Marco De Las Acciones De Supervisión. [Cadena De Texto]}
   \item{INFORME_T}{Documento Que Contiene Los Hallazgos De Presuntas Infracciones Detectados Durante La Supervisión Con Su Respectivo Fundamento Técnico Y Legal. [Cadena De Texto]}
   \item{SUPERV}{Inicio De Verificación Del Cumplimiento De Las Obligaciones Fiscalizables Y Funciones A Cargo De Las Efa. [Fecha]}
@@ -67,5 +67,10 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{FECHA_DE_RESOL4}{Fecha de Resolución TFA [Fecha]}
   \item{SENTIDO_}{Sentidos Principales Indicados en Resolución [Cadena De Texto]}
   \item{SENTIDO_}{Sentidos Indicados en La Resolución de Reconsideración [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_regis_actos_admin_96376(limit = 10)
 }
 }

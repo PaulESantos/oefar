@@ -60,7 +60,12 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{RADIACIO}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
   \item{VISUAL}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
   \item{SONORA}{Indica El O Los Agentes Contaminantes Impactantes Sobre Los Componentes Ambientales. [Booleano]}
-  \item{INDIRECT}{Se Refiere A La Competenca De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
+  \item{INDIRECT}{Se Refiere A La Competencia De Atención De La Denuncia, La Cual Puede Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). [Cadena De Texto]}
   \item{ESTADO}{Los Estados Son Los Siguientes: I)Derivada: Cuando La Denuncia Ha Sido Registrada Y Derivada Al Órgano Del Oefa; Ii) En Seguimiento: Cuando Se Haya Oficiado A La(S) Efa O Cuando El Órgano De Línea O La Efa Comunique Acciones; Iii) Archivada: En Los Casos Que Se Determine Que La Denuncia No Es Ambiental, Los Datos Proporcionados Resulten Insuficientes, Se Establezca Denuncia Maliciosa O Cuando Se Determine Que No Hay Una Efa Competente; Y Iv) Cerrada: Cuando Se De Por Atendida La Denuncia Ambiental (No Hallazgo De Incumplimientos O Inicio De Pas). [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_denun_sinad(limit = 10)
 }
 }

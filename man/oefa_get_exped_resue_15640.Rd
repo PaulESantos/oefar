@@ -52,3 +52,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{MULTA_INF}{Sanción Económica Impuesta Al Administrado Por Haber Incurrido En Infracción Administrativa [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_exped_resue_15640(limit = 10)
+}
+}

@@ -32,3 +32,8 @@ oefa_get_resol_emiti(
 \description{
 Download dataset: Resoluciones emitidas
 }
+\examples{
+\dontrun{
+df <- oefa_get_resol_emiti(limit = 10)
+}
+}

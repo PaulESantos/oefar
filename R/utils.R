@@ -48,9 +48,9 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
       httr2::req_perform(req_http)
     }, error = function(e_http) {
       cli::cli_abort(c(
-        "x" = "Error connecting to the OEFA API.",
-        "i" = "Error message: {e$message}",
-        "i" = "You can increase the timeout by specifying parameter {.code timeout = 120} in the function."
+        "x" = "Error al conectar con la API de Datos Abiertos de OEFA.",
+        "i" = "Mensaje del sistema: {e$message}",
+        "i" = "Puede incrementar el tiempo de espera especificando el argumento {.code timeout = 120}."
       ))
     })
   })
@@ -59,17 +59,17 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
   if (status >= 400) {
     msg <- tryCatch({
       body <- jsonlite::fromJSON(httr2::resp_body_string(res))
-      if (!is.null(body$error)) body$error else paste("HTTP code", status)
-    }, error = function(e) paste("HTTP code", status))
+      if (!is.null(body$error)) body$error else paste("C\u00f3digo HTTP", status)
+    }, error = function(e) paste("C\u00f3digo HTTP", status))
 
     extra_msg <- if (status == 500) {
-      c("i" = "The OEFA server responded with an internal error (500) for this remote dataset.",
-        "i" = "Verify if the dataset GUID has changed by consulting the active catalog with: {.code oefa_list_datastreams()}")
+      c("i" = "El servidor de OEFA respondi\u00f3 con un error interno (HTTP 500) para este conjunto de datos.",
+        "i" = "Verifique si el GUID ha cambiado consultando el cat\u00e1logo con: {.code oefa_list_datastreams()}")
     } else NULL
 
     cli::cli_abort(c(
-      "x" = "The OEFA API responded with an error (HTTP {status}).",
-      "i" = "Detail: {msg}",
+      "x" = "La API de OEFA respondi\u00f3 con un error (HTTP {status}).",
+      "i" = "Detalle: {msg}",
       extra_msg
     ))
   }

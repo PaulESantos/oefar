@@ -32,3 +32,8 @@ oefa_get_ident_de_accio_de_super(
 \description{
 Download dataset: Identificación de acciones de supervisión ambiental
 }
+\examples{
+\dontrun{
+df <- oefa_get_ident_de_accio_de_super(limit = 10)
+}
+}

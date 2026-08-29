@@ -32,3 +32,8 @@ oefa_get_flora_y_fauna_eat_82093(
 \description{
 Download dataset: Flora y Fauna - EAT
 }
+\examples{
+\dontrun{
+df <- oefa_get_flora_y_fauna_eat_82093(limit = 10)
+}
+}

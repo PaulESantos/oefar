@@ -52,8 +52,13 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{HORARIO}{Se Hace Referencia Al Horario De La Actividad Académica. [Cadena De Texto]}
   \item{HORAS}{Se Hace Referencia A La Cantidad De Horas Cronológicas. [Numérico]}
   \item{CERTIFICACION}{Hace Referencia A La Certificación A Emitir(Certificado, Constancia O Ninguno) [Cadena De Texto]}
-  \item{MODALIDA}{Hace Referencia A La Modadlidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
+  \item{MODALIDA}{Hace Referencia A La Modalidad Presencial, Semipresencial O Virtual. [Cadena De Texto]}
   \item{NRO_SESI}{Cantidad De Sesiones Que Tiene Una Actividad Académica. [Numérico]}
   \item{META}{Hace Referencia A La Cantidad De Participantes Que Se Estima Capacitar. [Numérico]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_activ_afa(limit = 10)
 }
 }

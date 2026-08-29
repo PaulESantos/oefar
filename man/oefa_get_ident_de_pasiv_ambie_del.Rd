@@ -32,3 +32,8 @@ oefa_get_ident_de_pasiv_ambie_del(
 \description{
 Download dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
 }
+\examples{
+\dontrun{
+df <- oefa_get_ident_de_pasiv_ambie_del(limit = 10)
+}
+}

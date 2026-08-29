@@ -32,3 +32,8 @@ oefa_get_compo_ambie_agua_eat(
 \description{
 Download dataset: Componente ambiental Agua - EAT
 }
+\examples{
+\dontrun{
+df <- oefa_get_compo_ambie_agua_eat(limit = 10)
+}
+}

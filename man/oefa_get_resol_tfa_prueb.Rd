@@ -32,3 +32,8 @@ oefa_get_resol_tfa_prueb(
 \description{
 Download dataset: Resoluciones TFA - PRueba
 }
+\examples{
+\dontrun{
+df <- oefa_get_resol_tfa_prueb(limit = 10)
+}
+}

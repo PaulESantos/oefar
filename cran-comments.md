@@ -8,8 +8,8 @@
 0 ERRORS | 0 WARNINGS | 0 NOTES
 
 * Package built cleanly on Windows x86_64-w64-mingw32.
-* All unit tests passed (37 testthat unit tests).
-* Function documentation includes `@return` and `@examples` for exported functions.
+* All unit tests passed (39 testthat unit tests).
+* Function documentation includes `@return` and `@examples` for all 98+ exported functions.
 * Cleaned top-level directory and updated `.Rbuildignore` and `.gitignore`.
 
 ### Method References

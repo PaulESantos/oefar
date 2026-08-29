@@ -32,3 +32,8 @@ oefa_get_evalu_ambie_para_la_ident(
 \description{
 Download dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
 }
+\examples{
+\dontrun{
+df <- oefa_get_evalu_ambie_para_la_ident(limit = 10)
+}
+}

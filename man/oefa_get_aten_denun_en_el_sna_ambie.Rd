@@ -32,3 +32,8 @@ oefa_get_aten_denun_en_el_sna_ambie(
 \description{
 Download dataset: Atención de denuncias en el SINADA
 }
+\examples{
+\dontrun{
+df <- oefa_get_aten_denun_en_el_sna_ambie(limit = 10)
+}
+}

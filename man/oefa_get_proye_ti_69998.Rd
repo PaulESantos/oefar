@@ -45,3 +45,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{PORCENTA}{Porcentaje De Ejecucion Del Proyecto [Numérico]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_proye_ti_69998(limit = 10)
+}
+}

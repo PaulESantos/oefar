@@ -32,3 +32,8 @@ oefa_get_infor_de_la_direc_28304(
 \description{
 Download dataset: Informes de la Dirección de Supervisión 2019-2025
 }
+\examples{
+\dontrun{
+df <- oefa_get_infor_de_la_direc_28304(limit = 10)
+}
+}

@@ -32,3 +32,8 @@ oefa_get_prueb_isim(
 \description{
 Download dataset: Prueba ISIM
 }
+\examples{
+\dontrun{
+df <- oefa_get_prueb_isim(limit = 10)
+}
+}

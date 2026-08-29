@@ -32,3 +32,8 @@ oefa_get_infor_del_perso(
 \description{
 Download dataset: Información del personal
 }
+\examples{
+\dontrun{
+df <- oefa_get_infor_del_perso(limit = 10)
+}
+}

@@ -27,7 +27,7 @@
 #' }
 oefa_get_data <- function(guid, limit = NULL, offset = NULL, pArgument0 = NULL, ..., format = c("tibble", "csv", "json"), clean_names = TRUE, timeout = 60, api_key = oefa_get_api_key()) {
   if (missing(guid) || !is.character(guid) || nchar(trimws(guid)) == 0) {
-    cli::cli_abort("Debe especificar un GUID de datastream valido.")
+    cli::cli_abort("{.arg guid} debe ser un identificador de datastream v\u00e1lido (ej. {.val DENUN-SINAD}).")
   }
 
   guid <- trimws(guid)
@@ -80,7 +80,7 @@ oefa_get_data <- function(guid, limit = NULL, offset = NULL, pArgument0 = NULL, 
   res_tbl
 }
 
-#' Constante para mapear simbolos micro/mu a 'u'
+#' Constante para mapear símbolos micro/mu a 'u'
 #'
 #' @keywords internal
 mu_to_u <- stats::setNames(
@@ -100,15 +100,12 @@ available_transliterators <- function(wanted) {
   if (requireNamespace("stringi", quietly = TRUE)) {
     desired_available <- intersect(wanted, stringi::stri_trans_list())
     if (!identical(wanted, desired_available) && getOption("janitor_warn_transliterators", default = TRUE)) {
-      warning(
-        "Algunos transliteradores para convertir caracteres en nombres no estan disponibles en este sistema.\n",
-        "Los resultados pueden diferir cuando se ejecuta en un sistema diferente.\n",
-        "Los transliteradores faltantes son: ",
-        paste0(setdiff(wanted, desired_available), collapse = ", "),
-        "\n\nEsta advertencia solo se mostrara una vez por sesion.\n",
-        "Para suprimirla use: options(janitor_warn_transliterators=FALSE)\n",
-        call. = FALSE
-      )
+      cli::cli_warn(c(
+        "!" = "Algunos transliteradores para convertir caracteres en nombres no est\u00e1n disponibles en este sistema.",
+        "i" = "Los resultados pueden diferir cuando se ejecuta en un sistema diferente.",
+        "i" = "Transliteradores faltantes: {.val {setdiff(wanted, desired_available)}}.",
+        "i" = "Para suprimir esta advertencia use: {.code options(janitor_warn_transliterators = FALSE)}"
+      ))
       options(janitor_warn_transliterators = FALSE)
     }
     paste(desired_available, collapse = ";")
@@ -144,32 +141,23 @@ warn_micro_mu <- function(string, replace) {
     }
   }
 
-  warning_message_general <- NULL
+  warning_bullets <- character()
   if (length(warning_characters) > 0) {
     warning_characters_utf <- sprintf("\\u%04x", sapply(X = warning_characters, FUN = utf8ToInt))
-    warning_message_general <- sprintf(
-      "Los siguientes caracteres estan en los nombres pero no se reemplazan: %s",
-      paste(warning_characters_utf, collapse = ", ")
-    )
+    warning_bullets <- c(warning_bullets, "!" = sprintf("Caracteres no reemplazados: %s", paste(warning_characters_utf, collapse = ", ")))
   }
 
-  warning_message_specific <- NULL
   if (length(warning_characters_specific) > 0) {
     warning_characters_utf <- sprintf("\\u%04x", sapply(X = warning_characters_specific, FUN = utf8ToInt))
-    warning_message_specific <- sprintf(
-      "Los siguientes caracteres estan en los nombres pero es posible que no se reemplacen completamente: %s",
-      paste(warning_characters_utf, collapse = ", ")
-    )
+    warning_bullets <- c(warning_bullets, "!" = sprintf("Caracteres con reemplazo incompleto: %s", paste(warning_characters_utf, collapse = ", ")))
   }
 
-  if (!is.null(warning_message_general) || !is.null(warning_message_specific)) {
-    warning_message <- paste(c(warning_message_general, warning_message_specific), collapse = "\n")
-    warning(
-      "Atencion! El simbolo mu o micro esta en el texto de entrada y puede haberse convertido en 'm' cuando se esperaba 'u'. ",
-      "Considere agregar `replace = mu_to_u` al argumento `replace`:\n",
-      warning_message,
-      call. = FALSE
-    )
+  if (length(warning_bullets) > 0) {
+    cli::cli_warn(c(
+      "!" = "El s\u00edmbolo mu o micro est\u00e1 en el texto de entrada y puede haberse convertido en {.val m} en lugar de {.val u}.",
+      "i" = "Considere agregar {.code replace = mu_to_u} al argumento {.arg replace}.",
+      warning_bullets
+    ))
   }
   length(c(warning_characters, warning_characters_specific)) > 0
 }
@@ -233,6 +221,12 @@ fallback_to_any_case <- function(string, case = "snake") {
 #' @return Returns a clean character vector or a data.frame with cleaned column names.
 #' @keywords internal
 #' @export
+#'
+#' @examples
+#' clean_column_names(c("CÓDIGO ÚNICO", "N° Expediente", "Tasa %"))
+#'
+#' df <- data.frame(`Área Total` = 1:5, `N° Casos` = 6:10, check.names = FALSE)
+#' clean_column_names(df)
 clean_column_names <- function(string,
                                case = "snake",
                                replace = c(

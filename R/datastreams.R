@@ -100,7 +100,7 @@ oefa_list_datastreams <- function(category = NULL, query = NULL, limit = NULL, o
 #' }
 oefa_get_datastream_info <- function(guid, api_key = oefa_get_api_key()) {
   if (missing(guid) || !is.character(guid) || nchar(trimws(guid)) == 0) {
-    cli::cli_abort("Debe proporcionar un GUID valido de datastream.")
+    cli::cli_abort("{.arg guid} debe ser una cadena de texto no vac\u00eda con el identificador del datastream.")
   }
 
   endpoint <- paste0("datastreams/", trimws(guid), "/")
@@ -128,7 +128,7 @@ oefa_get_datastream_info <- function(guid, api_key = oefa_get_api_key()) {
 #' }
 oefa_search_datastreams <- function(query, api_key = oefa_get_api_key()) {
   if (missing(query) || !is.character(query) || nchar(trimws(query)) == 0) {
-    cli::cli_abort("Debe ingresar una palabra o frase de busqueda valida.")
+    cli::cli_abort("{.arg query} debe ser una palabra o frase de b\u00fasqueda v\u00e1lida.")
   }
 
   oefa_list_datastreams(query = query, api_key = api_key)

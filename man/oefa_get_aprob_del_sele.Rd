@@ -39,11 +39,16 @@ Belongs to Data Dictionary section: Información Institucional > Personal.
 \details{
 Main field structure according to OEFA's Official Data Dictionary:
 \describe{
-  \item{REGISTRO}{Número Correlativo Que Hace Referncia A Una Convocatoria Una Convocatoria Cas [Entero]}
+  \item{REGISTRO}{Número Correlativo Que Hace Referencia A Una Convocatoria Una Convocatoria Cas [Entero]}
   \item{AÑO_SELEC}{Año Que Inició Sus Labores En La Institución [Cadena De Texto]}
   \item{MES}{Mes Que Inició Sus Labores En La Institución [Cadena De Texto]}
   \item{ESTADO}{Estado Del Proceso De Selección [Cadena De Texto]}
   \item{AREA_SELEC}{A Que Área Pertenece Cada Proceso [Cadena De Texto]}
   \item{CANT_SELEC}{Total De Plazas [Entero]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_aprob_del_sele(limit = 10)
 }
 }

@@ -28,8 +28,14 @@ native `tibble` support.
 
 ## Installation
 
-You can install the development version of `oefar` from GitHub using
-`remotes` or `devtools`:
+You can install the released version of `oefar` from CRAN with:
+
+``` r
+install.packages("oefar")
+```
+
+Or install the development version from GitHub using `remotes` or
+`devtools`:
 
 ``` r
 # install.packages("remotes")
@@ -241,6 +247,7 @@ citation("oefar")
 
 ## License
 
-This package is licensed under the [MIT License](LICENSE). Environmental
-enforcement data is property of the Peruvian state (OEFA) and is subject
-to the terms of Peru’s National Open Data Platform.
+This package is licensed under the [MIT
+License](https://opensource.org/licenses/MIT). Environmental enforcement
+data is property of the Peruvian state (OEFA) and is subject to the
+terms of Peru’s National Open Data Platform.

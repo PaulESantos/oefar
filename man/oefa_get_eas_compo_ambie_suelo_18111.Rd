@@ -61,3 +61,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{MEDIDA}{Unidad Utilizada Para Medir Parametro [Cadena De Texto]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_eas_compo_ambie_suelo_18111(limit = 10)
+}
+}

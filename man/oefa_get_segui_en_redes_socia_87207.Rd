@@ -44,3 +44,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{SEGUIDOR}{Indica La Cantidad De Nuevos Seguidores [Entero]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_segui_en_redes_socia_87207(limit = 10)
+}
+}

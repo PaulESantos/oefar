@@ -32,3 +32,8 @@ oefa_get_eas_compo_ambie_aire(
 \description{
 Download dataset: EAS - Componente ambiental Aire
 }
+\examples{
+\dontrun{
+df <- oefa_get_eas_compo_ambie_aire(limit = 10)
+}
+}

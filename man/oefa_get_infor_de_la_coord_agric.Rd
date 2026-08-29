@@ -42,7 +42,7 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{COORDINAC}{Coordinacion Responsable De La Supervisión [Cadena De Texto]}
   \item{MES_SUPERV}{Mes De Ejecución De La Supervisión [Cadena De Texto]}
   \item{NRO_EXPE}{Número Del Informe De Supervisión Aprobado [Cadena De Texto]}
-  \item{ADMINIST}{Razon Social Del Administrado [Cadena De Texto]}
+  \item{ADMINIST}{Razón Social Del Administrado [Cadena De Texto]}
   \item{UNIDAD}{Lugar Donde El Administrado Desarrolla Su Actividad Económica O Su Función De Fiscalización Ambiental, Sujeta A Supervisión De La Autoridad De Supervisión. Puede Comprender Uno O Más Componentes. [Cadena De Texto]}
   \item{ACT_FUNC}{La Actividad Está Directamente Ligada A La Noción De Producción;No Hay Producción Sin Actividad. Producir Es Crear Bienes O Suministrar Servicios Dentro De Un Proceso De Producción Que Requiere Factores (Materia Prima, Trabajo Y Capital Fijo, Entre Otros) .Las Actividades Se Clasifican Según La Competencia De Cada Sector. [Cadena De Texto]}
   \item{TIPO_SUPERV}{En Función De La Programación, La Supervisión Puede Ser Regular O Especial. [Cadena De Texto]}
@@ -55,5 +55,10 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{EMISION_CARTA}{Fecha De Aprobación Del De La Carta De Notificación U Oficio Al Administrado [Numérico]}
   \item{NRO_OFIC}{Número De Carta U Oficio [Cadena De Texto]}
   \item{NRO_MEMO}{Número De Memorando Hacia Archivo [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_infor_de_la_coord_agric(limit = 10)
 }
 }

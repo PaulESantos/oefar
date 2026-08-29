@@ -49,3 +49,8 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{\%PI_MONTO_INV}{Porcentaje Que Representa El Proyecto Respecto Al Total De Inversiones [Entero]}
 }
 }
+\examples{
+\dontrun{
+df <- oefa_get_proye_de_inver(limit = 10)
+}
+}

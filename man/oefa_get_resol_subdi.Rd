@@ -42,15 +42,20 @@ Main field structure according to OEFA's Official Data Dictionary:
   \item{N°_RESOL}{Número De La Resolución Subdirectoral [Cadena De Texto]}
   \item{FECHA_RSD}{Fecha De Emision De La Resolución Subdirectoral [Fecha]}
   \item{NRO_EXPE}{Número De Expediente De La Dfai [Cadena De Texto]}
-  \item{SECTOR}{Sector Economico Que Corresponde (Mineria, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) [Cadena De Texto]}
+  \item{SECTOR}{Sector Económico Que Corresponde (Minería, Electricidad, Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios) [Cadena De Texto]}
   \item{INFORME_}{Tipo De Informe (Informe De Supervision O Informe Tecnico Acusatorio) [Cadena De Texto]}
   \item{NRO_INF}{Número De Informe [Cadena De Texto]}
   \item{SUPERV}{Fecha De Inicio De La Supervision [Fecha]}
-  \item{RAZON_SO}{Nombre De La Razon Social Del Administrado [Cadena De Texto]}
+  \item{RAZON_SO}{Nombre De La Razón Social Del Administrado [Cadena De Texto]}
   \item{UNIDAD}{Unidad Fiscalizable Supervisada [Cadena De Texto]}
-  \item{DEPARTAM}{Departamento De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{PROVINCIA}{Provincia De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
-  \item{DISTRITO}{Distrito De Localizacion De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DEPARTAM}{Departamento De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{PROVINCIA}{Provincia De Localización De La Unidad Fiscalizable [Cadena De Texto]}
+  \item{DISTRITO}{Distrito De Localización De La Unidad Fiscalizable [Cadena De Texto]}
   \item{TIPO_RSD}{Sentido Legal De La Resolución Subdirectoral [Cadena De Texto]}
+}
+}
+\examples{
+\dontrun{
+df <- oefa_get_resol_subdi(limit = 10)
 }
 }

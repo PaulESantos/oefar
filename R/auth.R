@@ -24,7 +24,7 @@
 #' }
 oefa_set_api_key <- function(api_key, install = FALSE) {
   if (missing(api_key) || !is.character(api_key) || nchar(trimws(api_key)) == 0) {
-    cli::cli_abort("Debe proporcionar una API Key valida como cadena de caracteres.")
+    cli::cli_abort("{.arg api_key} debe ser una cadena de caracteres no vac\u00eda.")
   }
 
   clean_key <- trimws(api_key)
