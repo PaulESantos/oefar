@@ -21,7 +21,6 @@
 #'
 #' @examples
 #' \dontrun{
-#' # Download SINADA complaints with a 120s timeout
 #' complaints <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
 #' print(complaints)
 #' }
@@ -82,7 +81,7 @@ oefa_get_data <- function(guid, limit = NULL, offset = NULL, pArgument0 = NULL, 
 
 #' Constante para mapear símbolos micro/mu a 'u'
 #'
-#' @keywords internal
+#' @noRd
 mu_to_u <- stats::setNames(
   rep("u", 10),
   nm = c(
@@ -367,7 +366,7 @@ clean_column_names <- function(string,
 #'
 #' @param json_data Lista resultado del parseo de data.json
 #' @return Data frame / tibble
-#' @keywords internal
+#' @noRd
 parse_junar_json_to_tibble <- function(json_data) {
   if (is.null(json_data)) return(tibble::tibble())
 

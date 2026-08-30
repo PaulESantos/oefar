@@ -29,6 +29,9 @@ oefa_get_evalu_ambie_causal_eac(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Evaluaciones ambientales de causalidad (EAC)
 }

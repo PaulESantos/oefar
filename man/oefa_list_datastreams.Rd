@@ -51,11 +51,9 @@ Evaluation and Enforcement Agency of Peru) Open Data portal.
 }
 \examples{
 \dontrun{
-# List all datastreams
 catalog <- oefa_list_datastreams()
 head(catalog)
 
-# Search datastreams about environmental complaints
 complaints_ds <- oefa_list_datastreams(query = "denuncias")
 }
 }

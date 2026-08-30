@@ -29,6 +29,9 @@ oefa_get_flora_y_fauna_eat_82093(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Flora y Fauna - EAT
 }

@@ -29,6 +29,9 @@ oefa_get_accio_estra_en_ti(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Acciones estratégicas en TI
 }

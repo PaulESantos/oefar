@@ -29,6 +29,9 @@ oefa_get_infor_elabo(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Supervisiones concluidas - Informes elaborados
 }

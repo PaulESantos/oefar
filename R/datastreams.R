@@ -26,11 +26,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' # List all datastreams
 #' catalog <- oefa_list_datastreams()
 #' head(catalog)
 #'
-#' # Search datastreams about environmental complaints
 #' complaints_ds <- oefa_list_datastreams(query = "denuncias")
 #' }
 oefa_list_datastreams <- function(category = NULL, query = NULL, limit = NULL, offset = NULL, api_key = oefa_get_api_key()) {

@@ -908,6 +908,7 @@ oefa_get_medid_admin_de_las_direc <- function(limit = NULL, offset = NULL, ..., 
 
 #' Download dataset: Informes de la Dirección de Supervisión 2019-2025
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -920,6 +921,7 @@ oefa_get_infor_de_la_direc_28304 <- function(limit = NULL, offset = NULL, ..., f
 
 #' Download dataset: Informes de la Dirección de Supervisión 2018
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -1061,6 +1063,7 @@ oefa_get_eac_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 
 #' Download dataset: EAC - Ruido
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -1352,6 +1355,7 @@ oefa_get_eas_compo_hidro <- function(limit = NULL, offset = NULL, ..., format = 
 
 #' Download dataset: EAS - Componente ambiental Aire
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -1776,6 +1780,7 @@ oefa_get_eaf_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: EAF - Flora y Fauna
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -1831,6 +1836,7 @@ oefa_get_eas_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tib
 
 #' Download dataset: EAS - Flora y Fauna
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2100,6 +2106,7 @@ oefa_get_eat_flora_y_fauna <- function(limit = NULL, offset = NULL, ..., format 
 
 #' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2196,6 +2203,7 @@ oefa_get_eat_compo_ambie_agua <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Resoluciones TFA - PRueba
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2244,6 +2252,7 @@ oefa_get_pedid_fisca_2018 <- function(limit = NULL, offset = NULL, ..., format =
 
 #' Download dataset: Identificación de las evaluaciones ambientales
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2256,6 +2265,7 @@ oefa_get_ident_de_las_evalu_ambie <- function(limit = NULL, offset = NULL, ..., 
 
 #' Download dataset: Identificación de acciones de fiscalización ambiental
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2268,6 +2278,7 @@ oefa_get_ident_de_accio_de_fisca <- function(limit = NULL, offset = NULL, ..., f
 
 #' Download dataset: Identificación de acciones de supervisión ambiental
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2280,6 +2291,7 @@ oefa_get_ident_de_accio_de_super <- function(limit = NULL, offset = NULL, ..., f
 
 #' Download dataset: Prueba IPASH
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2292,6 +2304,7 @@ oefa_get_prueb_ipash <- function(limit = NULL, offset = NULL, ..., format = c("t
 
 #' Download dataset: Prueba ISIM
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2304,6 +2317,7 @@ oefa_get_prueb_isim <- function(limit = NULL, offset = NULL, ..., format = c("ti
 
 #' Download dataset: Componente ambiental Agua - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2316,6 +2330,7 @@ oefa_get_compo_ambie_agua_eat <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Componente ambiental Sedimento - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2328,6 +2343,7 @@ oefa_get_sedim <- function(limit = NULL, offset = NULL, ..., format = c("tibble"
 
 #' Download dataset: Componente hidroquímico - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2432,6 +2448,7 @@ oefa_get_compo_ambie_biolo_eat <- function(limit = NULL, offset = NULL, ..., for
 
 #' Download dataset: Componente ambiental Suelo - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2444,6 +2461,7 @@ oefa_get_compo_ambie_suelo_eat <- function(limit = NULL, offset = NULL, ..., for
 
 #' Download dataset: Evaluaciones ambientales de causalidad (EAC)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2456,6 +2474,7 @@ oefa_get_evalu_ambie_causal_eac <- function(limit = NULL, offset = NULL, ..., fo
 
 #' Download dataset: Evaluaciones ambientales tempranas (EAT)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2468,6 +2487,7 @@ oefa_get_evalu_ambie_temp_eat <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Flora y Fauna - EAT
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2480,6 +2500,7 @@ oefa_get_flora_y_fauna_eat <- function(limit = NULL, offset = NULL, ..., format 
 
 #' Download dataset: Evaluaciones ambientales de seguimiento (EAS)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2492,6 +2513,7 @@ oefa_get_evalu_ambie_de_segui <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Evaluaciones ambientales focalizadas (EAF)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2504,6 +2526,7 @@ oefa_get_evalu_ambie_foca_eaf <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2516,6 +2539,7 @@ oefa_get_ident_de_pasiv_ambie_del <- function(limit = NULL, offset = NULL, ..., 
 
 #' Download dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2528,6 +2552,7 @@ oefa_get_evalu_ambie_para_la_ident <- function(limit = NULL, offset = NULL, ...,
 
 #' Download dataset: Supervisiones concluidas - Informes elaborados
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2585,6 +2610,7 @@ oefa_get_medid_admin <- function(limit = NULL, offset = NULL, ..., format = c("t
 
 #' Download dataset: Resoluciones emitidas
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2626,6 +2652,7 @@ oefa_get_aprob_del_sele <- function(limit = NULL, offset = NULL, ..., format = c
 
 #' Download dataset: Fiscalías Especializadas en Materia Ambiental (FEMA)
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2677,6 +2704,7 @@ oefa_get_activ_afa <- function(limit = NULL, offset = NULL, ..., format = c("tib
 
 #' Download dataset: Opiniones Técnicas a proyectos normativos
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2689,6 +2717,7 @@ oefa_get_opin_tecni <- function(limit = NULL, offset = NULL, ..., format = c("ti
 
 #' Download dataset: Atención de denuncias en el SINADA
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2701,6 +2730,7 @@ oefa_get_aten_denun_en_el_sna_ambie <- function(limit = NULL, offset = NULL, ...
 
 #' Download dataset: Acciones estratégicas en TI
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples
@@ -2789,6 +2819,7 @@ oefa_get_inter_en_redes_socia <- function(limit = NULL, offset = NULL, ..., form
 
 #' Download dataset: Información del personal
 #' @inheritParams oefa_get_data
+#' @return A \code{\link[tibble]{tibble}} with dataset records.
 #' @export
 #'
 #' @examples

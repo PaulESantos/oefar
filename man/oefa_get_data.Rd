@@ -59,7 +59,6 @@ Allows adjusting the download timeout according to data volume.
 }
 \examples{
 \dontrun{
-# Download SINADA complaints with a 120s timeout
 complaints <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
 print(complaints)
 }

@@ -13,7 +13,7 @@ OEFA_BASE_URL_HTTP <- "http://api.datosabiertos.oefa.gob.pe/api/v2/"
 #' @param api_key API Key authentication string.
 #'
 #' @return An httr2_response object.
-#' @keywords internal
+#' @noRd
 oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = oefa_get_api_key()) {
   if (is.null(api_key) || nchar(api_key) == 0) {
     api_key <- oefa_get_api_key()
@@ -81,7 +81,7 @@ oefa_api_request <- function(endpoint, query = list(), timeout = 60, api_key = o
 #'
 #' @param res httr2_response object
 #' @return Parsed object (tibble or list)
-#' @keywords internal
+#' @noRd
 parse_json_response <- function(res) {
   text <- httr2::resp_body_string(res, encoding = "UTF-8")
   if (nchar(trimws(text)) == 0) {

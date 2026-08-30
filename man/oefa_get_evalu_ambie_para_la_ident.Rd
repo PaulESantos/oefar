@@ -29,6 +29,9 @@ oefa_get_evalu_ambie_para_la_ident(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Evaluación ambiental para la identificación de Sitios Impactados (ISIM)
 }

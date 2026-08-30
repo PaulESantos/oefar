@@ -4,16 +4,17 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{prefix_chunk, include = FALSE}
+```{r prefix_chunk, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  eval = FALSE
 )
 ```
 
-# oefar <img src="man/figures/logo.png" align="right" height="139" alt="" />
+# oefar
 
 <!-- badges: start -->
 [![R-CMD-check](https://img.shields.io/badge/R--CMD--check-passing-brightgreen.svg)](https://github.com/)
@@ -41,7 +42,7 @@ Or install the development version from GitHub using `remotes` or `devtools`:
 
 ```r
 # install.packages("remotes")
-remotes::install_github("paulefrens/oefar")
+remotes::install_github("PaulESantos/oefar")
 ```
 
 ---

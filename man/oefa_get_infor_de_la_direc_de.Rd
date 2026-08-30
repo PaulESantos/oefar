@@ -29,6 +29,9 @@ oefa_get_infor_de_la_direc_de(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Informes de la Dirección de Supervisión 2018
 }

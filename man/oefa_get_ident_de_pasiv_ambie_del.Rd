@@ -29,6 +29,9 @@ oefa_get_ident_de_pasiv_ambie_del(
 
 \item{api_key}{Character. OEFA API Key. Defaults to \code{oefa_get_api_key()}.}
 }
+\value{
+A \code{\link[tibble]{tibble}} with dataset records.
+}
 \description{
 Download dataset: Identificación de pasivos ambientales del sector Hidrocarburos (IPASH)
 }
