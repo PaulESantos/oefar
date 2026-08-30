@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Acceso a la API de Datos Abiertos del OEFA de Perú • oefar</title>
+<title>Access to the OEFA Open Data API of Peru • oefar</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Acceso a la API de Datos Abiertos del OEFA de Perú">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access to the OEFA Open Data API of Peru">
 <meta name="description" content="Access, search, and download environmental evaluation, supervision, and enforcement datasets from the Organismo de Evaluacion y Fiscalizacion Ambiental (OEFA) of Peru via its Open Data Application Programming Interface (API). Provides helper functions for 98 specific datasets, automated column name cleaning according to tidyverse conventions, custom pagination, and configurable timeout parameters.">
 <meta property="og:description" content="Access, search, and download environmental evaluation, supervision, and enforcement datasets from the Organismo de Evaluacion y Fiscalizacion Ambiental (OEFA) of Peru via its Open Data Application Programming Interface (API). Provides helper functions for 98 specific datasets, automated column name cleaning according to tidyverse conventions, custom pagination, and configurable timeout parameters.">
 </head>
@@ -32,12 +32,19 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/oefar-uso.html">Guía de uso del paquete oefar</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/PaulESantos/oefar/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -46,220 +53,140 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="oefar-">oefar <img src="reference/figures/logo.png" align="right" height="139" alt=""><a class="anchor" aria-label="anchor" href="#oefar-"></a>
+<div class="page-header"><h1 id="oefar">oefar<a class="anchor" aria-label="anchor" href="#oefar"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p><strong><code>oefar</code></strong> es un paquete en R diseñado para facilitar el acceso, exploración y descarga directa de datos abiertos del <strong>Organismo de Evaluación y Fiscalización Ambiental (OEFA)</strong> de Perú a través de la API v2 de su portal de datos abiertos (<a href="https://datosabiertos.oefa.gob.pe/" class="external-link">datosabiertos.oefa.gob.pe</a>).</p>
-<p>El paquete proporciona <strong>98 funciones específicas dedicadas</strong> para cada conjunto de datos del catálogo oficial, formateo automático de nombres de columnas en formato limpio (minúsculas y guiones bajos), manejo configurable de tiempos límite de espera (<code>timeout</code>), y soporte nativo para <code>tibble</code>.</p>
+<p><strong><code>oefar</code></strong> is an R package designed to facilitate access, exploration, and direct downloading of open data from the <strong>Agency for Environmental Assessment and Enforcement (OEFA)</strong> of Peru via its v2 Open Data API (<a href="https://datosabiertos.oefa.gob.pe/" class="external-link">datosabiertos.oefa.gob.pe</a>).</p>
+<p>The package provides <strong>98 dedicated functions</strong> for each dataset in the official catalog, automatic column name cleaning into snake_case according to tidyverse conventions, configurable timeout handling, and native <code>tibble</code> support.</p>
 <hr>
 <div class="section level2">
-<h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Puedes instalar la versión en desarrollo del paquete <code>oefar</code> desde GitHub usando <code>remotes</code> o <code>devtools</code>:</p>
+<p>You can install the released version of <code>oefar</code> from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"paulefrens/oefar"</span><span class="op">)</span></span></code></pre></div>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="configuración-de-la-api-key">Configuración de la API Key<a class="anchor" aria-label="anchor" href="#configuraci%C3%B3n-de-la-api-key"></a>
-</h2>
-<p>Para utilizar la API de Datos Abiertos del OEFA, se requiere contar con una <strong>API Key personal</strong>, la cual puede crearse y obtenerse directamente desde el portal de desarrolladores del OEFA: <a href="https://datosabiertos.oefa.gob.pe/developers/" class="external-link uri">https://datosabiertos.oefa.gob.pe/developers/</a>.</p>
-<div class="section level3">
-<h3 id="configuración-temporal-en-la-sesión">Configuración temporal en la sesión:<a class="anchor" aria-label="anchor" href="#configuraci%C3%B3n-temporal-en-la-sesi%C3%B3n"></a>
-</h3>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"oefar"</span><span class="op">)</span></span></code></pre></div>
+<p>Or install the development version from GitHub using <code>remotes</code> or <code>devtools</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"PaulESantos/oefar"</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+<div class="section level2">
+<h2 id="api-key-configuration">API Key Configuration<a class="anchor" aria-label="anchor" href="#api-key-configuration"></a>
+</h2>
+<p>To use the OEFA Open Data API, a <strong>personal API Key</strong> is required. You can obtain one directly from the OEFA developer portal: <a href="https://datosabiertos.oefa.gob.pe/developers/" class="external-link uri">https://datosabiertos.oefa.gob.pe/developers/</a>.</p>
+<div class="section level3">
+<h3 id="temporary-configuration-for-current-session">Temporary configuration for current session:<a class="anchor" aria-label="anchor" href="#temporary-configuration-for-current-session"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://datosabiertos.oefa.gob.pe" class="external-link">oefar</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Establecer la API Key en la sesion actual</span></span>
-<span><span class="fu"><a href="reference/oefa_set_api_key.html">oefa_set_api_key</a></span><span class="op">(</span><span class="st">"TU_API_KEY_AQUI"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Set the API Key for the current R session</span></span>
+<span><span class="fu"><a href="reference/oefa_set_api_key.html">oefa_set_api_key</a></span><span class="op">(</span><span class="st">"YOUR_API_KEY_HERE"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="configuración-permanente-en-el-entorno-local-de-r-renviron">Configuración permanente en el entorno local de R (<code>.Renviron</code>):<a class="anchor" aria-label="anchor" href="#configuraci%C3%B3n-permanente-en-el-entorno-local-de-r-renviron"></a>
+<h3 id="permanent-configuration-in-local-r-environment-renviron">Permanent configuration in local R environment (<code>.Renviron</code>):<a class="anchor" aria-label="anchor" href="#permanent-configuration-in-local-r-environment-renviron"></a>
 </h3>
-<p>Se recomienda añadir la clave al archivo <code>.Renviron</code> bajo el nombre <code>OEFA_API_KEY</code>:</p>
-<pre class="env"><code><span><span class="va">OEFA_API_KEY</span><span class="op">=</span><span class="st">"TU_API_KEY_AQUI"</span></span></code></pre>
-<p>El paquete detectará automáticamente la clave cargada mediante <code><a href="reference/oefa_set_api_key.html">oefa_get_api_key()</a></code>.</p>
+<p>It is recommended to add your key to your <code>.Renviron</code> file as <code>OEFA_API_KEY</code>:</p>
+<pre class="env"><code><span><span class="va">OEFA_API_KEY</span><span class="op">=</span><span class="st">"YOUR_API_KEY_HERE"</span></span></code></pre>
+<p>The package will automatically detect the key via <code><a href="reference/oefa_set_api_key.html">oefa_get_api_key()</a></code>.</p>
 <hr>
 </div>
 </div>
 <div class="section level2">
-<h2 id="ejemplos-de-uso">Ejemplos de Uso<a class="anchor" aria-label="anchor" href="#ejemplos-de-uso"></a>
+<h2 id="usage-examples">Usage Examples<a class="anchor" aria-label="anchor" href="#usage-examples"></a>
 </h2>
 <div class="section level3">
-<h3 id="id_1-exploración-del-catálogo-de-datasets">1. Exploración del Catálogo de Datasets<a class="anchor" aria-label="anchor" href="#id_1-exploraci%C3%B3n-del-cat%C3%A1logo-de-datasets"></a>
+<h3 id="id_1-catalog-exploration">1. Catalog Exploration<a class="anchor" aria-label="anchor" href="#id_1-catalog-exploration"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://datosabiertos.oefa.gob.pe" class="external-link">oefar</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Listar todas las categorias de datos del OEFA</span></span>
-<span><span class="va">categorias</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_list_categories.html">oefa_list_categories</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">categorias</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## # A tibble: 6 × 3</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="do">##   category_id category_name                total_datastreams</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="do">##   &lt;chr&gt;       &lt;chr&gt;                                    &lt;int&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="do">## 1 83677       "Información general"                        5</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="do">## 2 84080       "Información Institucional."                10</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="do">## 3 84081       "Evaluación Ambiental."                     45</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="do">## 4 84082       "Supervisión Ambiental"                      4</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="do">## 5 84083       "Fiscalización Ambiental"                    5</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="do">## 6 84084       "Políticas y estrategias "                   9</span></span></code></pre></div>
+<span><span class="co"># List all OEFA data categories</span></span>
+<span><span class="va">categories</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_list_categories.html">oefa_list_categories</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">categories</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># List all available datasets (datastreams)</span></span>
+<span><span class="va">catalog</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_list_datastreams.html">oefa_list_datastreams</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">catalog</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"guid"</span>, <span class="st">"title"</span>, <span class="st">"category_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Search datasets by keyword (e.g., "denuncias", "agua", "supervision")</span></span>
+<span><span class="va">complaints_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_search_datastreams.html">oefa_search_datastreams</a></span><span class="op">(</span><span class="st">"denuncias"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">complaints_ds</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"guid"</span>, <span class="st">"title"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="id_2-downloading-datasets-with-dedicated-functions">2. Downloading Datasets with Dedicated Functions<a class="anchor" aria-label="anchor" href="#id_2-downloading-datasets-with-dedicated-functions"></a>
+</h3>
+<p>The package includes <strong>98 dedicated helper functions</strong> prefixed with <code>oefa_get_&lt;dataset_name&gt;()</code> for direct download:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Listar los 78 conjuntos de datos (datastreams) disponibles</span></span>
-<span><span class="va">catalogo</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_list_datastreams.html">oefa_list_datastreams</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">catalogo</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"guid"</span>, <span class="st">"title"</span>, <span class="st">"category_name"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">## # A tibble: 6 × 3</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="do">##   guid                    title                         category_name           </span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="do">##   &lt;chr&gt;                   &lt;chr&gt;                         &lt;chr&gt;                   </span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="do">## 1 PROYE-NORMA-EXTER       Proyectos Normativos Externos "Políticas y estrategia…</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="do">## 2 PROYE-NORMA-OEFA        Proyectos Normativos OEFA     "Políticas y estrategia…</span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="do">## 3 INFOR-DE-LA-COORD-AGRIC Informes de supervisión 2018  "Supervisión Ambiental" </span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="do">## 4 DENUN-SINAD             Denuncias SINADA              "Políticas y estrategia…</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="do">## 5 PEDID-FISCA-2019-61940  Pedidos fiscalía 2019-2025    "Políticas y estrategia…</span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="do">## 6 PROYE-TI-69998          Proyectos TI                  "Información Institucio…</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Buscar datasets por palabras clave (ej. "denuncias", "agua", "supervisión")</span></span>
-<span><span class="va">denuncias_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_search_datastreams.html">oefa_search_datastreams</a></span><span class="op">(</span><span class="st">"denuncias"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">denuncias_ds</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"guid"</span>, <span class="st">"title"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">## # A tibble: 2 × 2</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="do">##   guid              title                     </span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="do">##   &lt;chr&gt;             &lt;chr&gt;                     </span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="do">## 1 DENUN-SINAD       Denuncias SINADA          </span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="do">## 2 DENUN-SINAD-61293 Denuncias SINADA 2019-2025</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="id_2-descarga-de-datasets-con-funciones-dedicadas">2. Descarga de Datasets con Funciones Dedicadas<a class="anchor" aria-label="anchor" href="#id_2-descarga-de-datasets-con-funciones-dedicadas"></a>
-</h3>
-<p>El paquete incluye <strong>78 funciones dedicadas</strong> con el prefijo <code>oefa_get_&lt;nombre_dataset&gt;()</code> para la descarga directa:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Descargar el dataset de Denuncias SINADA</span></span>
-<span><span class="va">denuncias</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_denun_sinad.html">oefa_get_denun_sinad</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">denuncias</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="do">## # A tibble: 99 × 23</span></span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="do">##    codigo_sinada medio_de_recepcion departamento provincia distrito            </span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="do">##    &lt;chr&gt;         &lt;chr&gt;              &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;               </span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="do">##  1 SC-0013-2019  WEB                LIMA         LIMA      SAN MARTIN DE PORRES</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="do">##  2 SC-0012-2019  WEB                TUMBES       TUMBES    PAMPAS DE HOSPITAL  </span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="do">##  3 SC-0011-2019  WEB                LIMA         HUAURA    SANTA MARIA         </span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="do">##  4 SC-0010-2019  WEB                CALLAO       CALLAO    CALLAO              </span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="do">##  5 SC-0009-2019  PERSONAL           LA LIBERTAD  TRUJILLO  TRUJILLO            </span></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="do">##  6 SC-0008-2019  WEB                CALLAO       CALLAO    CALLAO              </span></span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="do">##  7 SC-0007-2019  WEB                LIMA         LIMA      SANTA ANITA         </span></span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="do">##  8 SC-0006-2019  WEB                CUSCO        CUSCO     SAYLLA              </span></span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="do">##  9 SC-0005-2019  WEB                LIMA         LIMA      CHORRILLOS          </span></span>
-<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="do">## 10 SC-0004-2019  APP MOVIL          LIMA         LIMA      INDEPENDENCIA       </span></span>
-<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="do">## # ℹ 89 more rows</span></span>
-<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a><span class="do">## # ℹ 18 more variables: fecha_de_registro &lt;chr&gt;, actividad_economica &lt;chr&gt;,</span></span>
-<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="do">## #   agua &lt;chr&gt;, aire &lt;chr&gt;, suelo &lt;chr&gt;, fauna &lt;chr&gt;, flora &lt;chr&gt;,</span></span>
-<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a><span class="do">## #   poblacion &lt;chr&gt;, efluentes &lt;chr&gt;, residuos_solidos &lt;chr&gt;, gases_humo &lt;chr&gt;,</span></span>
-<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a><span class="do">## #   material_particulado &lt;chr&gt;, tala &lt;chr&gt;, radiacion_no_ionizante &lt;chr&gt;,</span></span>
-<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a><span class="do">## #   fuente_visual &lt;chr&gt;, fuente_sonora &lt;chr&gt;, indirecta_directa_mixta &lt;chr&gt;,</span></span>
-<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a><span class="do">## #   estado &lt;chr&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Descargar Procesos de Selección de Personal</span></span>
-<span><span class="va">personal</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_proce_de_selec_de_71611.html">oefa_get_proce_de_selec_de_71611</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">personal</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="do">## # A tibble: 49 × 6</span></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="do">##    registro ano   meses estado     area                                cantidad</span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="do">##    &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;                               &lt;chr&gt;   </span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="do">##  1 24273    2025  MARZO CUBIERTAS  PRESIDENCIA DEL CONSEJO DIRECTIVO   0       </span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="do">##  2 24274    2025  MARZO DESIERTAS  PRESIDENCIA DEL CONSEJO DIRECTIVO   0       </span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="do">##  3 24275    2025  MARZO CANCELADAS PRESIDENCIA DEL CONSEJO DIRECTIVO   0       </span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="do">##  4 24276    2025  MARZO PROCESO    PRESIDENCIA DEL CONSEJO DIRECTIVO   0       </span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="do">##  5 24277    2025  MARZO CUBIERTAS  TRIBUNAL DE FISCALIZACION AMBIENTAL 0       </span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="do">##  6 24278    2025  MARZO DESIERTAS  TRIBUNAL DE FISCALIZACION AMBIENTAL 0       </span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="do">##  7 24279    2025  MARZO CANCELADAS TRIBUNAL DE FISCALIZACION AMBIENTAL 0       </span></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="do">##  8 24280    2025  MARZO PROCESO    TRIBUNAL DE FISCALIZACION AMBIENTAL 0       </span></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="do">##  9 24281    2025  MARZO CUBIERTAS  ORGANO DE CONTROL INSTITUCIONAL     0       </span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="do">## 10 24282    2025  MARZO DESIERTAS  ORGANO DE CONTROL INSTITUCIONAL     0       </span></span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="do">## # ℹ 39 more rows</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Descargar Monitoreo de Agua (EAC)</span></span>
-<span><span class="va">agua</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_eac_compo_ambie_agua.html">oefa_get_eac_compo_ambie_agua</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">agua</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="do">## # A tibble: 99 × 20</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="do">##    numero_de_informe           nombre_de_la_evaluac…¹ etapa componente_ambiental</span></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="do">##    &lt;chr&gt;                       &lt;chr&gt;                  &lt;chr&gt; &lt;chr&gt;               </span></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="do">##  1 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="do">##  2 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="do">##  3 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="do">##  4 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="do">##  5 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="do">##  6 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="do">##  7 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="do">##  8 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="do">##  9 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="do">## 10 INFORME N° 00271-2022-OEFA… Evaluación ambiental … Cuar… Agua                </span></span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="do">## # ℹ 89 more rows</span></span>
-<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="do">## # ℹ abbreviated name: ¹​nombre_de_la_evaluacion</span></span>
-<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="do">## # ℹ 16 more variables: procedencia_de_la_muestra &lt;chr&gt;,</span></span>
-<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="do">## #   procedencia_especifica_de_la_muestra &lt;chr&gt;, nombre_del_punto &lt;chr&gt;,</span></span>
-<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="do">## #   este &lt;chr&gt;, norte &lt;chr&gt;, altitud &lt;chr&gt;, zona &lt;chr&gt;, datum &lt;chr&gt;,</span></span>
-<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="do">## #   descripcion_de_ubicacion &lt;chr&gt;, tipo_de_muestra &lt;chr&gt;,</span></span>
-<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="do">## #   tipo_de_analisis &lt;chr&gt;, fecha &lt;chr&gt;, hora &lt;chr&gt;, valor &lt;chr&gt;, …</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="id_3-ajuste-del-tiempo-límite-timeout">3. Ajuste del Tiempo Límite (<code>timeout</code>)<a class="anchor" aria-label="anchor" href="#id_3-ajuste-del-tiempo-l%C3%ADmite-timeout"></a>
-</h3>
-<p>Para descargas de volumen amplio o conexiones con alta latencia, puedes ajustar el tiempo límite directamente como argumento en la función:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Ampliar el tiempo limite de espera a 120 segundos para un dataset grande</span></span>
-<span><span class="va">denuncias_amplio</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_denun_sinad_61293.html">oefa_get_denun_sinad_61293</a></span><span class="op">(</span>timeout <span class="op">=</span> <span class="fl">120</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Download SINADA complaints dataset</span></span>
+<span><span class="va">complaints</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_denun_sinad.html">oefa_get_denun_sinad</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">complaints</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># O mediante la funcion genérica oefa_get_data()</span></span>
-<span><span class="va">datos_gen</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_data.html">oefa_get_data</a></span><span class="op">(</span>guid <span class="op">=</span> <span class="st">"DENUN-SINAD-61293"</span>, timeout <span class="op">=</span> <span class="fl">180</span><span class="op">)</span></span></code></pre></div>
-<hr>
+<span><span class="co"># Download Personnel Selection Processes</span></span>
+<span><span class="va">personnel</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_proce_de_selec_de_71611.html">oefa_get_proce_de_selec_de_71611</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">personnel</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Download Environmental Monitoring - Water (EAC)</span></span>
+<span><span class="va">water</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_eac_compo_ambie_agua.html">oefa_get_eac_compo_ambie_agua</a></span><span class="op">(</span>limit <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">water</span><span class="op">)</span></span></code></pre></div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="atribución-y-referencia-oficial-al-oefa">Atribución y Referencia Oficial al OEFA<a class="anchor" aria-label="anchor" href="#atribuci%C3%B3n-y-referencia-oficial-al-oefa"></a>
-</h2>
-<p>Los datos distribuidos y consumidos a través de este paquete pertenecen y son provistos públicamente por el <strong>Organismo de Evaluación y Fiscalización Ambiental (OEFA)</strong> del Gobierno del Perú.</p>
 <div class="section level3">
-<h3 id="citar-el-paquete-y-la-fuente-de-datos">Citar el Paquete y la Fuente de Datos<a class="anchor" aria-label="anchor" href="#citar-el-paquete-y-la-fuente-de-datos"></a>
+<h3 id="id_3-adjusting-request-timeout">3. Adjusting Request Timeout<a class="anchor" aria-label="anchor" href="#id_3-adjusting-request-timeout"></a>
 </h3>
-<p>En R, puedes obtener la citación formal ejecutando:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<p>For large data downloads or higher-latency connections, you can adjust the request timeout parameter:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Extend wait timeout to 120 seconds for a large dataset</span></span>
+<span><span class="va">large_complaints</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_denun_sinad_61293.html">oefa_get_denun_sinad_61293</a></span><span class="op">(</span>timeout <span class="op">=</span> <span class="fl">120</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or using the generic oefa_get_data() function</span></span>
+<span><span class="va">generic_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oefa_get_data.html">oefa_get_data</a></span><span class="op">(</span>guid <span class="op">=</span> <span class="st">"DENUN-SINAD-61293"</span>, timeout <span class="op">=</span> <span class="fl">180</span><span class="op">)</span></span></code></pre></div>
+<hr>
+</div>
+</div>
+<div class="section level2">
+<h2 id="data-attribution-and-official-reference">Data Attribution and Official Reference<a class="anchor" aria-label="anchor" href="#data-attribution-and-official-reference"></a>
+</h2>
+<p>Data distributed and consumed through this package belongs to and is publicly provided by the <strong>Agency for Environmental Assessment and Enforcement (OEFA)</strong> of the Government of Peru.</p>
+<div class="section level3">
+<h3 id="citing-the-package-and-data-source">Citing the Package and Data Source<a class="anchor" aria-label="anchor" href="#citing-the-package-and-data-source"></a>
+</h3>
+<p>In R, you can view formal citation details by running:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"oefar"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="do">## Para citar el paquete 'oefar' en publicaciones utilice: Para</span></span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="do">## referenciar la fuente de datos oficial del OEFA:</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a><span class="do">##   Santos Andrade, P. E. (2026). oefar: Acceso a la API de Datos</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a><span class="do">##   Abiertos del OEFA de Perú. R package version 0.1.0. URL:</span></span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a><span class="do">##   https://datosabiertos.oefa.gob.pe/.</span></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="do">##   Organismo de Evaluación y Fiscalización Ambiental - OEFA. (2026).</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="do">##   Portal de Datos Abiertos del OEFA [Base de datos en línea]. Gobierno</span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="do">##   del Perú. URL: https://datosabiertos.oefa.gob.pe/.</span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="do">## To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="do">## bibtex=TRUE)', 'toBibtex(.)', or set</span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="do">## 'options(citation.bibtex.max=999)'.</span></span></code></pre></div>
 <div class="section level4">
-<h4 id="citación-del-paquete-r">Citación del Paquete R:<a class="anchor" aria-label="anchor" href="#citaci%C3%B3n-del-paquete-r"></a>
+<h4 id="r-package-citation">R Package Citation:<a class="anchor" aria-label="anchor" href="#r-package-citation"></a>
 </h4>
 <blockquote>
-<p>Santos Andrade, P. E. (2026). <em>oefar: Acceso a la API de Datos Abiertos del OEFA de Perú</em>. Paquete en R versión 0.1.0. URL: <a href="https://datosabiertos.oefa.gob.pe/" class="external-link uri">https://datosabiertos.oefa.gob.pe/</a>.</p>
+<p>Santos Andrade, P. E. (2026). <em>oefar: Access to the ‘OEFA’ Open Data API of Peru</em>. R package version 0.1.0. URL: <a href="https://datosabiertos.oefa.gob.pe/" class="external-link uri">https://datosabiertos.oefa.gob.pe/</a>.</p>
 </blockquote>
 </div>
 <div class="section level4">
-<h4 id="referencia-a-la-fuente-oficial-de-datos-oefa">Referencia a la Fuente Oficial de Datos (OEFA):<a class="anchor" aria-label="anchor" href="#referencia-a-la-fuente-oficial-de-datos-oefa"></a>
+<h4 id="official-data-source-reference-oefa">Official Data Source Reference (OEFA):<a class="anchor" aria-label="anchor" href="#official-data-source-reference-oefa"></a>
 </h4>
 <blockquote>
-<p>Organismo de Evaluación y Fiscalización Ambiental - OEFA. (2026). <em>Portal de Datos Abiertos del OEFA</em> [Base de datos en línea]. Gobierno del Perú. URL: <a href="https://datosabiertos.oefa.gob.pe/" class="external-link uri">https://datosabiertos.oefa.gob.pe/</a>.</p>
+<p>Agency for Environmental Assessment and Enforcement - OEFA. (2026). <em>OEFA Open Data Portal</em> [Online database]. Government of Peru. URL: <a href="https://datosabiertos.oefa.gob.pe/" class="external-link uri">https://datosabiertos.oefa.gob.pe/</a>.</p>
 </blockquote>
 <hr>
 </div>
 </div>
 </div>
 <div class="section level2">
-<h2 id="licencia">Licencia<a class="anchor" aria-label="anchor" href="#licencia"></a>
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>Este paquete está licenciado bajo la <a href="LICENSE">Licencia MIT</a>. Los datos de fiscalización ambiental son propiedad del estado peruano (OEFA) y se rigen bajo los términos de la Plataforma Nacional de Datos Abiertos del Perú.</p>
+<p>This package is licensed under the <a href="https://opensource.org/licenses/MIT" class="external-link">MIT License</a>. Environmental enforcement data is property of the Peruvian state (OEFA) and is subject to the terms of Peru’s National Open Data Platform.</p>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/PaulESantos/oefar/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/PaulESantos/oefar/issues" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>

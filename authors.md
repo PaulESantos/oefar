@@ -7,6 +7,9 @@
 
 ## Citation
 
+Source:
+[`inst/CITATION`](https://github.com/PaulESantos/oefar/blob/main/inst/CITATION)
+
 Santos Andrade, P. E. (2026). oefar: Acceso a la API de Datos Abiertos
 del OEFA de Perú. R package version 0.1.0. URL:
 https://datosabiertos.oefa.gob.pe/.

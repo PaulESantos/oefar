@@ -1,8 +1,8 @@
-# Listar el catalogo de conjuntos de datos (datastreams) de OEFA
+# List the OEFA dataset (datastream) catalog
 
-Obtiene el catalogo de conjuntos de datos (datastreams) disponibles en
-el portal de Datos Abiertos del OEFA (Organismo de Evaluación y
-Fiscalización Ambiental del Perú).
+Retrieves the catalog of datasets (datastreams) available on the OEFA
+(Environmental Evaluation and Enforcement Agency of Peru) Open Data
+portal.
 
 ## Usage
 
@@ -28,57 +28,54 @@ oefa_list_datasets(
 
 - category:
 
-  Carácter opcional. Filtrar los conjuntos de datos por nombre o ID de
-  categoría.
+  Optional character. Filter datasets by category name or ID.
 
 - query:
 
-  Carácter opcional. Filtrar por termino clave de búsqueda en el titulo
-  o descripción.
+  Optional character. Filter by search keyword in title or description.
 
 - limit:
 
-  Entero opcional. Numero máximo de registros a retornar.
+  Optional integer. Maximum number of records to return.
 
 - offset:
 
-  Entero opcional. Desplazamiento inicial para paginación.
+  Optional integer. Initial offset for pagination.
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
-estructurado con los metadatos de los datastreams:
+A structured
+[`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+datastream metadata:
 
-- `guid`: Identificador único del dataset.
+- `guid`: Unique dataset identifier.
 
-- `title`: Titulo del conjunto de datos.
+- `title`: Title of the dataset.
 
-- `description`: Descripción detallada del dataset.
+- `description`: Detailed description of the dataset.
 
-- `category_name`: Nombre de la categoría temática.
+- `category_name`: Name of the thematic category.
 
-- `category_id`: Identificador de la categoría.
+- `category_id`: Identifier of the category.
 
-- `created_at`: Fecha de creación (timestamp Unix o formateado).
+- `created_at`: Creation date (Unix timestamp or formatted).
 
-- `modified_at`: Fecha de ultima modificación.
+- `modified_at`: Last modification date.
 
-- `link`: Enlace directo en el portal web.
+- `link`: Direct link on the web portal.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# Listar todos los datastreams
 catalog <- oefa_list_datastreams()
 head(catalog)
 
-# Buscar datastreams sobre denuncias
-denuncias_ds <- oefa_list_datastreams(query = "denuncias")
+complaints_ds <- oefa_list_datastreams(query = "denuncias")
 } # }
 ```

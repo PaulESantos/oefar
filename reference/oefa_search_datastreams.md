@@ -1,6 +1,6 @@
-# Buscar conjuntos de datos en el portal de OEFA
+# Search datasets on the OEFA portal
 
-Buscar conjuntos de datos en el portal de OEFA
+Search datasets on the OEFA portal
 
 ## Usage
 
@@ -12,17 +12,17 @@ oefa_search_datastreams(query, api_key = oefa_get_api_key())
 
 - query:
 
-  Carácter. Termino de búsqueda (ej. "denuncias", "fiscalizacion",
+  Character. Search query term (e.g., "denuncias", "fiscalizacion",
   "supervision").
 
 - api_key:
 
-  Carácter. API Key de OEFA.
+  Character. OEFA API Key.
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los conjuntos de datos coincidentes.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+matching datasets.
 
 ## Examples
 

@@ -5,14 +5,14 @@
 <url><loc>https://paulesantos.github.io/oefar/LICENSE-text.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/LICENSE.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/SUPPORT.html</loc></url>
+<url><loc>https://paulesantos.github.io/oefar/articles/index.html</loc></url>
+<url><loc>https://paulesantos.github.io/oefar/articles/oefar-uso.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/authors.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/index.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/news/index.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/clean_column_names.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/index.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/install_oefar_cli.html</loc></url>
-<url><loc>https://paulesantos.github.io/oefar/reference/mu_to_u.html</loc></url>
-<url><loc>https://paulesantos.github.io/oefar/reference/oefa_api_request.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/oefa_get_accio_estra_en_ti.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/oefa_get_activ_afa.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/oefa_get_activ_afa_36113.html</loc></url>
@@ -118,7 +118,5 @@
 <url><loc>https://paulesantos.github.io/oefar/reference/oefa_search_datastreams.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/oefa_set_api_key.html</loc></url>
 <url><loc>https://paulesantos.github.io/oefar/reference/oefar-package.html</loc></url>
-<url><loc>https://paulesantos.github.io/oefar/reference/parse_json_response.html</loc></url>
-<url><loc>https://paulesantos.github.io/oefar/reference/parse_junar_json_to_tibble.html</loc></url>
 </urlset>
 

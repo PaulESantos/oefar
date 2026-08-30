@@ -1,6 +1,6 @@
-# Obtener información detallada de un datastream específico
+# Get detailed metadata for a specific datastream
 
-Obtener información detallada de un datastream específico
+Get detailed metadata for a specific datastream
 
 ## Usage
 
@@ -14,17 +14,16 @@ oefa_get_dataset_info(guid, api_key = oefa_get_api_key())
 
 - guid:
 
-  Carácter. El GUID (identificador único) del datastream (ej.
+  Character. The GUID (unique identifier) of the datastream (e.g.,
   "DENUN-SINAD").
 
 - api_key:
 
-  Carácter. API Key de OEFA.
+  Character. OEFA API Key.
 
 ## Value
 
-Una lista o tibble con la información completa de metadatos del
-datastream.
+A list or tibble containing complete metadata for the datastream.
 
 ## Examples
 

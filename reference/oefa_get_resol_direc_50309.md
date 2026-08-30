@@ -1,9 +1,8 @@
-# Descargar dataset: Resoluciones directorales 2018-2025
+# Download dataset: Resoluciones directorales 2018-2025
 
-Descarga los datos del conjunto de datos 'Resoluciones directorales
-2018-2025' del OEFA por su GUID (RESOL-DIREC-50309). Pertenece a la
-sección del Diccionario de Datos: Fiscalización Ambiental \>
-Resoluciones Emitidas.
+Downloads data for dataset 'Resoluciones directorales 2018-2025' from
+OEFA by its GUID (RESOL-DIREC-50309). Belongs to Data Dictionary
+section: Fiscalización Ambiental \> Resoluciones Emitidas.
 
 ## Usage
 
@@ -23,45 +22,44 @@ oefa_get_resol_direc_50309(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - N°\_RESOL:
 
@@ -77,13 +75,13 @@ OEFA:
 
 - SECTOR:
 
-  Sector Economico Que Corresponde (Mineria, Electricidad,
-  Hidrocarburos, Industria, Pesca E Infraestructa Y Servicios) \[Cadena
-  De Texto\]
+  Sector Económico Que Corresponde (Minería, Electricidad,
+  Hidrocarburos, Industria, Pesca E Infraestructura Y Servicios)
+  \[Cadena De Texto\]
 
 - RAZON_SO:
 
-  Razon Social Del Administrado \[Cadena De Texto\]
+  Razón Social Del Administrado \[Cadena De Texto\]
 
 - U_AMB:
 
@@ -91,18 +89,26 @@ OEFA:
 
 - DEPARTAM:
 
-  Departamento De Localizacion De La Unidad Fiscalizable \[Cadena De
+  Departamento De Localización De La Unidad Fiscalizable \[Cadena De
   Texto\]
 
 - PROVINCIA:
 
-  Provincia De Localizacion De La Unidad Fiscalizable \[Cadena De
+  Provincia De Localización De La Unidad Fiscalizable \[Cadena De
   Texto\]
 
 - DISTRITO:
 
-  Distrito De Localizacion De La Unidad Fiscalizable \[Cadena De Texto\]
+  Distrito De Localización De La Unidad Fiscalizable \[Cadena De Texto\]
 
 - TIPO_RD:
 
   Tipo De Rd \[Cadena De Texto\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_resol_direc_50309(limit = 10)
+} # }
+```

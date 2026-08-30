@@ -1,11 +1,11 @@
-# Descargar y consultar datos de un conjunto de datos (datastream) de OEFA
+# Download and query data from an OEFA dataset (datastream)
 
-Descarga los datos de un conjunto de datos (datastream) del portal de
-Datos Abiertos del OEFA (Organismo de Evaluación y Fiscalización
-Ambiental) por su GUID y los retorna en un objeto de clase
-[`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-nombres de columnas limpios. Permite ajustar el tiempo límite (timeout)
-de la descarga según el volumen de datos.
+Downloads data from a dataset (datastream) on the OEFA (Environmental
+Evaluation and Enforcement Agency of Peru) Open Data portal using its
+GUID and returns it as a
+[`tibble`](https://tibble.tidyverse.org/reference/tibble.html) object
+with cleaned column names. Allows adjusting the download timeout
+according to data volume.
 
 ## Usage
 
@@ -39,57 +39,56 @@ oefa_read_datastream(
 
 - guid:
 
-  Carácter. Identificador único global del datastream (ej.
+  Character. Unique global identifier of the datastream (e.g.,
   "DENUN-SINAD").
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - pArgument0:
 
-  Carácter opcional. Primer parámetro de filtro si el datastream es
-  parametrizado por la API.
+  Optional character. First filter parameter if the datastream is
+  parameterized by the API.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del conjunto de datos.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
+containing dataset records.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# Descargar denuncias SINADA con timeout de 120s
-denuncias <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
-print(denuncias)
+complaints <- oefa_get_data(guid = "DENUN-SINAD", timeout = 120)
+print(complaints)
 } # }
 ```

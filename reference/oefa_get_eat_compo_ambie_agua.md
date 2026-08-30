@@ -1,9 +1,8 @@
-# Descargar dataset: EAT - Componente ambiental Agua
+# Download dataset: EAT - Componente ambiental Agua
 
-Descarga los datos del conjunto de datos 'EAT - Componente ambiental
-Agua' del OEFA por su GUID (EAT-COMPO-AMBIE-AGUA). Pertenece a la
-sección del Diccionario de Datos: Evaluación ambiental \> Evaluación
-Ambiental Temprana (EAT).
+Downloads data for dataset 'EAT - Componente ambiental Agua' from OEFA
+by its GUID (EAT-COMPO-AMBIE-AGUA). Belongs to Data Dictionary section:
+Evaluación ambiental \> Evaluación Ambiental Temprana (EAT).
 
 ## Usage
 
@@ -23,45 +22,44 @@ oefa_get_eat_compo_ambie_agua(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - NRO_INFO:
 
@@ -139,3 +137,11 @@ OEFA:
 - MEDIDA:
 
   Unidad Utilizada Para Medir Parametro \[Cadena De Texto\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_eat_compo_ambie_agua(limit = 10)
+} # }
+```

@@ -1,9 +1,8 @@
-# Descargar dataset: Seguidores en redes sociales
+# Download dataset: Seguidores en redes sociales
 
-Descarga los datos del conjunto de datos 'Seguidores en redes sociales'
-del OEFA por su GUID (SEGUI-EN-REDES-SOCIA). Pertenece a la sección del
-Diccionario de Datos: Información Institucional \> Interacción en redes
-sociales.
+Downloads data for dataset 'Seguidores en redes sociales' from OEFA by
+its GUID (SEGUI-EN-REDES-SOCIA). Belongs to Data Dictionary section:
+Información Institucional \> Interacción en redes sociales.
 
 ## Usage
 
@@ -23,45 +22,44 @@ oefa_get_segui_en_redes_socia(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - MES:
 
@@ -76,3 +74,11 @@ OEFA:
 - SEGUIDOR:
 
   Indica La Cantidad De Nuevos Seguidores \[Entero\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_segui_en_redes_socia(limit = 10)
+} # }
+```

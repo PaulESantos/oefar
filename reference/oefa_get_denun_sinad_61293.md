@@ -1,9 +1,8 @@
-# Descargar dataset: Denuncias SINADA 2019-2025
+# Download dataset: Denuncias SINADA 2019-2025
 
-Descarga los datos del conjunto de datos 'Denuncias SINADA 2019-2025'
-del OEFA por su GUID (DENUN-SINAD-61293). Pertenece a la sección del
-Diccionario de Datos: Politicas y Estrategias \> Servicio Nacional de
-Denuncias Ambientales.
+Downloads data for dataset 'Denuncias SINADA 2019-2025' from OEFA by its
+GUID (DENUN-SINAD-61293). Belongs to Data Dictionary section: Politicas
+y Estrategias \> Servicio Nacional de Denuncias Ambientales.
 
 ## Usage
 
@@ -23,45 +22,44 @@ oefa_get_denun_sinad_61293(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - COD_SINADA:
 
@@ -171,7 +169,7 @@ OEFA:
 
 - INDIRECT:
 
-  Se Refiere A La Competenca De Atención De La Denuncia, La Cual Puede
+  Se Refiere A La Competencia De Atención De La Denuncia, La Cual Puede
   Ser Directa (Oefa), Indirecta (Efa), Y Mixta (Oefa Y Efa). \[Cadena De
   Texto\]
 
@@ -186,3 +184,11 @@ OEFA:
   Que No Hay Una Efa Competente; Y Iv) Cerrada: Cuando Se De Por
   Atendida La Denuncia Ambiental (No Hallazgo De Incumplimientos O
   Inicio De Pas). \[Cadena De Texto\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_denun_sinad_61293(limit = 10)
+} # }
+```

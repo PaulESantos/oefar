@@ -1,9 +1,9 @@
-# Descargar dataset: Proyectos Normativos Externos 2018-2025
+# Download dataset: Proyectos Normativos Externos 2018-2025
 
-Descarga los datos del conjunto de datos 'Proyectos Normativos Externos
-2018-2025' del OEFA por su GUID (PROYE-NORMA-EXTER-65772). Pertenece a
-la sección del Diccionario de Datos: Politicas y Estrategias \>
-Opiniones técnicas a proyectos normativos.
+Downloads data for dataset 'Proyectos Normativos Externos 2018-2025'
+from OEFA by its GUID (PROYE-NORMA-EXTER-65772). Belongs to Data
+Dictionary section: Politicas y Estrategias \> Opiniones técnicas a
+proyectos normativos.
 
 ## Usage
 
@@ -23,45 +23,44 @@ oefa_get_proye_norma_exter_65772(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - ORIGEN:
 
@@ -87,7 +86,7 @@ OEFA:
 
 - FECHA_RE:
 
-  Fecha En La Que La Opnión Formulada Respecto Al Proyecto Normativo
+  Fecha En La Que La Opinión Formulada Respecto Al Proyecto Normativo
   Externo Se Remite Desde La Smer, Ya Sea Por Informe O Por Correo, Y
   Este Se Considera Como Atendido \[Fecha\]
 
@@ -96,3 +95,11 @@ OEFA:
   Cantidad De Artículos En Los Cuales Se Formularon Recomendaciones Como
   Institución, A Incorporar En El Proyecto Normativo Externo
   \[Numérico\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_proye_norma_exter_65772(limit = 10)
+} # }
+```

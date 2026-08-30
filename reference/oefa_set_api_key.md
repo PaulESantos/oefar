@@ -1,9 +1,8 @@
-# Configurar y consultar la API Key de OEFA
+# Configure and query the OEFA API Key
 
-Obtiene, configura o verifica la presencia de la clave de API (API Key)
-necesaria para interactuar con el portal de Datos Abiertos del OEFA
-(Organismo de Evaluación y Fiscalización Ambiental de Perú). La API Key
-puede crearse desde el portal de desarrolladores:
+Get, set, or check the presence of the API Key required to interact with
+the OEFA (Environmental Evaluation and Enforcement Agency of Peru) Open
+Data portal. The API Key can be created at the developer portal:
 <https://datosabiertos.oefa.gob.pe/developers/>.
 
 ## Usage
@@ -26,27 +25,26 @@ oefa_api_key()
 
 - api_key:
 
-  Carácter. La API Key personal obtenida desde
+  Character. Personal API Key obtained from
   <https://datosabiertos.oefa.gob.pe/developers/>.
 
 - install:
 
-  Lógico. Si es `TRUE`, guarda la API Key de forma permanente en el
-  archivo `.Renviron` del usuario. Por defecto es `FALSE`.
+  Logical. If `TRUE`, saves the API Key permanently in the user's
+  `.Renviron` file. Default is `FALSE`.
 
 ## Value
 
-\- `oefa_get_api_key()`: Retorna la API Key activa como cadena de
-caracteres. Si no está configurada, lanza un error informativo. -
-`oefa_set_api_key()`: Retorna de forma invisible la API Key
-configurada. - `oefa_has_api_key()`: Retorna `TRUE` si existe una API
-Key configurada, de lo contrario `FALSE`.
+\- `oefa_get_api_key()`: Returns the active API Key as a character
+string. If not set, raises an informative error. - `oefa_set_api_key()`:
+Invisibly returns the configured API Key. - `oefa_has_api_key()`:
+Returns `TRUE` if an API Key is configured, otherwise `FALSE`.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-oefa_set_api_key("tu_api_key_aqui")
+oefa_set_api_key("your_api_key_here")
 oefa_has_api_key()
 key <- oefa_get_api_key()
 } # }

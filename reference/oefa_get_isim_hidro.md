@@ -1,9 +1,9 @@
-# Descargar dataset: ISIM - Hidrobiología
+# Download dataset: ISIM - Hidrobiología
 
-Descarga los datos del conjunto de datos 'ISIM - Hidrobiología' del OEFA
-por su GUID (ISIM-HIDRO). Pertenece a la sección del Diccionario de
-Datos: Evaluación ambiental \> Evaluación ambiental para la
-identificación de sitios impactados (ISIM).
+Downloads data for dataset 'ISIM - Hidrobiología' from OEFA by its GUID
+(ISIM-HIDRO). Belongs to Data Dictionary section: Evaluación ambiental
+\> Evaluación ambiental para la identificación de sitios impactados
+(ISIM).
 
 ## Usage
 
@@ -23,42 +23,45 @@ oefa_get_isim_hidro(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
-## Details
+## Examples
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_isim_hidro(limit = 10)
+} # }
+```

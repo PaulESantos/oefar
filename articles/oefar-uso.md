@@ -1,0 +1,211 @@
+# Guía de uso del paquete oefar
+
+## Introducción
+
+El paquete **`oefar`** proporciona una interfaz amigable e intuitiva en
+R para explorar y descargar datos abiertos del **Organismo de Evaluación
+y Fiscalización Ambiental (OEFA)** de Perú a través de la API v2 del
+portal oficial
+([datosabiertos.oefa.gob.pe](https://datosabiertos.oefa.gob.pe/)).
+
+Esta viñeta demuestra cómo configurar las credenciales, explorar el
+catálogo de datos disponibles y descargar conjuntos de datos utilizando
+tanto las funciones genéricas como las **98 funciones dedicadas**
+incluidas en el paquete.
+
+------------------------------------------------------------------------
+
+## 1. Configuración de la API Key
+
+Para realizar consultas a la API del OEFA se requiere una **API Key
+personal**. Puede obtenerla registrándose en el portal de
+desarrolladores: <https://datosabiertos.oefa.gob.pe/developers/>.
+
+### Configuración en la sesión de R
+
+Puede establecer su clave directamente en la sesión activa utilizando
+[`oefa_set_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md):
+
+``` r
+
+library(oefar)
+
+# Configurar API Key para la sesión actual
+oefa_set_api_key("TU_API_KEY_AQUI")
+
+# Verificar si la API Key está configurada
+oefa_has_api_key()
+```
+
+### Configuración permanente en `.Renviron`
+
+Para no tener que ingresar su clave en cada sesión, puede guardarla de
+forma permanente pasándole `install = TRUE`:
+
+``` r
+
+oefa_set_api_key("TU_API_KEY_AQUI", install = TRUE)
+```
+
+O agregando manualmente la siguiente línea en su archivo `~/.Renviron`:
+
+``` env
+OEFA_API_KEY="TU_API_KEY_AQUI"
+```
+
+------------------------------------------------------------------------
+
+## 2. Exploración del Catálogo de Datos
+
+### Listar categorías temáticas
+
+El OEFA organiza sus conjuntos de datos en distintas categorías
+temáticas. Puede obtener el listado completo y el conteo de datastreams
+por categoría con
+[`oefa_list_categories()`](https://paulesantos.github.io/oefar/reference/oefa_list_categories.md):
+
+``` r
+
+library(oefar)
+# Obtener las categorías de datos disponibles
+categorias <- oefa_list_categories()
+print(categorias)
+```
+
+### Listar el catálogo completo de datastreams
+
+Para ver los conjuntos de datos disponibles en el portal, utilice
+[`oefa_list_datastreams()`](https://paulesantos.github.io/oefar/reference/oefa_list_datastreams.md):
+
+``` r
+
+# Listar todos los datastreams disponibles
+catalogo <- oefa_list_datastreams()
+head(catalogo[, c("guid", "title", "category_name")])
+```
+
+### Buscar conjuntos de datos por palabras clave
+
+Puede filtrar el catálogo buscando términos específicos en los títulos o
+descripciones de los datasets mediante
+[`oefa_search_datastreams()`](https://paulesantos.github.io/oefar/reference/oefa_search_datastreams.md):
+
+``` r
+
+# Buscar datasets relacionados con denuncias ambientales
+denuncias_ds <- oefa_search_datastreams("denuncias")
+print(denuncias_ds[, c("guid", "title")])
+
+# Buscar datasets de monitoreo o agua
+monitoreo_ds <- oefa_search_datastreams("monitoreo")
+print(monitoreo_ds[, c("guid", "title")])
+```
+
+### Consultar metadatos de un datastream específico
+
+Para inspeccionar la información detallada de un dataset en particular
+(su descripción, fecha de modificación, enlace web, etc.), use
+[`oefa_get_datastream_info()`](https://paulesantos.github.io/oefar/reference/oefa_get_datastream_info.md)
+ingresando su GUID:
+
+``` r
+
+# Obtener información del datastream de denuncias SINADA
+info <- oefa_get_datastream_info("DENUN-SINAD")
+print(info)
+```
+
+------------------------------------------------------------------------
+
+## 3. Descarga de Conjuntos de Datos
+
+### Descarga genérica con `oefa_get_data()`
+
+Cualquier conjunto de datos puede descargarse indicando su `guid` en la
+función
+[`oefa_get_data()`](https://paulesantos.github.io/oefar/reference/oefa_get_data.md):
+
+``` r
+
+# Descargar los primeros 50 registros del dataset DENUN-SINAD
+denuncias_gen <- oefa_get_data(guid = "DENUN-SINAD", limit = 50)
+print(denuncias_gen)
+```
+
+### Descarga con Funciones Dedicadas (`oefa_get_<nombre>`)
+
+El paquete incluye **98 funciones dedicadas** para cada dataset del
+catálogo del OEFA. Estas funciones facilitan la descarga directa sin
+necesidad de recordar el GUID:
+
+``` r
+
+# 1. Descargar Denuncias Ambientales Registradas en el SINADA
+denuncias <- oefa_get_denun_sinad(limit = 100)
+head(denuncias)
+
+# 2. Descargar Monitoreo de Agua (EAC)
+monitoreo_agua <- oefa_get_eac_compo_ambie_agua(limit = 100)
+head(monitoreo_agua)
+
+# 3. Descargar Procesos de Selección de Personal
+seleccion_personal <- oefa_get_proce_de_selec_de_71611(limit = 50)
+head(seleccion_personal)
+```
+
+------------------------------------------------------------------------
+
+## 4. Opciones Avanzadas: Paginación y Timeouts
+
+### Paginación de resultados (`limit` y `offset`)
+
+Para controlar la cantidad de registros retornados o iterar sobre
+bloques de datos grandes, utilice los argumentos `limit` y `offset`:
+
+``` r
+
+# Descargar el segundo bloque de 100 registros (del 101 al 200)
+bloque2 <- oefa_get_denun_sinad(limit = 100, offset = 100)
+```
+
+### Manejo del tiempo límite de descarga (`timeout`)
+
+Al descargar grandes volúmenes de datos o en conexiones con latencia
+alta, es posible ajustar el tiempo límite de la solicitud HTTP en
+segundos (por defecto es 60s):
+
+``` r
+
+# Ampliar el tiempo de espera a 180 segundos para descargas extensas
+datos_extensos <- oefa_get_denun_sinad(limit = 1000, timeout = 180)
+```
+
+------------------------------------------------------------------------
+
+## 5. Limpieza Automática de Nombres de Columnas
+
+Por defecto, todas las funciones de descarga aplican
+[`clean_column_names()`](https://paulesantos.github.io/oefar/reference/clean_column_names.md)
+a las columnas del `tibble` resultante, convirtiendo los nombres a
+minúsculas en formato `snake_case`, removiendo tildes, caracteres
+especiales y símbolos:
+
+``` r
+
+# Si prefiere conservar los nombres originales del OEFA:
+datos_raw <- oefa_get_denun_sinad(limit = 10, clean_names = FALSE)
+names(datos_raw)
+
+# Con limpieza automática (por defecto):
+datos_clean <- oefa_get_denun_sinad(limit = 10, clean_names = TRUE)
+names(datos_clean)
+```
+
+------------------------------------------------------------------------
+
+## Conclusión
+
+El paquete `oefar` simplifica significativamente el consumo de datos de
+evaluación y fiscalización ambiental del OEFA en R, permitiendo integrar
+fácilmente información pública ambiental en flujos de análisis de datos
+e investigación reproducible.

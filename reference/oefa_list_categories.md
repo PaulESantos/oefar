@@ -1,6 +1,6 @@
-# Listar las categorías temáticas de datos del OEFA
+# List thematic data categories from OEFA
 
-Listar las categorías temáticas de datos del OEFA
+List thematic data categories from OEFA
 
 ## Usage
 
@@ -14,12 +14,12 @@ oefa_list_topics(api_key = oefa_get_api_key())
 
 - api_key:
 
-  Carácter. API Key de OEFA.
+  Character. OEFA API Key.
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-las categorías disponibles y el conteo de datastreams por categoría.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+available categories and total count of datastreams per category.
 
 ## Examples
 

@@ -1,9 +1,9 @@
-# Limpiar nombres de columnas o vectores de caracteres (inspirado en janitor::make_clean_names)
+# Clean column names or character vectors (inspired by janitor::make_clean_names)
 
-Limpia un vector de caracteres o un data.frame garantizando nombres
-unicos, transliteración ASCII de acentos (ej. español/latín),
-eliminación de comillas, conversión de caracteres como % y \# a texto, y
-formateo según el formato de caso deseado.
+Cleans a character vector or data.frame ensuring unique names, ASCII
+transliteration of accents (e.g., Spanish/Latin), removal of quotes,
+conversion of characters such as % and \# to text, and formatting
+according to the desired case format.
 
 ## Usage
 
@@ -27,54 +27,70 @@ clean_column_names(
 
 - string:
 
-  Vector de caracteres con nombres o un data.frame.
+  Character vector with names or a data.frame.
 
 - case:
 
-  El caso de destino deseado (por defecto es \`"snake"\`).
+  Desired target case format (default is \`"snake"\`).
 
 - replace:
 
-  Vector de caracteres nombrado donde la clave se reemplaza por el
-  valor. Por defecto
+  Named character vector where key is replaced by value. Default
   `c("'" = "", "\"" = "", "%" = "_percent_", "#" = "_number_")`.
 
 - ascii:
 
-  Convertir los nombres a ASCII (`TRUE`, por defecto) o no (`FALSE`).
+  Convert names to ASCII (`TRUE`, default) or not (`FALSE`).
 
 - use_make_names:
 
-  ¿Aplicar [`make.names()`](https://rdrr.io/r/base/make.names.html) para
-  asegurar nombres validos de R? (`TRUE`, por defecto).
+  Whether to apply
+  [`make.names()`](https://rdrr.io/r/base/make.names.html) to ensure
+  valid R names (`TRUE`, default).
 
 - allow_dupes:
 
-  Permitir duplicados en los nombres retornados (`FALSE`, por defecto).
+  Allow duplicate names in returned output (`FALSE`, default).
 
 - sep_in:
 
-  Separador de entrada para cambio de caso (por defecto `"\\."`).
+  Input separator for case conversion (default `"\\."`).
 
 - transliterations:
 
-  Especificacion de transliteraciones (por defecto `"Latin-ASCII"`).
+  Specification of transliterations (default `"Latin-ASCII"`).
 
 - parsing_option:
 
-  Opcion de parseo (por defecto 1).
+  Parsing option (default 1).
 
 - numerals:
 
-  Tratamiento de numerales (por defecto `"asis"`).
+  Handling of numerals (default `"asis"`).
 
 - ...:
 
-  Argumentos adicionales pasados a
+  Additional arguments passed to
   [`snakecase::to_any_case()`](https://rdrr.io/pkg/snakecase/man/to_any_case.html)
-  si esta instalado.
+  if installed.
 
 ## Value
 
-Regresa un vector de caracteres limpio o un data.frame con nombres de
-columna limpios.
+Returns a clean character vector or a data.frame with cleaned column
+names.
+
+## Examples
+
+``` r
+clean_column_names(c("CÓDIGO ÚNICO", "N° Expediente", "Tasa %"))
+#> [1] "codigo_unico" "n_expediente" "tasa_percent"
+
+df <- data.frame(`Área Total` = 1:5, `N° Casos` = 6:10, check.names = FALSE)
+clean_column_names(df)
+#>   area_total n_casos
+#> 1          1       6
+#> 2          2       7
+#> 3          3       8
+#> 4          4       9
+#> 5          5      10
+```

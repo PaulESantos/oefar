@@ -1,8 +1,8 @@
-# Descargar dataset: Aporte por regulación 2
+# Download dataset: Aporte por regulación 2
 
-Descarga los datos del conjunto de datos 'Aporte por regulación 2' del
-OEFA por su GUID (APORT-POR-REGUL-66627). Pertenece a la sección del
-Diccionario de Datos: Información Institucional \> Recaudación.
+Downloads data for dataset 'Aporte por regulación 2' from OEFA by its
+GUID (APORT-POR-REGUL-66627). Belongs to Data Dictionary section:
+Información Institucional \> Recaudación.
 
 ## Usage
 
@@ -22,45 +22,44 @@ oefa_get_aport_por_regul_66627(
 
 - limit:
 
-  Entero opcional. Cantidad máxima de filas a descargar.
+  Optional integer. Maximum number of rows to download.
 
 - offset:
 
-  Entero opcional. Registro inicial para paginación.
+  Optional integer. Initial record offset for pagination.
 
 - ...:
 
-  Parámetros adicionales para la consulta (ej. pArgument1, pArgument2).
+  Additional query parameters (e.g., pArgument1, pArgument2).
 
 - format:
 
-  Carácter. Formato de descarga deseado: `"tibble"` (por defecto),
-  `"csv"` o `"json"`.
+  Character. Desired download format: `"tibble"` (default), `"csv"`, or
+  `"json"`.
 
 - clean_names:
 
-  Lógico. Si es `TRUE` (por defecto), convierte los nombres de las
-  columnas a minúsculas con guiones bajos.
+  Logical. If `TRUE` (default), converts column names to lowercase
+  snake_case.
 
 - timeout:
 
-  Entero. Tiempo máximo de espera en segundos para la conexión HTTP (por
-  defecto 60 segundos).
+  Integer. Maximum wait time in seconds for HTTP connection (default 60
+  seconds).
 
 - api_key:
 
-  Carácter. API Key de OEFA. Por defecto utiliza
+  Character. OEFA API Key. Defaults to
   [`oefa_get_api_key()`](https://paulesantos.github.io/oefar/reference/oefa_set_api_key.md).
 
 ## Value
 
-Un [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) con
-los registros del dataset.
+A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) with
+dataset records.
 
 ## Details
 
-Estructura principal de campos según el Diccionario de Datos Oficial del
-OEFA:
+Main field structure according to OEFA's Official Data Dictionary:
 
 - AÑO_REG:
 
@@ -76,8 +75,16 @@ OEFA:
 
 - RAZON_SO:
 
-  Razon Social Correspondiente Al Aportante \[Cadena De Texto\]
+  Razón Social Correspondiente Al Aportante \[Cadena De Texto\]
 
 - SECTOR:
 
   Sector Económico Correspondiente Al Aportante \[Cadena De Texto\]
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- oefa_get_aport_por_regul_66627(limit = 10)
+} # }
+```
