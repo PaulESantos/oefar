@@ -16,7 +16,7 @@ https://datosabiertos.oefa.gob.pe/.
 
     @Manual{,
       title = {oefar: Acceso a la API de Datos Abiertos del OEFA de Perú},
-      author = {Paul E. Santos Andrade},
+      author = {Paul E. {Santos Andrade}},
       year = {2026},
       note = {R package version 0.1.0},
       url = {https://datosabiertos.oefa.gob.pe/},
