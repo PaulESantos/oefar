@@ -1,4 +1,6 @@
 test_that("oefa_list_datastreams retorna catalogo de datastreams en tibble", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa para probar peticiones reales.")
 
   ds <- oefa_list_datastreams(limit = 10)
@@ -9,6 +11,8 @@ test_that("oefa_list_datastreams retorna catalogo de datastreams en tibble", {
 })
 
 test_that("oefa_search_datastreams filtra adecuadamente por termino clave", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa.")
 
   res <- oefa_search_datastreams("denuncias")
@@ -16,6 +20,8 @@ test_that("oefa_search_datastreams filtra adecuadamente por termino clave", {
 })
 
 test_that("oefa_list_categories retorna estadisticas por categoria", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa.")
 
   cats <- oefa_list_categories()
@@ -25,6 +31,8 @@ test_that("oefa_list_categories retorna estadisticas por categoria", {
 })
 
 test_that("oefa_get_datastream_info obtiene metadatos de un datastream especifico", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa.")
 
   info <- oefa_get_datastream_info("DENUN-SINAD")

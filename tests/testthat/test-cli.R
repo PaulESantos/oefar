@@ -1,8 +1,10 @@
 test_that("install_oefar_cli funciona o advierte cuando Rapp no esta instalado", {
+  skip_on_cran()
   if (!requireNamespace("Rapp", quietly = TRUE)) {
     expect_error(install_oefar_cli(), "Rapp")
   } else {
-    expect_silent(install_oefar_cli())
+    temp_dir <- tempdir()
+    expect_error(install_oefar_cli(destdir = temp_dir), NA)
   }
 })
 

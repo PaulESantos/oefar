@@ -1,4 +1,6 @@
 test_that("oefa_get_data descarga registros en tibble", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa para probar descargas.")
 
   datos <- oefa_get_data("DENUN-SINAD", limit = 10)
@@ -9,6 +11,8 @@ test_that("oefa_get_data descarga registros en tibble", {
 })
 
 test_that("oefa_get_denun_sinad soporta parametro timeout directamente", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa.")
 
   datos <- oefa_get_denun_sinad(limit = 10, timeout = 90)
@@ -18,6 +22,8 @@ test_that("oefa_get_denun_sinad soporta parametro timeout directamente", {
 })
 
 test_that("oefa_read_datastream alias funciona correctamente", {
+  skip_on_cran()
+  skip_if_offline()
   skip_if_not(oefa_has_api_key(), "Se requiere OEFA_API_KEY activa.")
 
   datos <- oefa_read_datastream("DENUN-SINAD", limit = 10)

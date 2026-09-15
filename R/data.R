@@ -368,10 +368,10 @@ clean_column_names <- function(string,
 #' @return Data frame / tibble
 #' @noRd
 parse_junar_json_to_tibble <- function(json_data) {
-  if (is.null(json_data)) return(tibble::tibble())
+  if (is.null(json_data) || !is.list(json_data)) return(tibble::tibble())
 
   result_obj <- if (!is.null(json_data$result)) json_data$result else json_data
-  if (is.null(result_obj)) return(tibble::tibble())
+  if (is.null(result_obj) || !is.list(result_obj)) return(tibble::tibble())
 
   f_array <- result_obj$fArray
   if (is.null(f_array) || length(f_array) == 0) return(tibble::tibble())

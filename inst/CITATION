@@ -1,30 +1,28 @@
-citHeader("Para citar el paquete 'oefar' en publicaciones utilice:")
-
-citEntry(
-  entry       = "manual",
-  title       = "oefar: Acceso a la API de Datos Abiertos del OEFA de Perú",
-  author      = personList(as.person("Paul E. Santos Andrade")),
+bibentry(
+  bibtype     = "Manual",
+  title       = "oefar: Acceso a la API de Datos Abiertos del OEFA de Per\u00fa",
+  author      = c(person(given = c("Paul", "E."), family = "Santos Andrade", role = c("aut", "cre"))),
   year        = "2026",
   note        = "R package version 0.1.0",
   url         = "https://datosabiertos.oefa.gob.pe/",
+  header      = "Para citar el paquete 'oefar' en publicaciones utilice:",
   textVersion = paste(
-    "Santos Andrade, P. E. (2026). oefar: Acceso a la API de Datos Abiertos del OEFA de Perú.",
+    "Santos Andrade, P. E. (2026). oefar: Acceso a la API de Datos Abiertos del OEFA de Per\u00fa.",
     "R package version 0.1.0. URL: https://datosabiertos.oefa.gob.pe/."
   )
 )
 
-citHeader("Para referenciar la fuente de datos oficial del OEFA:")
-
-citEntry(
-  entry       = "misc",
-  title       = "Portal de Datos Abiertos del Organismo de Evaluación y Fiscalización Ambiental (OEFA)",
-  author      = personList(as.person("OEFA")),
+bibentry(
+  bibtype     = "Misc",
+  title       = "Portal de Datos Abiertos del Organismo de Evaluaci\u00f3n y Fiscalizaci\u00f3n Ambiental (OEFA)",
+  author      = c(person(given = "OEFA", role = "aut")),
   year        = "2026",
-  publisher   = "Organismo de Evaluación y Fiscalización Ambiental - OEFA, Gobierno del Perú",
+  publisher   = "Organismo de Evaluaci\u00f3n y Fiscalizaci\u00f3n Ambiental - OEFA, Gobierno del Per\u00fa",
   url         = "https://datosabiertos.oefa.gob.pe/",
+  header      = "Para referenciar la fuente de datos oficial del OEFA:",
   textVersion = paste(
-    "Organismo de Evaluación y Fiscalización Ambiental - OEFA. (2026).",
-    "Portal de Datos Abiertos del OEFA [Base de datos en línea].",
-    "Gobierno del Perú. URL: https://datosabiertos.oefa.gob.pe/."
+    "Organismo de Evaluaci\u00f3n y Fiscalizaci\u00f3n Ambiental - OEFA. (2026).",
+    "Portal de Datos Abiertos del OEFA [Base de datos en l\u00ednea].",
+    "Gobierno del Per\u00fa. URL: https://datosabiertos.oefa.gob.pe/."
   )
 )
